@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Configure Tailwind directly in CSS */
+@theme {
+  --color-primary: #1d4ed8;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+.site-logo {
+    @apply w-auto h-[50px];
+}
+.header-menu{
+    @apply flex gap-5 justify-end;
+}
+
+.header-menu .menu-item:hover a{
+    @apply text-[#262161] underline;
+}
+.footer-menu .menu-item a{
+    @apply text-gray-500;
+}
+
+.footer-menu .menu-item {
+    @apply mb-4 mt-2 text-sm ;
+}
+
+.icon_size {
+    @apply w-[25px] h-auto;
+}
+@keyframes cloud {
+  from {
+    transform: translateX(-100%); /* start off-screen to the right */
+  }
+  to {
+    transform: translateX(100%); /* move fully to the left */
+  }
+}
+
+.animate-cloud {
+    @apply animate-[cloud_30s_linear_infinite];
+}
+
+.cloud-img {
+  @apply w-3/12 h-auto;
+}
+.elementor-widget-container img{
+    @apply w-auto h-full;
+}
+.elementor-element .elementor-element {
+    @apply basis-full p-0;
+}
+.elementor-icon-list-items .elementor-icon-list-item .elementor-icon-list-text{
+    @apply px-5;
+}
+.elementor-icon-list-items .elementor-icon-list-item{
+    @apply border-b border-[#f2f2f2];
+}
+.elementor-icon-list-items .elementor-icon-list-item:nth-child(even){
+    @apply bg-[#ffffff];
+}
+
+.elementor-icon-list-items .elementor-icon-list-item:nth-child(odd) {
+  @apply bg-[#f2f2f2];
+}
+.elementor-widget-container h5 a{
+  @apply bg-transparent;
+}

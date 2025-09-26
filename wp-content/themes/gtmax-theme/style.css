@@ -1,0 +1,14 @@
+/*
+Theme Name: GTMAX-Theme
+Theme URI: http://gtmax.test/GTMAX-Theme
+Author: Your Name
+Author URI: http://gtmax.test
+Description: A simple custom theme built from scratch
+Version: 1.0
+License: GNU General Public License v2 or later
+Text Domain: GTMAX-Theme
+*/
+
+.justify-center{
+    justify-items: center;
+}

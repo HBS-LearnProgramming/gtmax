@@ -1,0 +1,536 @@
+{"type":"eventLog","action":"eventLog","info":"create_log_dir","results":"Templately\\Core\\Importer\\FullSiteImport::import::506","timestamp":"2025-09-02 05:58:15"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:15"}
+{"action":"updateLog","type":"writing_permission_check","progress":100,"message":"Permission Passed","status":"complete","timestamp":"2025-09-02 05:58:15"}
+{"action":"updateLog","type":"download","progress":1,"message":"Downloading Template Pack","timestamp":"2025-09-02 05:58:15"}
+{"action":"updateLog","type":"download","progress":57,"message":"Downloading Template Pack","timestamp":"2025-09-02 05:58:17"}
+{"action":"updateLog","type":"download","progress":100,"message":"Downloading Template Pack","status":"complete","timestamp":"2025-09-02 05:58:17"}
+{"type":"continue","action":"continue","info":"download_zip","results":"Templately\\Core\\Importer\\FullSiteImport::import::549","timestamp":"2025-09-02 05:58:17"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:17"}
+{"action":"removeLog","type":"temp","progress":100,"timestamp":"2025-09-02 05:58:17"}
+{"action":"eventLog","type":"dependencies","progress":0,"message":"Updating customizer settings.","timestamp":"2025-09-02 05:58:17"}
+{"action":"updateLog","type":"theme","progress":0,"message":"Installing and Activating Theme: Twenty Twenty-Four","timestamp":"2025-09-02 05:58:17"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before downloading attachment: https:\/\/api.wordpress.org\/themes\/info\/1.2\/?action=theme_information&request%5Bslug%5D=twentytwentyfour&request%5Bfields%5D%5Bsections%5D=0&request%5Blocale%5D=en_US&request%5Bwp_version%5D=6.8","timestamp":"2025-09-02 05:58:17"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After downloading attachment: https:\/\/api.wordpress.org\/themes\/info\/1.2\/?action=theme_information&request%5Bslug%5D=twentytwentyfour&request%5Bfields%5D%5Bsections%5D=0&request%5Blocale%5D=en_US&request%5Bwp_version%5D=6.8","timestamp":"2025-09-02 05:58:18"}
+{"action":"updateLog","status":"complete","message":"Activated theme: Twenty Twenty-Four","type":"theme","progress":100,"timestamp":"2025-09-02 05:58:18"}
+{"action":"removeLog","type":"plugin","progress":100,"timestamp":"2025-09-02 05:58:18"}
+{"action":"eventLog","type":"dependencies","progress":100,"message":"Updating customizer settings.","status":"complete","timestamp":"2025-09-02 05:58:18"}
+{"type":"continue","action":"continue","name":"","index":0,"results":null,"timestamp":"2025-09-02 05:58:18"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:21"}
+{"action":"removeLog","type":"temp","progress":100,"timestamp":"2025-09-02 05:58:21"}
+{"action":"updateLog","type":"attachments","progress":0,"message":"Importing Attachments: (0\/1)","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: Logo.png","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: Logo.png","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 397","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 397","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 397","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 397","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 397","timestamp":"2025-09-02 05:58:21"}
+{"action":"updateLog","type":"attachments","progress":3,"message":"Importing Attachments: (1\/43)","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 1315b76b-mask-group-1.png","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 1315b76b-mask-group-1.png","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:21"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 398","timestamp":"2025-09-02 05:58:22"}
+{"action":"updateLog","type":"attachments","progress":5,"message":"Importing Attachments: (2\/43)","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: Effects.png","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: Effects.png","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 399","timestamp":"2025-09-02 05:58:22"}
+{"action":"updateLog","type":"attachments","progress":7,"message":"Importing Attachments: (3\/43)","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 72290acc-contact-imagebg.jpg","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 72290acc-contact-imagebg.jpg","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 400","timestamp":"2025-09-02 05:58:22"}
+{"action":"updateLog","type":"attachments","progress":10,"message":"Importing Attachments: (4\/43)","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: Effects.png","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: Effects.png","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 401","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 401","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 401","timestamp":"2025-09-02 05:58:22"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 401","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 401","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 401","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 401","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 401","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 401","timestamp":"2025-09-02 05:58:23"}
+{"action":"updateLog","type":"attachments","progress":12,"message":"Importing Attachments: (5\/43)","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 3c4b3fcb-service-banner-image.jpg","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 3c4b3fcb-service-banner-image.jpg","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 402","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 402","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 402","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 402","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 402","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 402","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 402","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 402","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 402","timestamp":"2025-09-02 05:58:23"}
+{"action":"updateLog","type":"attachments","progress":14,"message":"Importing Attachments: (6\/43)","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 7100b8ae-cnt.png","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 7100b8ae-cnt.png","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 403","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 403","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 403","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 403","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 403","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 403","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 403","timestamp":"2025-09-02 05:58:23"}
+{"action":"updateLog","type":"attachments","progress":17,"message":"Importing Attachments: (7\/43)","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: CompositeLayer.png","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: CompositeLayer.png","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 404","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 404","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 404","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 404","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 404","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 404","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 404","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 404","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 404","timestamp":"2025-09-02 05:58:23"}
+{"action":"updateLog","type":"attachments","progress":19,"message":"Importing Attachments: (8\/43)","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 49aad710-service-image-1.jpg","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 49aad710-service-image-1.jpg","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 405","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 405","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 405","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 405","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 405","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 405","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 405","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 405","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 405","timestamp":"2025-09-02 05:58:23"}
+{"action":"updateLog","type":"attachments","progress":21,"message":"Importing Attachments: (9\/43)","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 514755c1-service-shape-2.png","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 514755c1-service-shape-2.png","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 406","timestamp":"2025-09-02 05:58:23"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 406","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 406","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 406","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 406","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 406","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 406","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 406","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 406","timestamp":"2025-09-02 05:58:24"}
+{"action":"updateLog","type":"attachments","progress":24,"message":"Importing Attachments: (10\/43)","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: cdb59469-service-image-2.jpg","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: cdb59469-service-image-2.jpg","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 407","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 407","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 407","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 407","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 407","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 407","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 407","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 407","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 407","timestamp":"2025-09-02 05:58:24"}
+{"action":"updateLog","type":"attachments","progress":26,"message":"Importing Attachments: (11\/43)","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: e8ff8e48-service-shape-3.png","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: e8ff8e48-service-shape-3.png","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 408","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 408","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 408","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 408","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 408","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 408","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 408","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 408","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 408","timestamp":"2025-09-02 05:58:24"}
+{"action":"updateLog","type":"attachments","progress":28,"message":"Importing Attachments: (12\/43)","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 3fa23f14-service-image-3.jpg","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 3fa23f14-service-image-3.jpg","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 409","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 409","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 409","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 409","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 409","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 409","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 409","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 409","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 409","timestamp":"2025-09-02 05:58:24"}
+{"action":"updateLog","type":"attachments","progress":31,"message":"Importing Attachments: (13\/43)","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 88f53211-service-image-4.jpg","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 88f53211-service-image-4.jpg","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 410","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 410","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 410","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 410","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 410","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 410","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 410","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 410","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 410","timestamp":"2025-09-02 05:58:24"}
+{"action":"updateLog","type":"attachments","progress":33,"message":"Importing Attachments: (14\/43)","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 5e57a551-service-image-5.jpg","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 5e57a551-service-image-5.jpg","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 411","timestamp":"2025-09-02 05:58:24"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 411","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 411","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 411","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 411","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 411","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 411","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 411","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 411","timestamp":"2025-09-02 05:58:25"}
+{"action":"updateLog","type":"attachments","progress":35,"message":"Importing Attachments: (15\/43)","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: b1fb232e-effects.png","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: b1fb232e-effects.png","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 412","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 412","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 412","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 412","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 412","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 412","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 412","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 412","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 412","timestamp":"2025-09-02 05:58:25"}
+{"action":"updateLog","type":"attachments","progress":38,"message":"Importing Attachments: (16\/43)","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: Right-1-1.png","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: Right-1-1.png","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 413","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 413","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 413","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 413","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 413","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 413","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 413","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 413","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 413","timestamp":"2025-09-02 05:58:25"}
+{"action":"updateLog","type":"attachments","progress":40,"message":"Importing Attachments: (17\/43)","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 489efd39-pataint-1.jpg","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 489efd39-pataint-1.jpg","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 414","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 414","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 414","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 414","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 414","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 414","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 414","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 414","timestamp":"2025-09-02 05:58:25"}
+{"action":"updateLog","type":"attachments","progress":42,"message":"Importing Attachments: (18\/43)","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 7811901b-pataint-2.jpg","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 7811901b-pataint-2.jpg","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 415","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 415","timestamp":"2025-09-02 05:58:25"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 415","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 415","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 415","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 415","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 415","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 415","timestamp":"2025-09-02 05:58:26"}
+{"action":"updateLog","type":"attachments","progress":45,"message":"Importing Attachments: (19\/43)","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 299c4924-pataint-3.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 299c4924-pataint-3.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 416","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 416","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 416","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 416","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 416","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 416","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 416","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 416","timestamp":"2025-09-02 05:58:26"}
+{"action":"updateLog","type":"attachments","progress":47,"message":"Importing Attachments: (20\/43)","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: bd6340dc-pataint-4.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: bd6340dc-pataint-4.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 417","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 417","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 417","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 417","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 417","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 417","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 417","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 417","timestamp":"2025-09-02 05:58:26"}
+{"action":"updateLog","type":"attachments","progress":49,"message":"Importing Attachments: (21\/43)","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 13fef08d-pataint-5.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 13fef08d-pataint-5.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 418","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 418","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 418","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 418","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 418","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 418","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 418","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 418","timestamp":"2025-09-02 05:58:26"}
+{"action":"updateLog","type":"attachments","progress":52,"message":"Importing Attachments: (22\/43)","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 65250b05-pataint-6.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 65250b05-pataint-6.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 419","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 419","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 419","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 419","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 419","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 419","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 419","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 419","timestamp":"2025-09-02 05:58:26"}
+{"action":"updateLog","type":"attachments","progress":54,"message":"Importing Attachments: (23\/43)","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: d1757d59-pataint-7.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: d1757d59-pataint-7.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 420","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 420","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 420","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 420","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 420","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 420","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 420","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 420","timestamp":"2025-09-02 05:58:26"}
+{"action":"updateLog","type":"attachments","progress":56,"message":"Importing Attachments: (24\/43)","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 24f17879-pataint-8.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 24f17879-pataint-8.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 421","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 421","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 421","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 421","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 421","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 421","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 421","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 421","timestamp":"2025-09-02 05:58:26"}
+{"action":"updateLog","type":"attachments","progress":59,"message":"Importing Attachments: (25\/43)","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 4ebe60d2-pataint-9.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 4ebe60d2-pataint-9.jpg","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 422","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 422","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 422","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 422","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 422","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 422","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 422","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 422","timestamp":"2025-09-02 05:58:26"}
+{"action":"updateLog","type":"attachments","progress":61,"message":"Importing Attachments: (26\/43)","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: Right.png","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: Right.png","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 423","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 423","timestamp":"2025-09-02 05:58:26"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 423","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 423","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 423","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 423","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 423","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 423","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 423","timestamp":"2025-09-02 05:58:27"}
+{"action":"updateLog","type":"attachments","progress":63,"message":"Importing Attachments: (27\/43)","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: c7971836-about-left.png","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: c7971836-about-left.png","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 424","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 424","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 424","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 424","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 424","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 424","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 424","timestamp":"2025-09-02 05:58:27"}
+{"action":"updateLog","type":"attachments","progress":66,"message":"Importing Attachments: (28\/43)","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 18caca81-aboutright.png","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 18caca81-aboutright.png","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 425","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 425","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 425","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 425","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 425","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 425","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 425","timestamp":"2025-09-02 05:58:27"}
+{"action":"updateLog","type":"attachments","progress":68,"message":"Importing Attachments: (29\/43)","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 182ac910-doctor-image-1.jpg","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 182ac910-doctor-image-1.jpg","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 426","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 426","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 426","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 426","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 426","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 426","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 426","timestamp":"2025-09-02 05:58:27"}
+{"action":"updateLog","type":"attachments","progress":70,"message":"Importing Attachments: (30\/43)","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: fe03ee51-1.png","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: fe03ee51-1.png","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 427","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 427","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 427","timestamp":"2025-09-02 05:58:27"}
+{"action":"updateLog","type":"attachments","progress":73,"message":"Importing Attachments: (31\/43)","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 204a2003-doctor-image2.jpg","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 204a2003-doctor-image2.jpg","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 428","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 428","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 428","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 428","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 428","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 428","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 428","timestamp":"2025-09-02 05:58:27"}
+{"action":"updateLog","type":"attachments","progress":75,"message":"Importing Attachments: (32\/43)","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 33406c96-doctor-image3.jpg","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 33406c96-doctor-image3.jpg","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 429","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 429","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 429","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 429","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 429","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 429","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 429","timestamp":"2025-09-02 05:58:27"}
+{"action":"updateLog","type":"attachments","progress":77,"message":"Importing Attachments: (33\/43)","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: f5a13dd0-patient-case-image-2.jpg","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: f5a13dd0-patient-case-image-2.jpg","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 430","timestamp":"2025-09-02 05:58:27"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 430","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 430","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 430","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 430","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 430","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 430","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 430","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":80,"message":"Importing Attachments: (34\/43)","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: d2ec54cd-patient-case-image-3.jpg","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: d2ec54cd-patient-case-image-3.jpg","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 431","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 431","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 431","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 431","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 431","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 431","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 431","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 431","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":82,"message":"Importing Attachments: (35\/43)","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: c753d86f-patient-case-image-4.jpg","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: c753d86f-patient-case-image-4.jpg","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 432","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 432","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 432","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 432","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 432","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 432","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 432","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 432","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":84,"message":"Importing Attachments: (36\/43)","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: b299480c-home-banner-image.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: b299480c-home-banner-image.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 433","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 433","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 433","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 433","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 433","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 433","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 433","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 433","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 433","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":87,"message":"Importing Attachments: (37\/43)","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: dbe2ab62-about-image.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: dbe2ab62-about-image.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 434","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 434","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 434","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 434","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 434","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 434","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 434","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 434","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":89,"message":"Importing Attachments: (38\/43)","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 92586051-cavity-protection.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 92586051-cavity-protection.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 435","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 435","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":91,"message":"Importing Attachments: (39\/43)","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 136a07f7-implant-dentistry.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 136a07f7-implant-dentistry.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 436","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 436","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":94,"message":"Importing Attachments: (40\/43)","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: fe1ff338-cosmetic-dentistry.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: fe1ff338-cosmetic-dentistry.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 437","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 437","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":96,"message":"Importing Attachments: (41\/43)","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 82bfe999-teeth-whitening.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 82bfe999-teeth-whitening.png","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 438","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 438","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":98,"message":"Importing Attachments: (42\/43)","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before inserting attachment: 4a7d9bc6-patient-case-image-1","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After inserting attachment: 4a7d9bc6-patient-case-image-1","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 439","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 439","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 439","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 439","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 439","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 439","timestamp":"2025-09-02 05:58:28"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 439","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":100,"message":"Importing Attachments: (43\/43)","status":"complete","timestamp":"2025-09-02 05:58:28"}
+{"action":"updateLog","type":"attachments","progress":100,"message":"Importing Attachments: (43\/43)","status":"complete","timestamp":"2025-09-02 05:58:28"}
+{"type":"continue","action":"continue","name":"","index":1,"results":null,"timestamp":"2025-09-02 05:58:28"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:29"}
+{"action":"removeLog","type":"temp","progress":100,"timestamp":"2025-09-02 05:58:29"}
+{"type":"continue","action":"continue","name":"","index":2,"results":null,"timestamp":"2025-09-02 05:58:29"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:31"}
+{"action":"removeLog","type":"temp","progress":100,"timestamp":"2025-09-02 05:58:31"}
+{"type":"continue","action":"continue","name":"","index":3,"results":null,"timestamp":"2025-09-02 05:58:31"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:32"}
+{"action":"removeLog","type":"temp","progress":100,"timestamp":"2025-09-02 05:58:32"}
+{"action":"updateLog","type":"templates","progress":0,"message":"Importing Templates (i.e: Header, Footer, etc)","timestamp":"2025-09-02 05:58:32"}
+{"action":"updateLog","type":"templates","progress":50,"message":"Importing Templates (i.e: Header, Footer, etc)","timestamp":"2025-09-02 05:58:32"}
+{"action":"updateLog","type":"templates","progress":100,"message":"Importing Templates (i.e: Header, Footer, etc)","status":"complete","timestamp":"2025-09-02 05:58:32"}
+{"action":"updateLog","type":"templates","progress":100,"message":"Importing Templates (i.e: Header, Footer, etc)","status":"complete","timestamp":"2025-09-02 05:58:32"}
+{"type":"continue","action":"continue","name":"","index":4,"results":null,"timestamp":"2025-09-02 05:58:32"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:33"}
+{"action":"removeLog","type":"temp","progress":100,"timestamp":"2025-09-02 05:58:33"}
+{"action":"updateLog","type":"content","progress":0,"message":"Importing Gutenberg Page and Post Templates","timestamp":"2025-09-02 05:58:33"}
+{"action":"updateLog","type":"content","progress":0,"message":"Importing Gutenberg Page and Post Templates","timestamp":"2025-09-02 05:58:33"}
+{"action":"updateLog","type":"content","progress":16,"message":"Importing Gutenberg Page and Post Templates","timestamp":"2025-09-02 05:58:33"}
+{"action":"updateLog","type":"content","progress":100,"message":"Importing Gutenberg Page and Post Templates","status":"complete","timestamp":"2025-09-02 05:58:33"}
+{"action":"updateLog","type":"content","progress":100,"message":"Importing Gutenberg Page and Post Templates","status":"complete","timestamp":"2025-09-02 05:58:33"}
+{"action":"updateLog","type":"content","progress":100,"message":"Importing Gutenberg Page and Post Templates","status":"complete","timestamp":"2025-09-02 05:58:33"}
+{"action":"updateLog","type":"content","progress":100,"message":"Importing Gutenberg Page and Post Templates","status":"complete","timestamp":"2025-09-02 05:58:33"}
+{"action":"updateLog","type":"content","progress":100,"message":"Importing Gutenberg Page and Post Templates","status":"complete","timestamp":"2025-09-02 05:58:33"}
+{"action":"updateLog","type":"content","progress":100,"message":"Importing Gutenberg Page and Post Templates","status":"complete","timestamp":"2025-09-02 05:58:33"}
+{"type":"continue","action":"continue","name":"","index":5,"results":null,"timestamp":"2025-09-02 05:58:33"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:34"}
+{"action":"removeLog","type":"temp","progress":100,"timestamp":"2025-09-02 05:58:34"}
+{"type":"continue","action":"continue","name":"","index":6,"results":null,"timestamp":"2025-09-02 05:58:34"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:35"}
+{"action":"removeLog","type":"temp","progress":100,"timestamp":"2025-09-02 05:58:35"}
+{"action":"updateLog","type":"wp-content","progress":0,"message":"Importing Content (Pages, Posts, Products, Navigation)","timestamp":"2025-09-02 05:58:35"}
+{"action":"updateLog","type":"wp-content","progress":100,"message":"Importing Content (Pages, Posts, Products, Navigation)","status":"complete","timestamp":"2025-09-02 05:58:35"}
+{"action":"updateLog","type":"wp-content","progress":100,"message":"Importing Content (Pages, Posts, Products, Navigation)","status":"complete","timestamp":"2025-09-02 05:58:35"}
+{"type":"continue","action":"continue","name":"","index":7,"results":null,"timestamp":"2025-09-02 05:58:35"}
+{"type":"start","action":"eventLog","results":"Templately\\Core\\Importer\\FullSiteImport::import::519","timestamp":"2025-09-02 05:58:36"}
+{"action":"removeLog","type":"temp","progress":100,"timestamp":"2025-09-02 05:58:36"}
+{"action":"updateLog","type":"finalize","progress":0,"message":"Finalizing Your Imports","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"finalize","progress":-1,"message":"Imported attachment: 397","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"finalize","progress":-1,"message":"Imported attachment: 397 - 150x92","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Updated attachment metadata: 397","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"success","progress":-1,"message":"Imported attachment: 397","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"success","progress":-1,"message":"Imported attachment: http:\/\/gtmax.test:8080\/wp-includes\/images\/media\/default.png","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"prepare","progress":1,"message":"Preparing output for finalize, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"prepare","progress":1,"message":"Preparing output for finalize, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"prepare","progress":1,"message":"Preparing output for finalize, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"prepare","progress":1,"message":"Preparing output for finalize, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"prepare","progress":1,"message":"Preparing output for finalize, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"prepare","progress":1,"message":"Preparing output for finalize, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"prepare","progress":1,"message":"Preparing output for finalize, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"prepare","progress":1,"message":"Preparing output for finalize, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"prepare","progress":1,"message":"Preparing output for finalize, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"update","progress":1,"message":"Updating prepared data, just a moment...","timestamp":"2025-09-02 05:58:36"}
+{"action":"updateLog","type":"finalize","progress":100,"message":"Finalizing Your Imports","status":"complete","timestamp":"2025-09-02 05:58:36"}
+{"action":"updateLog","type":"finalize","progress":100,"message":"Finalizing Your Imports","status":"complete","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"Before downloading attachment: https:\/\/app.templately.com\/api\/v1\/import\/success","timestamp":"2025-09-02 05:58:36"}
+{"action":"eventLog","type":"attachments","progress":1,"message":"After downloading attachment: https:\/\/app.templately.com\/api\/v1\/import\/success","timestamp":"2025-09-02 05:58:37"}
+{"type":"complete","action":"complete","results":{"attachments":43,"attachments_fail":0,"attachments_errors":[],"templates":2,"contents":{"page":6,"__attachments":0},"wp-content":{"wp_navigation":1},"post_types":["Pages",null],"template_types":["footer","header"],"ai_content":{"requested":[],"processed":[]},"dependency_data":{"theme":{"success":true,"name":"Twenty Twenty-Four","slug":"twentytwentyfour","message":""},"plugins":[]}},"timestamp":"2025-09-02 05:58:37"}

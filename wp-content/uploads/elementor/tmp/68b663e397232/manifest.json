@@ -1,0 +1,212 @@
+{
+  "name": "kit",
+  "title": "kit",
+  "description": "",
+  "author": "Mati",
+  "version": "2.0",
+  "elementor_version": "3.30.2",
+  "created": "2025-09-02 03:25:45",
+  "thumbnail": false,
+  "site": "https://qdpenjjp.elementor.cloud",
+  "site-settings": [
+    "global-colors",
+    "global-typography",
+    "theme-style-typography",
+    "theme-style-buttons",
+    "theme-style-images",
+    "theme-style-form-fields",
+    "settings-background",
+    "settings-layout",
+    "settings-lightbox",
+    "settings-page-transitions",
+    "settings-custom-css",
+    "settings-woocommerce"
+  ],
+  "plugins": [
+    {
+      "name": "Elementor",
+      "plugin": "elementor/elementor.php",
+      "pluginUri": "https://elementor.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash",
+      "version": "3.30.2"
+    },
+    {
+      "name": "Elementor Pro",
+      "plugin": "elementor-pro/elementor-pro.php",
+      "pluginUri": "https://go.elementor.com/wp-dash-wp-plugins-author-uri/",
+      "version": "3.30.0"
+    }
+  ],
+  "templates": {
+    "738748": {
+      "title": "Footer",
+      "doc_type": "footer",
+      "thumbnail": false,
+      "location": "footer",
+      "conditions": [
+        {
+          "type": "include",
+          "name": "general",
+          "sub_name": "",
+          "sub_id": ""
+        }
+      ]
+    },
+    "738750": {
+      "title": "Single Post",
+      "doc_type": "single-post",
+      "thumbnail": false,
+      "location": "single",
+      "conditions": [
+        {
+          "type": "include",
+          "name": "singular",
+          "sub_name": "post",
+          "sub_id": ""
+        }
+      ]
+    },
+    "738752": {
+      "title": "404",
+      "doc_type": "error-404",
+      "thumbnail": false,
+      "location": "single",
+      "conditions": [
+        {
+          "type": "include",
+          "name": "singular",
+          "sub_name": "not_found404",
+          "sub_id": ""
+        }
+      ]
+    },
+    "738756": {
+      "title": "Header",
+      "doc_type": "header",
+      "thumbnail": false,
+      "location": "header",
+      "conditions": [
+        {
+          "type": "include",
+          "name": "general",
+          "sub_name": "",
+          "sub_id": ""
+        }
+      ]
+    }
+  },
+  "taxonomies": {
+    "post": [
+      "category"
+    ],
+    "nav_menu_item": [
+      "nav_menu"
+    ],
+    "product": [
+      "product_type",
+      "product_visibility",
+      "product_cat"
+    ]
+  },
+  "content": {
+    "post": [],
+    "page": {
+      "738743": {
+        "title": "Services",
+        "excerpt": "",
+        "doc_type": "wp-page",
+        "thumbnail": false,
+        "url": "https://qdpenjjp.elementor.cloud/services/",
+        "terms": []
+      },
+      "738744": {
+        "title": "Gallery",
+        "excerpt": "",
+        "doc_type": "wp-page",
+        "thumbnail": false,
+        "url": "https://qdpenjjp.elementor.cloud/gallery/",
+        "terms": []
+      },
+      "738745": {
+        "title": "Blog",
+        "excerpt": "",
+        "doc_type": "wp-page",
+        "thumbnail": false,
+        "url": "https://qdpenjjp.elementor.cloud/blog/",
+        "terms": []
+      },
+      "738746": {
+        "title": "Contact",
+        "excerpt": "",
+        "doc_type": "wp-page",
+        "thumbnail": false,
+        "url": "https://qdpenjjp.elementor.cloud/contact/",
+        "terms": []
+      },
+      "738747": {
+        "title": "FAQs",
+        "excerpt": "",
+        "doc_type": "wp-page",
+        "thumbnail": false,
+        "url": "https://qdpenjjp.elementor.cloud/faqs/",
+        "terms": []
+      },
+      "738749": {
+        "title": "About Us",
+        "excerpt": "",
+        "doc_type": "wp-page",
+        "thumbnail": false,
+        "url": "https://qdpenjjp.elementor.cloud/about-us/",
+        "terms": []
+      },
+      "738755": {
+        "title": "Home",
+        "excerpt": "",
+        "doc_type": "wp-page",
+        "thumbnail": false,
+        "url": "https://qdpenjjp.elementor.cloud/",
+        "terms": [],
+        "show_on_front": true
+      },
+      "738757": {
+        "title": "Insurance Quotes",
+        "excerpt": "",
+        "doc_type": "wp-page",
+        "thumbnail": false,
+        "url": "https://qdpenjjp.elementor.cloud/insurance-quotes/",
+        "terms": []
+      }
+    },
+    "e-floating-buttons": []
+  },
+  "wp-content": {
+    "post": [
+      "738751",
+      "738753",
+      "738754"
+    ],
+    "page": [],
+    "nav_menu_item": [
+      "122090",
+      "138337",
+      "138338",
+      "138339",
+      "738775",
+      "738776",
+      "738777",
+      "738778",
+      "738779",
+      "738781",
+      "738782",
+      "738783",
+      "738784",
+      "738785"
+    ],
+    "product": []
+  },
+  "custom-post-type-title": {
+    "product": {
+      "name": "product",
+      "label": "Products"
+    }
+  }
+}

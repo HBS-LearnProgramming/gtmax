@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "title": "Mint",
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "color": "#ffffff",
+          "name": "Base",
+          "slug": "base"
+        },
+        {
+          "color": "#222222",
+          "name": "Contrast",
+          "slug": "contrast"
+        },
+        {
+          "color": "#2ecc71",
+          "name": "Primary",
+          "slug": "primary"
+        },
+        {
+          "color": "#27ae60",
+          "name": "Secondary",
+          "slug": "secondary"
+        },
+        {
+          "color": "#ecf0f1",
+          "name": "Tertiary",
+          "slug": "tertiary"
+        }
+      ]
+    }
+  }
+}

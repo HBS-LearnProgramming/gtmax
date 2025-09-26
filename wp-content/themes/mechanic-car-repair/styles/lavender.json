@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "title": "Lavender",
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "color": "#ffffff",
+          "name": "Base",
+          "slug": "base"
+        },
+        {
+          "color": "#2e2e2e",
+          "name": "Contrast",
+          "slug": "contrast"
+        },
+        {
+          "color": "#a29bfe",
+          "name": "Primary",
+          "slug": "primary"
+        },
+        {
+          "color": "#dfe6e9",
+          "name": "Secondary",
+          "slug": "secondary"
+        },
+        {
+          "color": "#f3f0ff",
+          "name": "Tertiary",
+          "slug": "tertiary"
+        }
+      ]
+    }
+  }
+}

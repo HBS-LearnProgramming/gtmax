@@ -1,0 +1,25 @@
+.cia-image { overflow: hidden; display: inline-block; }
+.cia-image img { display: block; }
+
+/* animation classes */
+.cia-image.fade img { animation: fadeIn 1.2s ease-in-out both; }
+.cia-image.zoom img { animation: zoomIn 1s ease-in-out both; }
+.cia-image.slide-left img { animation: slideLeft 0.9s ease both; }
+.cia-image.slide-right img { animation: slideRight 0.9s ease both; }
+.cia-image.bounce img { animation: bounce 1.2s infinite; }
+.cia-image.left-right img { animation: leftRight 2s ease-in-out infinite; }
+
+/* keyframes */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zoomIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes slideLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-12px); } }
+@keyframes leftRight {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%); 
+    }
+}

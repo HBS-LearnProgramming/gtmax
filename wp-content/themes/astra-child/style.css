@@ -1,0 +1,142 @@
+/*
+Theme Name: Astra Child
+Template: astra
+*/
+
+/* HEADER: Astra main header bar */
+.ast-primary-header-bar {
+  background: #e30613 !important;
+  min-height: 80px !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+/* HEADER: Astra above header bar */
+.ast-above-header-bar {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+/* HEADER: Menu links */
+.ast-primary-header-bar .main-header-menu .menu-link {
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+.ast-primary-header-bar .main-header-menu .menu-link:hover {
+  color: #ffd700 !important;
+}
+
+/* FOOTER: Astra primary footer */
+.site-primary-footer-wrap {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+/* FOOTER: Widget titles and links */
+.site-primary-footer-wrap .widget-title,
+.site-primary-footer-wrap .menu-link,
+.site-primary-footer-wrap .footer-widget-area-inner,
+.site-primary-footer-wrap .footer-widget-area-inner a {
+  color: #000 !important;
+}
+
+/* FOOTER: Copyright section */
+.ast-footer-copyright {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+/* FOOTER: Social icons */
+.ast-footer-social-wrap .ast-builder-social-element svg {
+  fill: #000 !important;
+}
+/* Remove white background from copyright/footer area */
+.ast-footer-copyright {
+  background: #17090b !important; /* or use your site's dark color */
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Optional: Remove extra padding/margin if needed */
+.ast-footer-copyright {
+  padding: 0px 0 !important;
+  margin: 0 auto !important;
+}
+/* Right align the main menu */
+.ast-primary-header-bar .main-header-bar-navigation {
+  justify-content: flex-end !important;
+  display: flex !important;
+}
+
+/* Make menu font size smaller */
+.ast-primary-header-bar .main-header-menu .menu-link {
+  font-size: 1em !important; /* Adjust to 0.95em or 14px if you want it even smaller */
+}
+/* Reduce gap between image and text */
+.your-image-class, .your-container-class img {
+  margin-bottom: 10px !important; /* Adjust as needed */
+}
+
+.your-text-class, .your-container-class h2, .your-container-class h3, .your-container-class h4 {
+  margin-top: 10px !important; /* Adjust as needed */
+}
+/* Remove extra space in image container */
+.your-container-class {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  box-sizing: border-box;
+}
+
+.your-container-class img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#site-logo {
+  width: 156px !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: unset !important;
+}
+/* Rule to standardize all other images */
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+.page-id-1463 h2, 
+.page-id-1463 h6 {
+    margin-bottom: 10px; /* reduce space below heading */
+    margin-top: 0;       /* remove space above */
+}
+
