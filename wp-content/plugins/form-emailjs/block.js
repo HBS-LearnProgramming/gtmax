@@ -178,7 +178,7 @@
                     wp.element.createElement(
                         "div",
                         { className: "form-item-wrapper", key: index },
-                        wp.element.createElement("label", { htmlFor: `field-${index}` }, item.label),
+                        wp.element.createElement("label", { htmlFor: `field-${index}`}, item.label),
                         wp.element.createElement(
                             "div",
                             { className: "form-field" },

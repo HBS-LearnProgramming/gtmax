@@ -5,6 +5,9 @@
 .form-emailjs .form-field {
     margin-bottom: 2rem;
 }
+.form-emailjs .form-item-wrapper label{
+    font-weight: bold;
+}
 .form-emailjs .form-item-wrapper .form-field input, 
 .form-emailjs .form-item-wrapper .form-field textarea {
     width: 100%;
