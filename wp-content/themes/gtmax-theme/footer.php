@@ -70,7 +70,8 @@
     </div>
 
     <footer>
-        <p class="bg-[#484444] text-center"><span class="text-white">Copyright &copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?>. All rights reserved.</span></p>
+        <!-- <p class="bg-[#484444] text-center"><span class="text-white">Copyright &copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?>. All rights reserved.</span></p> -->
+        <p class="bg-[#484444] text-center"><span class="text-white">Power by <?php bloginfo('name'); ?></span></p>
     </footer>
     <?php wp_footer(); ?>
 </body>

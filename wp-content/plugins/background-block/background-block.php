@@ -38,6 +38,14 @@ function background_block_enqueue_assets() {
         plugins_url( 'build/block.js', __FILE__ ),
         [ 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' ]
     );
+    
+    wp_enqueue_script(
+        'background-block-frontend',
+        plugins_url('frontend.js', __FILE__),
+        array(),
+        filemtime(plugin_dir_path(__FILE__) . 'frontend.js'),
+        true
+    );
 
     // Register the block
     register_block_type( 'custom/background-block', array(

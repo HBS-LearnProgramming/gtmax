@@ -78,6 +78,7 @@ registerBlockType("custom/background-block", {
             "div",
             {
                 className: "bg-block",
+                "data-refresh-block": "true",
                 style: {
                     backgroundImage: bgImage ? `url(${bgImage})` : "none",
                     width: width,

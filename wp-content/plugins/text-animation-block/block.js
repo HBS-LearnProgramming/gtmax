@@ -1,16 +1,9 @@
-// block.js
 (function (wp) {
-    const registerBlockType = wp.blocks.registerBlockType;
-    const el = wp.element.createElement;
-    const Fragment = wp.element.Fragment;
+    const { registerBlockType } = wp.blocks;
+    const { createElement: el, Fragment } = wp.element;
     const blockEditor = wp.blockEditor || wp.editor;
-    const RichText = blockEditor.RichText;
-    const InspectorControls = blockEditor.InspectorControls;
-    const ColorPalette = blockEditor.ColorPalette || wp.components.ColorPalette;
-    const PanelBody = wp.components.PanelBody;
-    const SelectControl = wp.components.SelectControl;
-    const TextControl = wp.components.TextControl;
-    const RangeControl = wp.components.RangeControl;
+    const { RichText, InspectorControls, ColorPalette } = blockEditor;
+    const { PanelBody, SelectControl, TextControl, RangeControl } = wp.components;
 
     if (!registerBlockType || !RichText) {
         console.error('Text Animation Block: required WP APIs not available.');
@@ -31,7 +24,7 @@
             textAlign: { type: 'string', default: 'left' },
             textStyle: { type: 'string', default: 'normal' }, // italic / underline
             typingSpeed: { type: 'number', default: 60 },
-            typingDelay: { type: 'number', default: 0 } // NEW delay in ms
+            typingDelay: { type: 'number', default: 0 }
         },
 
         edit: function (props) {
@@ -55,7 +48,7 @@
                 { label: 'Times New Roman', value: '"Times New Roman", serif' },
             ];
 
-            const inspector = InspectorControls ? el(
+            const inspector = el(
                 InspectorControls,
                 null,
                 el(
@@ -128,12 +121,13 @@
                         options: [
                             { label: 'Normal', value: 'normal' },
                             { label: 'Italic', value: 'italic' },
+                            { label: 'Bold', value: 'bold' },
                             { label: 'Underline', value: 'underline' },
                         ],
                         onChange: (val) => setAttrs({ textStyle: val })
                     })
                 )
-            ) : null;
+            );
 
             // Editor preview
             const preview = el(
@@ -158,7 +152,8 @@
                     tagName: 'span',
                     value: attrs.content,
                     onChange: (val) => setAttrs({ content: val }),
-                    placeholder: 'Type your text...'
+                    placeholder: 'Type your text...',
+                    allowedFormats: ['core/bold', 'core/italic', 'core/link', 'core/underline']
                 })
             );
 
@@ -184,13 +179,17 @@
                             fontFamily: attrs.fontFamily,
                             fontStyle: attrs.textStyle === 'italic' ? 'italic' : 'normal',
                             textDecoration: attrs.textStyle === 'underline' ? 'underline' : 'none',
-                            padding: '4px 6px',
+                            fontWeight: attrs.textStyle === 'bold' ? 'bold' : 'normal',
                             display: 'inline-block',
                         },
                         'data-typing-speed': attrs.typingSpeed,
-                        'data-typing-delay': attrs.typingDelay
+                        'data-typing-delay': attrs.typingDelay,
+                        'data-animate': attrs.animation
                     },
-                    el('span', null, attrs.content)
+                    el(RichText.Content, {
+                        tagName: 'span',
+                        value: attrs.content
+                    })
                 )
             );
         }

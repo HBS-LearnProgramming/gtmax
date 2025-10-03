@@ -1,0 +1,31 @@
+.form-emailjs {
+    padding: 1rem;
+    max-width: 100%;
+}
+.form-emailjs .form-field {
+    margin-bottom: 2rem;
+}
+.form-emailjs .form-item-wrapper .form-field input, 
+.form-emailjs .form-item-wrapper .form-field textarea {
+    width: 100%;
+    border-radius: 5px;
+    padding: 0.5rem;
+    outline: none;
+    border: 1px solid #ccc;
+}
+.form-emailjs .form-item-wrapper .form-field input:focus, 
+.form-emailjs .form-item-wrapper .form-field textarea:focus {
+    border-color: #262161;
+}
+.form-emailjs button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+    background: #262161;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.form-emailjs button:hover {
+    background: #473ead;
+}

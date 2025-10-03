@@ -13,14 +13,17 @@
 }
 
 .header-menu .menu-item:hover a{
-    @apply text-[#262161] underline;
+    @apply text-[#5951b8] underline;
+}
+.header-menu .menu-item{
+  @apply font-bold text-lg text-[#262161];
 }
 .footer-menu .menu-item a{
-    @apply text-gray-500;
+    @apply text-gray-500 ;
 }
 
 .footer-menu .menu-item {
-    @apply mb-4 mt-2 text-sm ;
+    @apply mb-4 mt-2 text-sm;
 }
 
 .icon_size {
@@ -64,3 +67,7 @@
 .elementor-widget-container h5 a{
   @apply bg-transparent;
 }
+/* .wp-block-columns{
+  @apply m-0;
+} */
+ 

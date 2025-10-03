@@ -12,3 +12,9 @@ Text Domain: GTMAX-Theme
 .justify-center{
     justify-items: center;
 }
+.mt-200{
+    margin-top: 200px;
+}
+.right-0{
+    right: 0;
+}

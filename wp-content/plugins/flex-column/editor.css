@@ -1,0 +1,10 @@
+.flexcol-container {
+    border: 1px dashed #ccc;
+    padding: 10px;
+}
+
+.flexcol-column {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fafafa;
+}

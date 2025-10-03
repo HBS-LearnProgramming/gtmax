@@ -38,6 +38,14 @@ function cia_register_block() {
         'style'         => 'cia-style',
         'editor_style'  => 'cia-editor-style',
     ) );
+
+    wp_enqueue_script(
+        'cia-animation-refresh',
+        plugins_url( 'animation-refresh.js', __FILE__ ),
+        array(),
+        filemtime( plugin_dir_path(__FILE__) . 'animation-refresh.js' ),
+        true
+    );
 }
 add_action( 'init', 'cia_register_block' );
 

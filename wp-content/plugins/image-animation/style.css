@@ -1,4 +1,4 @@
-.cia-image { overflow: hidden; display: inline-block; }
+.cia-image { overflow: hidden; display: flex; justify-content: center; align-items: center; }
 .cia-image img { display: block; }
 
 /* animation classes */

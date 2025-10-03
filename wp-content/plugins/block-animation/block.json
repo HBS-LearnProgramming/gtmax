@@ -1,0 +1,27 @@
+{
+  "apiVersion": 2,
+  "name": "custom/block-animation",
+  "title": "Block Animation",
+  "category": "layout",
+  "icon": "smiley",
+  "description": "A container block with scroll-triggered animations",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "animationType": {
+      "type": "string",
+      "default": "fade-up"
+    },
+    "duration": {
+      "type": "number",
+      "default": 1000
+    },
+    "delay": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "editorScript": "block-animation-js",
+  "style": "block-animation-style"
+}

@@ -1,7 +1,7 @@
 
  (function(){
     emailjs.init({
-        publicKey: "-6JWNPn2ntc3Cl1-A",
+        publicKey: "WVhZQX9Brwom1O3U2",
     });
 })();
 document.addEventListener("DOMContentLoaded", function () {

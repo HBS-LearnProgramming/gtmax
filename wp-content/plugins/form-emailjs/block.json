@@ -1,0 +1,10 @@
+{
+  "apiVersion": 2,
+  "name": "form-emailjs/form-block",
+  "title": "Form EmailJS",
+  "category": "widgets",
+  "icon": "email",
+  "description": "Custom EmailJS form builder",
+  "editorScript": "form-emailjs-block",
+  "style": "form-emailjs-style"
+}

@@ -1,2 +1,5 @@
 .cia-image { max-width: 100%; }
 .cia-image img { max-width: 300px; height: auto; display: block; }
+.animated-block{
+    opacity: 1;
+}

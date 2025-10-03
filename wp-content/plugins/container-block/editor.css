@@ -1,0 +1,41 @@
+/* editor specific border (preview) */
+.cb-container-editor-wrap .cb-container {
+  min-height: 40px;
+}
+.cb-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem; /* default horizontal padding */
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .cb-container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cb-container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cb-container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cb-container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .cb-container {
+    max-width: 1536px;
+  }
+}
