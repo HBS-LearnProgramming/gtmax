@@ -1,0 +1,11 @@
+.acro-timeline-editor-root { padding: 12px; border: 1px dashed #ddd;
+background: #fafafa; }
+.acro-timeline-editor-item { border: 1px solid #eee; padding: 10px; margin-bottom: 10px; background: #fff; }
+.acro-timeline-editor-item .acro-item-top { display:flex; gap:12px; align-items:flex-start; }
+.acro-timeline-editor-item .acro-item-body { margin-top:10px; }
+.acro-timeline-editor-item .acro-item-style { display:flex; gap:12px; margin-top:8px; align-items:center; }
+.acro-timeline-editor-controls { margin-bottom: 12px; }
+.description-item, .title-item{
+    border: solid gray 1px;
+    padding: 5px 10px;
+}

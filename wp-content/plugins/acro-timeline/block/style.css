@@ -1,0 +1,69 @@
+:root { --acro-line-color: #2d2d2d; }
+.acro-timeline-root { position: relative; padding: 20px; }
+.acro-timeline-root .acro-timeline-line { position: absolute; left: 60px;
+top: 0; bottom: 0; width: 4px; background: var(--acro-line-color); }
+.acro-timeline-root.acro-timeline-horizontal .acro-timeline-line { left: 0;
+right: 0; top: 40px; height: 4px; width: auto; }
+
+.acro-timeline-items { position: relative;  width: max-content; }
+.acro-timeline-root.acro-timeline-horizontal .acro-timeline-item {
+display:inline-block; vertical-align: top; }
+.acro-timeline-time { font-weight:700; margin-bottom:6px; }
+.acro-timeline-content { display:flex; align-items:flex-start; padding-top: 10px; }
+.acro-timeline-horizontal .acro-timeline-content{
+    margin-right: 150px;
+}
+.acro-timeline-image{
+    margin-top: 10px;
+}
+.acro-timeline-vertical .acro-timeline-image{
+    margin-bottom: 30px;
+}
+.acro-timeline-vertical .acro-timeline-item .acro-timeline-time .timeline-time{
+    margin-right: 10px;
+}
+.acro-timeline-vertical .acro-timeline-item{
+    display: flex;
+}
+.acro-timeline-vertical .acro-timeline-item .acro-timeline-time{
+    flex-basis: 90%;
+}
+.acro-timeline-vertical .acro-timeline-item .acro-timeline-content{
+    margin-left: 10px;
+}
+.acro-timeline-vertical .acro-timeline-time{
+    float: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5px;
+    width: fit-content;
+}
+.acro-timeline-item:last-child .acro-timeline-content{
+    margin-right: 0;
+}
+.acro-timeline-image img { max-width:100%; height:auto; }
+.acro-timeline-title { margin:0 0 6px 0; }
+
+.timeline-dot{
+    padding: 5px;
+    border-radius: 100%;
+    width: 5px;
+    position: relative;
+    
+}
+.acro-timeline-vertical .timeline-dot{
+    right: 9px;
+}
+.acro-timeline-horizontal .timeline-dot{
+    right: 6px;
+    top: 12px;
+}
+/* Small responsive tweaks */
+@media (max-width:700px) {
+    .acro-timeline-root.acro-timeline-horizontal .acro-timeline-item 
+    {
+        display:block; width:100%; margin-left:0; 
+    }
+    .acro-timeline-root .acro-timeline-line { left: 20px; }
+}

@@ -1,0 +1,7 @@
+.custom-cover-block {
+  border: 1px dashed #ccc;
+  min-height: 150px;
+  cursor: pointer;
+  padding: 10px;
+}
+
