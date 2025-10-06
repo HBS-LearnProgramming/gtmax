@@ -16,9 +16,11 @@
         // remove old cursor if exists
         const oldCursor = wrapper.querySelector('.ta-typing-cursor');
         if (oldCursor) oldCursor.remove();
+        
 
         const cursor = document.createElement('span');
         cursor.className = 'ta-typing-cursor';
+        cursor.style.opacity = '0';
         wrapper.appendChild(cursor);
 
         let i = 0;
@@ -26,7 +28,10 @@
             span.textContent = full.substring(0, i);
             i++;
             if (i <= full.length) {
+                cursor.style.opacity = '1';
                 setTimeout(step, speed);
+            }else{
+                cursor.classList.add('ta-cursor-stop');
             }
         }
 
@@ -42,6 +47,7 @@
     function initAll() {
         document.querySelectorAll('.animated-text.typing').forEach(initTyping);
     }
+    
 
     // normal init
     if (document.readyState === 'loading') {
@@ -64,4 +70,13 @@
             observer.observe(block);
         });
     }
+
+    // const typing_animation = document.querySelectorAll('.ta-typing-cursor');
+
+    // typing_animation.forEach(element => {
+    //     element.addEventListener('animationend', () => {
+    //         element.classList.remove('ta-typing-cursor');
+    //     });
+    // });
+
 })();

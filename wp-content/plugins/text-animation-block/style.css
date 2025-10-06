@@ -9,11 +9,21 @@
   width: 1px;
   height: 1em;
   background: currentColor;
-  margin-left: 3px;
+  margin-left: 2px;
   vertical-align: bottom;
-  animation: ta-typing-blink .7s steps(1) infinite;
+  opacity: 0;
 }
-@keyframes ta-typing-blink { 50% { opacity: 0; } }
+.ta-cursor-stop {
+    animation: none !important;
+    opacity: 0 !important; 
+}
+.ta-cursor-active {
+    animation: ta-typing-blink 0.8s steps(1) infinite;
+    opacity: 1;
+}
+@keyframes ta-typing-blink {
+  50% { opacity: 0; }
+}
 
 /* sample fadeIn (keep your existing animations too) */
 .animated-text.fadeIn { animation: fadeIn 1.2s ease both; }
