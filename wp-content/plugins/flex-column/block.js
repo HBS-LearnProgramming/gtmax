@@ -7,6 +7,7 @@
     var InspectorControls = wp.blockEditor.InspectorControls || wp.editor.InspectorControls;
     var PanelBody = wp.components.PanelBody;
     var SelectControl = wp.components.SelectControl;
+    var ColorPalette = wp.components.ColorPalette;
 
     // Container block
     registerBlockType( 'flex/column-container', {
@@ -16,7 +17,8 @@
         supports: { align: true },
         attributes: {
             justify: { type: 'string', default: 'flex-start' },
-            align: { type: 'string', default: 'stretch' }
+            align: { type: 'string', default: 'stretch' },
+            bgColor: { type: 'string', default: 'transparent' }
         },
 
         edit: function( props ) {
@@ -48,10 +50,16 @@
                                 { label: 'End', value: 'flex-end' }
                             ],
                             onChange: function( val ) { setAttributes( { align: val } ); }
+                        }),
+                        el( ColorPalette, {
+                            label: 'Background Color',
+                            value: attributes.bgColor,
+                            
+                            onChange: function( val ) { setAttributes( { bgColor: val } ); }
                         })
                     )
                 ),
-                el( 'div', { className: 'flexcol-container', style: { justifyContent: attributes.justify, alignItems: attributes.align } },
+                el( 'div', { className: 'flexcol-container', style: { justifyContent: attributes.justify, alignItems: attributes.align, backgroundColor: attributes.bgColor } },
                     el( InnerBlocks, {
                         allowedBlocks: [ 'flex/column' ],
                         orientation: 'horizontal',
@@ -63,7 +71,7 @@
 
         save: function( props ) {
             var attributes = props.attributes;
-            return el( 'div', { className: 'flexcol-container', style: { justifyContent: attributes.justify, alignItems: attributes.align } },
+            return el( 'div', { className: 'flexcol-container', style: { justifyContent: attributes.justify, alignItems: attributes.align, backgroundColor: attributes.bgColor } },
                 el( InnerBlocks.Content )
             );
         }

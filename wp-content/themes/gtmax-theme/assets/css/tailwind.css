@@ -9,7 +9,13 @@
     @apply w-auto h-[50px];
 }
 .header-menu{
-    @apply flex gap-5 justify-end;
+    @apply flex gap-5 justify-end list-none;
+}
+.footer-menu{
+  @apply list-none;
+}
+ul, ol{
+  @apply list-[auto];
 }
 
 .header-menu .menu-item:hover a{

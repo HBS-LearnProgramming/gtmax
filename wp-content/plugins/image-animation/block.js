@@ -67,7 +67,15 @@
                             min: 0,
                             max: 5000,
                             step: 100
-                        })
+                        }),
+                        el( MediaUpload, {
+                            onSelect: onSelectImage,
+                            allowedTypes: [ 'image' ],
+                            value: attrs.imageId,
+                            render: function( obj ) {
+                                return el( Button, { onClick: obj.open, isPrimary: true }, 'Upload / Select Image' );
+                            }
+                        } )
                     )
                 ),
                 el( 'div', { className: 'cia-image ' + attrs.animation, style: { minHeight: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' } },

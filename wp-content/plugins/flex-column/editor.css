@@ -1,6 +1,5 @@
 .flexcol-container {
     border: 1px dashed #ccc;
-    padding: 10px;
 }
 
 .flexcol-column {
@@ -8,3 +7,15 @@
     padding: 10px;
     background: #fafafa;
 }
+.flexcol-container .block-editor-block-list__layout{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.flexcol-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

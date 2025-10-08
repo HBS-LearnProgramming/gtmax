@@ -42,8 +42,13 @@ display:inline-block; vertical-align: top; }
 .acro-timeline-item:last-child .acro-timeline-content{
     margin-right: 0;
 }
-.acro-timeline-image img { max-width:100%; height:auto; }
+.acro-timeline-image img { max-width:100%; max-height:100% !important; }
 .acro-timeline-title { margin:0 0 6px 0; }
+.acro-timeline-root img {
+  height: var(--acro-img-height, auto) !important;
+  width: var(--acro-img-width, auto);
+  object-fit: cover;
+}
 
 .timeline-dot{
     padding: 5px;
@@ -57,7 +62,7 @@ display:inline-block; vertical-align: top; }
 }
 .acro-timeline-horizontal .timeline-dot{
     right: 6px;
-    top: 12px;
+    top: 13px;
 }
 /* Small responsive tweaks */
 @media (max-width:700px) {

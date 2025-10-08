@@ -1,5 +1,8 @@
-.cia-image { max-width: 100%; }
+.cia-image { overflow: hidden; display: flex; justify-content: center; align-items: center; }
 .cia-image img { max-width: 300px; height: auto; display: block; }
 .animated-block{
     opacity: 1;
 }
+
+/* .cia-image { overflow: hidden; display: flex; justify-content: center; align-items: center; }
+.cia-image img { display: block; } */

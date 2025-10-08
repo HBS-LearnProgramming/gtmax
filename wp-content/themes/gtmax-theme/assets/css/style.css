@@ -194,6 +194,9 @@
   .-top-\[100px\] {
     top: calc(100px * -1);
   }
+  .top-5 {
+    top: calc(var(--spacing) * 5);
+  }
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
@@ -241,6 +244,10 @@
   }
   .basis-full {
     flex-basis: 100%;
+  }
+  .translate-y-6 {
+    --tw-translate-y: calc(var(--spacing) * 6);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -388,8 +395,15 @@
 }
 .header-menu {
   display: flex;
+  list-style-type: none;
   justify-content: flex-end;
   gap: calc(var(--spacing) * 5);
+}
+.footer-menu {
+  list-style-type: none;
+}
+ul, ol {
+  list-style-type: auto;
 }
 .header-menu .menu-item:hover a {
   color: #5951b8;
@@ -454,6 +468,21 @@
 }
 .elementor-widget-container h5 a {
   background-color: transparent;
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -561,6 +590,9 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
       --tw-rotate-x: initial;
       --tw-rotate-y: initial;
       --tw-rotate-z: initial;

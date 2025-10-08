@@ -13,7 +13,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <header id="site-header" class="absolute z-10 w-full px-5 transition-all duration-300">
+    <header id="site-header" class="absolute z-10 w-full px-5 translate-y-6 transition-all duration-300">
         <!-- <div id="cloud" class="block overflow-hidden absolute -top-[100px] left-0 w-full z-0">
             <div class="flex justify-between animate-cloud relative">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/home/cloud.png" class="cloud-img" alt="">
@@ -55,11 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", function () {
         if (window.scrollY > 50) {
             header.classList.remove("absolute");
-            // cloud.classList.remove('block');
+            header.classList.remove('translate-y-6');
             // cloud.classList.add('hidden');
             header.classList.add("fixed", "bg-white", "shadow-md");
         } else {
             header.classList.add("absolute");
+            header.classList.add('translate-y-6');
             // cloud.classList.remove('hidden');
             // cloud.classList.add('block');
             header.classList.remove("fixed", "bg-white", "shadow-md");

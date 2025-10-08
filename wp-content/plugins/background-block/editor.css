@@ -1,5 +1,9 @@
 .bg-block {
   border: 1px dashed #aaa;
-  min-height: 150px;
-  padding: 10px;
+  min-height: fit-content;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

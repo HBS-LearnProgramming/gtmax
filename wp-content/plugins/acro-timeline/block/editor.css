@@ -9,3 +9,8 @@ background: #fafafa; }
     border: solid gray 1px;
     padding: 5px 10px;
 }
+.acro-timeline-root img {
+  height: var(--acro-img-height, auto) !important;
+  width: var(--acro-img-width, auto);
+  object-fit: cover;
+}

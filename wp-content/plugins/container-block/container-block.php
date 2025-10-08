@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Container Block
  * Description: A "container" Gutenberg block (Tailwind-like) that controls max-width, centering, padding and accepts inner blocks.
- * Version: 1.0
+ * Version: 1.5
  * Author: GT-Max
  */
 

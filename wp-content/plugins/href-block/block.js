@@ -57,8 +57,7 @@
                         })
                     )
                 ),
-                el('a', {
-                    href: href || '#',
+                el('div', {
                     target: openInNewTab ? '_blank' : undefined,
                     rel: rel,
                     className: 'href-block',

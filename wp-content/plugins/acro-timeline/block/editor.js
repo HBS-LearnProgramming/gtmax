@@ -24,7 +24,8 @@
                 newItems.push({
                     time: '',
                     image: '',
-                    imageSize: 120,
+                    imageSize: '120px',
+                    imageHeight: 'auto',
                     title: '',
                     description: '',
                     textColor: '#000000',
@@ -103,13 +104,19 @@
                                         }
                                     } ),
 
-                                    createElement( RangeControl, {
-                                        label: __( 'Image width (px)' ),
+                                    createElement( TextControl, {
+                                        label: __( 'Image width (px/%/other)' ),
                                         value: item.imageSize,
+                                        placeholder: __( 'image width...' ),
                                         onChange: function( v ) { updateItem( index, { imageSize: v } ); },
-                                        min: 20,
-                                        max: 800
-                                    } )
+                                    } ),
+
+                                    createElement( TextControl, {
+                                        label: __( 'Image height (px/%/other)' ),
+                                        value: item.imageHeight,
+                                        placeholder: __( 'image height...' ),
+                                        onChange: function( v ) { updateItem( index, { imageHeight: v } ); },
+                                    } ),
                                 ),
 
                                 createElement( 'div', { className: 'acro-item-body' },
@@ -179,8 +186,8 @@
                             return createElement( 'div', { className: 'acro-timeline-item', key: index },
                                 createElement( 'div', { className: 'acro-timeline-time' }, item.time ),
                                 createElement( 'div', { className: 'acro-timeline-content' },
-                                    item.image && createElement( 'div', { className: 'acro-timeline-image', style: { width: item.imageSize + 'px' } },
-                                        createElement( 'img', { src: item.image, alt: '' } )
+                                    item.image && createElement( 'div', { className: 'acro-timeline-image', style: { width: item.imageSize , height: item.imageHeight} },
+                                        createElement( 'img', { src: item.image, alt: '' , style: { width: item.imageSize || 'auto', height: item.imageHeight || 'auto', objectFit: 'cover', display: 'block' }} )
                                     ),
                                     createElement( 'div', { className: 'acro-timeline-text', style: { color: item.textColor } },
                                         createElement( 'h3', { className: 'acro-timeline-title', style: item.textStyle && item.textStyle.bold ? { fontWeight: '700' } : {} },
