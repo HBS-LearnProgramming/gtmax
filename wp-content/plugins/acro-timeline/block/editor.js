@@ -9,10 +9,16 @@
         title: 'Acro Timeline',
         icon: 'schedule',
         category: 'layout',
+        supports: { html: false },
         attributes: {
             items: { type: 'array', default: [] },
             orientation: { type: 'string', default: 'vertical' },
-            lineColor: { type: 'string', default: '#2d2d2d' }
+            lineColor: { type: 'string', default: '#2d2d2d' },
+            borderRadius: { type: 'number', default: 0 },
+            border: { type: 'number', default: 0 },
+            boxShadow: { type: 'number', default: 0 },
+            boxShadowColor: { type: 'string', default: '#ffffff' },
+            borderColor: { type: 'string', default: '#ffffff' },
         },
 
         edit: function( props ) {
@@ -68,7 +74,49 @@
                                 createElement( 'label', null, __( 'Line color' ) ),
                                 createElement( ColorPicker, {
                                     color: attributes.lineColor,
+                                    value: attributes.borderColor,
                                     onChange: ( value ) => setAttributes({ lineColor: value.hex || value })
+                                } )
+                            ),
+                            createElement( 'div', { style: { marginBottom: '12px' } },
+                                createElement( 'label', null, __( 'Border' ) ),
+                                createElement( RangeControl, {
+                                    value: attributes.border,
+                                    onChange: ( value ) => setAttributes({ border: value }),
+                                    min: 0,
+                                    max: 10
+                                } )
+                            ),
+                            createElement( 'div', { style: { marginBottom: '12px' } },
+                                createElement( 'label', null, __( 'Border radius' ) ),
+                                createElement( RangeControl, {
+                                    value: attributes.borderRadius,
+                                    onChange: ( value ) => setAttributes({ borderRadius: value }),
+                                    min: 0,
+                                    max: 10
+                                } )
+                            ),
+                            createElement( 'div', { style: { marginBottom: '12px' } },
+                                createElement( 'label', null, __( 'Border color' ) ),
+                                createElement( ColorPicker, {
+                                    color: attributes.borderColor,
+                                    value: attributes.borderColor,
+                                    onChange: ( value ) => setAttributes({ borderColor: value.hex || value })
+                                } )
+                            ),
+                            createElement( 'div', { style: { marginBottom: '12px' } },
+                                createElement( 'label', null, __( 'Shadow' ) ),
+                                createElement( RangeControl, {
+                                    value: attributes.boxShadow,
+                                    onChange: ( value ) => setAttributes({ boxShadow: value })
+                                } )
+                            ),
+                            createElement( 'div', { style: { marginBottom: '12px' } },
+                                createElement( 'label', null, __( 'Shadow color' ) ),
+                                createElement( ColorPicker, {
+                                    color: attributes.boxShadowColor,
+                                    value: attributes.boxShadowColor,
+                                    onChange: ( value ) => setAttributes({ boxShadowColor: value.hex || value })
                                 } )
                             )
                         )
@@ -177,13 +225,24 @@
             const items = attributes.items || [];
             const orientation = attributes.orientation || 'vertical';
             const lineColor = attributes.lineColor || '#2d2d2d';
+            const borderColor = attributes.borderColor;
+            const borderRadius = attributes.borderRadius;
+            const borderPx = attributes.border;
+            const boxShadow = attributes.boxShadow;
+            const boxShadowColor = attributes.boxShadowColor;
+            const styleVars = {
+                '--acro-line-color': lineColor,
+                '--acro-border': borderPx ? `${borderPx}px solid ${borderColor}` : 'none',
+                '--acro-border-radius': `${borderRadius}px`,
+                '--acro-box-shadow': boxShadow ? `0 0 ${boxShadow}px ${boxShadowColor}` : 'none',
+            };
 
             return (
-                createElement( 'div', { className: 'acro-timeline-root acro-timeline-' + orientation, style: { '--acro-line-color': lineColor } },
+                createElement( 'div', { className: 'acro-timeline-root acro-timeline-' + orientation, style: styleVars },
                     createElement( 'div', { className: 'acro-timeline-line' } ),
                     createElement( 'div', { className: 'acro-timeline-items' },
-                        items.map( function( item, index ) {
-                            return createElement( 'div', { className: 'acro-timeline-item', key: index },
+                        items.map( function( item, index ) {                                                                                                                                                                                                                                
+                            return createElement( 'div', { className: 'acro-timeline-item', key: index},
                                 createElement( 'div', { className: 'acro-timeline-time' }, item.time ),
                                 createElement( 'div', { className: 'acro-timeline-content' },
                                     item.image && createElement( 'div', { className: 'acro-timeline-image', style: { width: item.imageSize , height: item.imageHeight} },

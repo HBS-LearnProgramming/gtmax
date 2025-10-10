@@ -1,0 +1,43 @@
+/* --- Editor + Frontend Styles --- */
+
+.animation-scroll-slide {
+    position: relative;
+    overflow-y: auto;
+    width: 100%;
+    padding: 10px;
+    column-width: 250px; /* default */
+    column-gap: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.animation-grid-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px dashed #a0a0a0;
+    background: #f0f0f0;
+    break-inside: avoid; /* prevents split */
+    vertical-align: top;
+}
+
+.animation-grid-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.animation-grid-item > .block-editor-inner-blocks > .block-editor-block-list__layout {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Optional subtle fade on scroll animation */
+@keyframes scrollY {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

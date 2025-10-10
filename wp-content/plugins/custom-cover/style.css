@@ -6,3 +6,11 @@
   align-items: center;
   padding: 20px;
 }
+.custom-cover-block {
+    transition: transform 0.3s ease;
+}
+
+.custom-cover-block.hover-scale:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}

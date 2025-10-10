@@ -11,11 +11,12 @@ registerBlockType("custom/background-block", {
     attributes: {
         bgImage: { type: "string", default: "" },
         width: { type: "string", default: "100%" },
-        height: { type: "string", default: "300px" }
+        height: { type: "string", default: "300px" },
+        block_id: { type: "string", default: "" }
     },
 
     edit: ({ attributes, setAttributes }) => {
-        const { bgImage, width, height } = attributes;
+        const { bgImage, width, height, block_id } = attributes;
 
         return wp.element.createElement(
             Fragment,
@@ -46,6 +47,11 @@ registerBlockType("custom/background-block", {
                         label: "Height (e.g. 300px, 50vh)",
                         value: height,
                         onChange: (value) => setAttributes({ height: value })
+                    }),
+                    wp.element.createElement(TextControl, {
+                        label: "Block id",
+                        value: block_id,
+                        onChange: (value) => setAttributes({ block_id: value })
                     })
                 )
             ),
@@ -53,6 +59,7 @@ registerBlockType("custom/background-block", {
                 "div",
                 {
                     className: "bg-block",
+                    id: `bg-block-${block_id}`,
                     style: {
                         backgroundImage: bgImage ? `url(${bgImage})` : "none",
                         width: width,
@@ -72,12 +79,13 @@ registerBlockType("custom/background-block", {
     },
 
     save: ({ attributes }) => {
-        const { bgImage, width, height } = attributes;
+        const { bgImage, width, height, block_id } = attributes;
 
         return wp.element.createElement(
             "div",
             {
                 className: "bg-block",
+                id: `bg-block-${block_id}`, 
                 "data-refresh-block": "true",
                 style: {
                     backgroundImage: bgImage ? `url(${bgImage})` : "none",

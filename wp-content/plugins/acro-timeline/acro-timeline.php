@@ -67,16 +67,26 @@ function acro_timeline_render_callback( $attributes, $content ) {
     $items = isset( $attributes['items'] ) ? $attributes['items'] : array();
     $orientation = isset( $attributes['orientation'] ) ? $attributes['orientation'] : 'vertical';
     $lineColor = isset( $attributes['lineColor'] ) ? $attributes['lineColor'] : '#2d2d2d';
-
-
+    $borderColor    = isset( $attributes['borderColor'] ) ? $attributes['borderColor'] : '#000000';
+    $borderRadius   = isset( $attributes['borderRadius'] ) ? intval( $attributes['borderRadius'] ) : 0;
+    $borderPx       = isset( $attributes['border'] ) ? intval( $attributes['border'] ) : 0;
+    $boxShadow      = isset( $attributes['boxShadow'] ) ? intval( $attributes['boxShadow'] ) : 0;
+    $boxShadowColor = isset( $attributes['boxShadowColor'] ) ? $attributes['boxShadowColor'] : 'rgba(0,0,0,0.15)';
+    $styleVars = sprintf(
+        '--acro-line-color:%s; --acro-border:%s; --acro-border-radius:%spx; --acro-box-shadow:%s;',
+        esc_attr( $lineColor ),
+        $borderPx ? esc_attr( "{$borderPx}px solid {$borderColor}" ) : 'none',
+        esc_attr( $borderRadius ),
+        $boxShadow ? esc_attr( "0 0 {$boxShadow}px {$boxShadowColor}" ) : 'none'
+    );
     ob_start();
     ?>
     <div 
         class="acro-timeline-root acro-timeline-<?php echo esc_attr( $orientation ); ?>" 
         data-orientation="<?php echo esc_attr( $orientation ); ?>" 
-        style="--acro-line-color: <?php echo esc_attr( $lineColor ); ?>;"
+        style="<?php echo $styleVars; ?>;"
     >
-    
+        <script src="https://kit.fontawesome.com/7ccdf6a3cd.js" crossorigin="anonymous"></script>
         <div class="acro-timeline-items">
             <?php foreach ( $items as $index => $item ):
                 $time = isset( $item['time'] ) ? $item['time'] : '';
@@ -88,15 +98,13 @@ function acro_timeline_render_callback( $attributes, $content ) {
                 $textStyle = isset( $item['textStyle'] ) ? $item['textStyle'] : array();
                 ?>
                 <div class="acro-timeline-item">
+                    <div class="acro-timeline-line"></div> 
                     <div class="acro-timeline-time">
                         <div class="timeline-time" style="<?php echo $textColor ? 'color:' . esc_attr( $textColor ) . ';' : ''; ?> <?php ?>"><?php echo esc_html( $time ); ?></div>
-                        <div class="timeline-dot" style="<?php echo $textColor ? 'background-color:' . esc_attr( $textColor ) . ';' : ''; ?> <?php ?>"></div>
                     </div>
-                        <div class="acro-timeline-line"></div> 
+                        <div class="timeline-dot" style="<?php echo $textColor ? 'background-color:' . esc_attr( $textColor ) . ';' : ''; ?> <?php ?>"></div>
+                      
                         <div class="acro-timeline-content">
-                            
-
-
                             <div class="acro-timeline-text" style="<?php echo $textColor ? 'color:' . esc_attr( $textColor ) . ';' : ''; ?>">
                                 <h3 class="acro-timeline-title" style="<?php if ( ! empty( $textStyle['bold'] ) ) echo 'font-weight:700;'; ?>"><?php echo wp_kses_post( $title ); ?></h3>
                                 <div class="acro-timeline-desc" style="<?php if ( ! empty( $textStyle['italic'] ) ) echo 'font-style:italic;'; if ( ! empty( $textStyle['underline'] ) ) echo 'text-decoration:underline;'; ?>">

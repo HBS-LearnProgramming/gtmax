@@ -1,7 +1,7 @@
 (function () {
     const { registerBlockType } = wp.blocks;
     const { InspectorControls, MediaUpload, RichText } = wp.blockEditor || wp.editor;
-    const { PanelBody, RangeControl, SelectControl, ColorPicker, TextControl, Button } = wp.components;
+    const { PanelBody, RangeControl, SelectControl, ColorPicker, TextControl, Button, ToggleControl } = wp.components;
     const { __ } = wp.i18n;
     const el = wp.element.createElement;
 
@@ -16,21 +16,25 @@
             textColor: { type: 'string', default: '#ffffff' },
             fontFamily: { type: 'string', default: 'inherit' },
             fontStyle: { type: 'string', default: 'normal' },
+            fontSize: { type: 'string', default: '20px' },
             borderStyle: { type: 'string', default: 'solid' },
             borderRadius: { type: 'number', default: 10 },
             borderColor: { type: 'string', default: '#ffffff' },
+            boxShadow: { type: 'number', default: 0 },
+            shadowColor: { type: 'string', default: '#ffffff' },
             bgImage: { type: 'string', default: '' },
             overlayOpacity: { type: 'number', default: 0.3 },
             width: { type: 'string', default: '100%' },
             height: { type: 'string', default: '300px' },
+            scale: { type: 'boolean', default: false}
         },
 
         edit: (props) => {
             const { attributes, setAttributes } = props;
             const {
-                text, textAlign, alignItems, textColor, fontFamily, fontStyle,
-                borderStyle, borderRadius, borderColor, bgImage, overlayOpacity,
-                width, height,
+                text, textAlign, alignItems, textColor, fontFamily, fontStyle, fontSize,
+                borderStyle, borderRadius, borderColor, bgImage, overlayOpacity,boxShadow,shadowColor,
+                width, height,scale
             } = attributes;
 
             const style = {
@@ -41,6 +45,7 @@
                 borderRadius: borderRadius + 'px',
                 borderColor: borderColor,
                 borderWidth: '2px',
+                boxShadow: boxShadow ? `0 0 ${boxShadow}px ${shadowColor}` : 'none',
                 backgroundImage: bgImage ? `url(${bgImage})` : 'none',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -50,6 +55,8 @@
                 color: textColor,
                 fontFamily: fontFamily,
                 fontStyle: fontStyle,
+                fontSize: fontSize,
+                transition: 'transform 0.3s ease',
             };
 
             const overlayStyle = {
@@ -60,6 +67,7 @@
                 bottom: 0,
                 backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})`,
                 borderRadius: borderRadius + 'px',
+                boxShadow: boxShadow ? `0 0 ${boxShadow}px ${shadowColor}` : 'none',
             };
 
             return el('div', {},
@@ -112,6 +120,18 @@
                             onChangeComplete: (value) => setAttributes({ borderColor: value.hex }),
                             disableAlpha: true,
                         }),
+                        el(RangeControl, {
+                            label: __('Box Shadow', 'custom-cover'),
+                            value: boxShadow,
+                            min: 0,
+                            max: 100,
+                            onChange: (value) => setAttributes({ boxShadow: value }),
+                        }),
+                        el(ColorPicker, {
+                            color: shadowColor,
+                            onChangeComplete: (value) => setAttributes({ shadowColor: value.hex }),
+                            disableAlpha: true,
+                        }),
                         el('hr'),
                         el(SelectControl, {
                             label: __('Text Align', 'custom-cover'),
@@ -152,10 +172,20 @@
                                 { label: 'Bold', value: 'bold' },
                             ],
                             onChange: (value) => setAttributes({ fontStyle: value }),
+                        }),
+                        el(TextControl, {
+                            label: __('Font Size (px/%/other)', 'custom-cover'),
+                            value: fontSize,
+                            onChange: (value) => setAttributes({ fontSize: value }),
+                        }),
+                        el(ToggleControl, {
+                            label: __('Enable Hover Scale Effect', 'custom-cover'),
+                            checked: scale,
+                            onChange: (value) => setAttributes({ scale: value }),
                         })
                     )
                 ),
-                el('div', { className: 'custom-cover-block', style },
+                el('div', { className: `custom-cover-block ${scale ? 'hover-scale' : ''}`, style },
                     el('div', { style: overlayStyle }),
                     el(RichText, {
                         tagName: 'div',
@@ -171,13 +201,13 @@
         save: (props) => {
             const { attributes } = props;
             const {
-                text, textAlign, alignItems, textColor, fontFamily, fontStyle,
-                borderStyle, borderRadius, borderColor, bgImage, overlayOpacity,
-                width, height,
+                text, textAlign, alignItems, textColor, fontFamily, fontStyle, fontSize,
+                borderStyle, borderRadius, borderColor, bgImage, overlayOpacity,boxShadow,shadowColor,
+                width, height, scale
             } = attributes;
 
             return el('div', {
-                className: 'custom-cover-block',
+                className: `custom-cover-block ${scale ? 'hover-scale' : ''}`,
                 style: {
                     display: 'flex',
                     justifyContent: textAlign,
@@ -187,6 +217,7 @@
                     borderColor,
                     borderWidth: '2px',
                     backgroundImage: bgImage ? `url(${bgImage})` : 'none',
+                    boxShadow: boxShadow ? `0 0 ${boxShadow}px ${shadowColor}` : 'none',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     width,
@@ -195,6 +226,8 @@
                     color: textColor,
                     fontFamily,
                     fontStyle,
+                    fontSize,
+                    transition: 'transform 0.3s ease',
                 }
             },
                 el('div', {
@@ -206,6 +239,7 @@
                         bottom: 0,
                         backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})`,
                         borderRadius: borderRadius + 'px',
+                        boxShadow: boxShadow ? `0 0 ${boxShadow}px ${shadowColor}` : 'none',
                     }
                 }),
                 el('div', { style: { position: 'relative', zIndex: 2 } },

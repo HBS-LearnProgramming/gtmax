@@ -1,7 +1,7 @@
 (function (wp) {
     const { registerBlockType } = wp.blocks;
     const { InspectorControls } = wp.blockEditor || wp.editor;
-    const { PanelBody, TextControl, SelectControl, Button, ColorPalette } = wp.components;
+    const { PanelBody, TextControl, SelectControl, Button, ColorPalette,RangeControl } = wp.components;
     const el = wp.element.createElement;
 
     const fieldTypes = [
@@ -20,6 +20,8 @@
             formItems: { type: "array", default: [] },
             borderStyle: { type: "string", default: "solid" },
             borderColor: { type: "string", default: "#000000ff" },
+            shadowColor: { type: "string", default: "#ffffff" },
+            shadow: { type: "number", default: 0 },
             borderRadius: { type: "number", default: 4 },
             backgroundColor: { type: "string", default: "#ffffff" },
             templateID: { type: "string", default: "" },
@@ -27,7 +29,7 @@
 
         edit: function (props) {
             const { attributes, setAttributes } = props;
-            const { formItems, borderStyle, borderColor, borderRadius, backgroundColor, templateID } = attributes;
+            const { formItems, borderStyle, borderColor, borderRadius, backgroundColor, templateID, shadow, shadowColor } = attributes;
 
             const addFormItem = () => {
                 setAttributes({
@@ -92,7 +94,16 @@
                                 { label: "Contact Us template", value: "template_dfrw2jh" },
                             ],
                             onChange: (value) => setAttributes({ templateID: value }),
-                        })
+                        }),
+                        el(RangeControl, {
+                            label: "Shadow (px)",
+                            value: shadow,
+                            onChange: (value) => setAttributes({ shadow: value }),
+                        }),
+                        el(ColorPalette, {
+                            value: shadowColor,
+                            onChange: (color) => setAttributes({ shadowColor: color }),
+                        }),
                     )
                 ),
                 el(
@@ -102,6 +113,7 @@
                             border: `2px ${borderStyle} ${borderColor}`,
                             borderRadius: `${borderRadius}px`,
                             backgroundColor: backgroundColor,
+                            boxShadow: shadow ? `0 0 ${shadow}px ${shadowColor}` : 'none',
                             padding: "15px",
                         },
                     },
@@ -157,7 +169,7 @@
         },
 
         save: function (props) {
-            const { formItems, borderStyle, borderColor, borderRadius, backgroundColor, templateID } = props.attributes;
+            const { formItems, borderStyle, borderColor, borderRadius, backgroundColor, templateID, shadow, shadowColor } = props.attributes;
 
             return wp.element.createElement(
                 "form",
@@ -169,6 +181,7 @@
                         border: `2px ${borderStyle} ${borderColor}`,
                         borderRadius: `${borderRadius}px`,
                         backgroundColor: backgroundColor,
+                        boxShadow: shadow ? `0 0 ${shadow}px ${shadowColor}` : 'none',
                         padding: "15px",
                     },
                     'data-service-id': (FormEmailJSSettings && FormEmailJSSettings.serviceId) || '', 

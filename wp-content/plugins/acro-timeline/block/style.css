@@ -1,16 +1,22 @@
 :root { --acro-line-color: #2d2d2d; }
 .acro-timeline-root { position: relative; padding: 20px; }
-.acro-timeline-root .acro-timeline-line { position: absolute; left: 60px;
-top: 0; bottom: 0; width: 4px; background: var(--acro-line-color); }
+.acro-timeline-root .acro-timeline-line { position: absolute; left: 65px;
+top: 0; bottom: 0; width: 1px; background: var(--acro-line-color); }
 .acro-timeline-root.acro-timeline-horizontal .acro-timeline-line { left: 0;
-right: 0; top: 40px; height: 4px; width: auto; }
+right: 0; top: 0px; height: 3px; width: auto; }
 
 .acro-timeline-items { position: relative;  width: max-content; }
 .acro-timeline-root.acro-timeline-horizontal .acro-timeline-item {
 display:inline-block; vertical-align: top; }
 .acro-timeline-time { font-weight:700; margin-bottom:6px; }
-.acro-timeline-content { display:flex; align-items:flex-start; padding-top: 10px; }
+.acro-timeline-content { display:flex; align-items:flex-start; padding-top: 10px; transition: transform 0.3s ease;}
 .acro-timeline-horizontal .acro-timeline-content{
+    border: var(--acro-border);
+    padding:30px;
+    border-radius: var(--acro-border-radius);
+    position: relative;
+    right: 12px;
+    box-shadow: var(--acro-box-shadow);
     margin-right: 150px;
 }
 .acro-timeline-image{
@@ -22,22 +28,29 @@ display:inline-block; vertical-align: top; }
 .acro-timeline-vertical .acro-timeline-item .acro-timeline-time .timeline-time{
     margin-right: 10px;
 }
+.acro-timeline-horizontal .acro-timeline-item .acro-timeline-time {
+    margin-top: 30px;
+}
 .acro-timeline-vertical .acro-timeline-item{
+    justify-items: start;
     display: flex;
+    
+    
 }
+
 .acro-timeline-vertical .acro-timeline-item .acro-timeline-time{
-    flex-basis: 90%;
+    flex-basis: 20%;
 }
+
 .acro-timeline-vertical .acro-timeline-item .acro-timeline-content{
-    margin-left: 10px;
+    flex-basis: 80%;
+    position: relative;
+    width: 100%;
+    left: 30px;
 }
-.acro-timeline-vertical .acro-timeline-time{
-    float: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 5px;
-    width: fit-content;
+.acro-timeline-content:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
 .acro-timeline-item:last-child .acro-timeline-content{
     margin-right: 0;
@@ -50,20 +63,91 @@ display:inline-block; vertical-align: top; }
   object-fit: cover;
 }
 
+.acro-timeline-horizontal .acro-timeline-items {
+    display: flex;
+    min-width: max-content;
+    animation: slide-left-to-right 20s linear infinite;
+    /* Ensure items are duplicated in HTML/JS for seamless loop */
+}
+
+
+.acro-timeline-horizontal .acro-timeline-items > * {
+    flex-shrink: 0;
+    margin-right: 2rem;
+}
+
+/* For seamless looping, duplicate the timeline items in HTML/JS.
+   The animation moves the container left by 50% (width of original items),
+   so the duplicated items appear as the first ones slide out. */
+@keyframes slide-left-to-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.acro-timeline-horizontal {
+    overflow-x: hidden;
+    display: flex;
+    gap: 100px;
+    position: relative;
+}
+.acro-timeline-horizontal .timeline-icon{
+    position: relative;
+    /* right: 120px;
+    bottom: 10.4px; */
+    color: var(--acro-line-color);
+}
+/* ===== Timeline Arrow on Line ===== */
+
+/* Horizontal arrow */
+.acro-timeline-horizontal .acro-timeline-line::after {
+  content: "";
+  position: absolute;
+  right: -15px; /* adjust based on your line thickness */
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid var(--acro-line-color); /* Arrow color same as line */
+}
+
+/* Vertical arrow */
+.acro-timeline-vertical .acro-timeline-line::after {
+  content: "";
+  position: absolute;
+  bottom: -15px; /* push arrow below line */
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 12px solid var(--acro-line-color); /* Upward or downward arrow */
+}
+
 .timeline-dot{
-    padding: 5px;
+    padding: 7px;
+    float: left;
     border-radius: 100%;
     width: 5px;
+    z-index: 1;
     position: relative;
     
 }
 .acro-timeline-vertical .timeline-dot{
-    right: 9px;
+    position: absolute;
+    margin-top: 10px;
+    left:60px;
 }
 .acro-timeline-horizontal .timeline-dot{
-    right: 6px;
-    top: 13px;
+    bottom: 66px;
+
 }
+.paused {
+  animation-play-state: paused !important;
+}
+
 /* Small responsive tweaks */
 @media (max-width:700px) {
     .acro-timeline-root.acro-timeline-horizontal .acro-timeline-item 

@@ -2,7 +2,7 @@
 
 /* Configure Tailwind directly in CSS */
 @theme {
-  --color-primary: #1d4ed8;
+  --color-primary: #262161;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 .site-logo {
@@ -37,20 +37,23 @@ ul, ol{
 }
 @keyframes cloud {
   from {
-    transform: translateX(-100%); /* start off-screen to the right */
+    transform: translateX(0%); /* start off-screen to the right */
   }
   to {
-    transform: translateX(100%); /* move fully to the left */
+    transform: translateX(-100%); /* move fully to the left */
   }
 }
 
 .animate-cloud {
     @apply animate-[cloud_30s_linear_infinite];
 }
-
+.paused {
+  animation-play-state: paused !important;
+}
 .cloud-img {
   @apply w-3/12 h-auto;
 }
+
 .elementor-widget-container img{
     @apply w-auto h-full;
 }
@@ -73,6 +76,143 @@ ul, ol{
 .elementor-widget-container h5 a{
   @apply bg-transparent;
 }
+html{
+  font-family: 'D-DIN-Bold', sans-serif !important;
+  background-color: rgba(117, 117, 117, 0);
+}
+.career-box{
+  @apply shadow-lg bg-center bg-cover rounded-lg shadow-[#262161];
+  transition: transform 0.3s ease;
+
+}
+.career-box:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.wp-block-image{
+  @apply m-0;
+}
+.icon-space{
+  @apply ml-4;
+}
+/* ===== 5I & 5S Diagram Styles ===== */
+.diagram-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+  /* margin: 0px 30px 30px 30px; */
+  text-align: center;
+  /* border-radius: 10px; */
+  background: linear-gradient(300deg,rgba(206, 202, 252, 0.58) 0%, rgba(242, 238, 255, 0.66) 57%, rgba(222, 219, 255, 0.54) 100%);
+  /* box-shadow: 0px 0px 10px gray; */
+}
+
+.diagram-title {
+  font-family: 'D-DIN-Bold', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  font-size: 36px;
+  color: #193540;
+  margin-top: 100px;
+}
+
+.diagram-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+}
+
+.circle-center {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: #193540;
+  color: #fff;
+  font-weight: bold;
+  font-size: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.circle-item {
+  z-index: 2;
+  width: 140px;
+  height: 140px;
+  position: relative;
+  background: #00b6b6;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  padding: 15px;
+}
+.circle-item-hover{
+  position: absolute;
+  width: 140px;
+  height: 140px;
+}
+
+/* Position each circle evenly around the center */
+.fivei-diagram .circle-item-hover:nth-child(2) { top: 0; left: 50%; transform: translate(-50%, 0); }
+.fivei-diagram .circle-item-hover:nth-child(3) { top: 25%; right: 0; transform: translate(0, -50%); }
+.fivei-diagram .circle-item-hover:nth-child(4) { bottom: 25%; right: 0; transform: translate(0, 50%); }
+.fivei-diagram .circle-item-hover:nth-child(5) { bottom: 0; left: 50%; transform: translate(-50%, 0); }
+.fivei-diagram .circle-item-hover:nth-child(6) { top: 25%; left: 0; transform: translate(0, -50%); }
+
+.fives-diagram .circle-item-hover:nth-child(5) { top: 0; left: 50%; transform: translate(-50%, 0); }
+.fives-diagram .circle-item-hover:nth-child(3) { top: 25%; right: 0; transform: translate(0, -50%); }
+.fives-diagram .circle-item-hover:nth-child(4) { bottom: 25%; right: 0; transform: translate(0, 50%); }
+.fives-diagram .circle-item-hover:nth-child(6) { bottom: 0; left: 50%; transform: translate(-50%, 0); }
+.fives-diagram .circle-item-hover:nth-child(2) { top: 25%; left: 0; transform: translate(0, -50%); }
+
+.fivei-diagram .circle-item.imagination { background: #ff4b4b; }
+.fivei-diagram .circle-item.innovation { background: #ff9900; }
+.fivei-diagram .circle-item.integration { background: #9b59b6; }
+.fivei-diagram .circle-item.involvement { background: #27ae60; }
+.fivei-diagram .circle-item.interaction { background: #00b6b6; }
+
+.fives-diagram .circle-item.sort { background: #e74c3c; }
+.fives-diagram .circle-item.set { background: #f39c12; }
+.fives-diagram .circle-item.shine { background: #3498db; }
+.fives-diagram .circle-item.standardize { background: #16a085; }
+.fives-diagram .circle-item.sustain { background: #8e44ad; }
+
+.item-info {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #555;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  min-height: 60px;
+}
+
+.circle-item-hover:hover .circle-item {
+  transform: scale(1.1) translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  z-index: 15;
+}
+
+.circle-item-hover:hover ~ .item-info {
+  opacity: 1;
+}
+
+
+
+
 /* .wp-block-columns{
   @apply m-0;
 } */

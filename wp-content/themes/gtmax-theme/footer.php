@@ -1,6 +1,5 @@
-<div class="flex flex-wrap gap-20 container justify-between px-5 border-t border-solid border-gray-500 pt-5 ">
-        <div>
-            <script type="text/javascript"
+<div class="flex flex-wrap gap-20 container justify-between px-20 border-t border-solid border-gray-500 pt-5 ">
+        <script type="text/javascript"
                     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
             </script>
             <script src="https://kit.fontawesome.com/7ccdf6a3cd.js" crossorigin="anonymous"></script>
@@ -11,7 +10,22 @@
                 });
             })();
             </script>
-            <form action="" id="subscribe-form">
+            <div>
+                <div class="flex items-center">
+                   
+                    <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2025/09/cropped-gtmax_logo-scaled-1.png" class="w-auto h-[150px]" alt="">
+                  
+                    <div >
+                        <h1 class="font-bold text-xl text-[#262161]">GT-Max Motors (M) SDN BHD</h1>
+                        <div class="text-base">
+                            <p>9A, Jalan Bestari 1A/KU7, </p>
+                            <p>Taman Perindustrian Kapar Bestari, </p> 
+                            <p>42200 Kapar, Selangor </p>
+                        </div>
+                    </div>
+                </div>
+            
+            <!-- <form action="" id="subscribe-form">
                 <label class="text-gray-400" for="email">Newsletter</label>
                 <div class="flex">
                     
@@ -36,33 +50,34 @@
                         </svg>
                         </div>
                 </div>
-            </form>
-            <p id="status" class="mt-2 text-sm"></p>
+            </form> -->
+            <!-- <p id="status" class="mt-2 text-sm"></p> -->
+
         </div>
         <?php $footer_menu = ['information', 'customer service']; 
-            foreach ($footer_menu as $menu) { ?>
-                <div>
-                    <h1 class="uppercase font-bold text-base"><?= esc_html($menu) ?></h1>
+        //     foreach ($footer_menu as $menu) { ?>
+                 <div>
+                    <!-- <h1 class="uppercase font-bold text-base"><?= esc_html($menu) ?></h1> -->
                     <?php
-                    wp_nav_menu(array(
-                        'menu'           => $menu,
-                        'menu_class'     => 'footer-menu',
-                        'container'      => false,
-                    ));
-                    ?>
-                </div>
+        //             wp_nav_menu(array(
+        //                 'menu'           => $menu,
+        //                 'menu_class'     => 'footer-menu',
+        //                 'container'      => false,
+        //             ));
+        //             ?>
+                 </div>
                
-        <?php 
-            }
+         <?php 
+        //     }
         ?>
-        <div>
+        <div class="flex items-center">
             <div>
-                <h1 class="uppercase font-bold">follow us</h1>
-                <div class="flex gap-1 mt-2">
-                    <a target="_blank" href="https://www.facebook.com/photo.php?fbid=944869707679358&id=100064690118199&set=a.496755992490734"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/facebook.png" alt="" srcset=""></a>
-                    <a target="_blank" href="https://www.youtube.com/@gtmaxmotors9580"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/youtube.png" alt="" srcset=""></a>
-                    <a target="_blank" href="https://www.instagram.com/gtmaxmotors/"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/instagram.png" alt="" srcset=""></a>
-                    <a target="_blank" href="https://www.tiktok.com/@gtmaxmotorofficial"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/tiktok.png" alt="" srcset=""></a>
+                <h1 class="uppercase font-bold text-[#262161]">Follow Us</h1>
+                <div class="flex gap-4 mt-2">
+                    <a target="_blank" class="rounded" href="https://www.facebook.com/gtmaxmotorsports/"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/facebook-black.png" alt="" srcset=""></a>
+                    <a target="_blank" class="rounded" href="https://www.youtube.com/@gtmaxmotors9580"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/youtube-black.png" alt="" srcset=""></a>
+                    <a target="_blank" class="rounded" href="https://www.instagram.com/gtmaxmotors/"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/instagram-black.png" alt="" srcset=""></a>
+                    <a target="_blank" class="rounded" href="https://www.tiktok.com/@gtmaxmotorofficial"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/tiktok-black.png" alt="" srcset=""></a>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <header id="site-header" class="static bg-white z-10 w-full px-5 transition-all duration-300">
+    <header id="site-header" class="static bg-white z-10 w-full px-20 transition-all duration-300">
         <nav class="flex items-center basis-full w-full justify-between">
             <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/home/0001807_gt-max.png" 
                             alt="Site Logo" class="site-logo"></a>

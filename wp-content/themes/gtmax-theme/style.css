@@ -18,3 +18,13 @@ Text Domain: GTMAX-Theme
 .right-0{
     right: 0;
 }
+
+
+@font-face {
+  font-family: 'D-DIN-Bold';
+  src: url('fonts/D-DIN-Bold.woff') format('woff');
+  font-weight: bold; /* or 700 */
+  font-style: normal;
+  font-display: swap; /* Optional: controls how the font loads and displays */
+}
+
