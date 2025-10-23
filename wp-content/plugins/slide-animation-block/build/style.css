@@ -1,0 +1,10 @@
+.slide-animation-container {
+  overflow: hidden;
+  border: none;
+  padding: 0px;
+  min-width: 100%;
+  width: 99vw;
+  max-width: 100%;
+  position: relative;
+}
+

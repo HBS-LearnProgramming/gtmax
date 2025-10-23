@@ -13,43 +13,19 @@
     });
   }
 
-  function addTimelineIcons() {
-    // Remove any previously added icons (avoid duplication)
-    document.querySelectorAll('.timeline-icon').forEach(icon => icon.remove());
-
-    // Loop through each horizontal timeline container
-    const containers = document.querySelectorAll('.acro-timeline-horizontal .acro-timeline-items');
-
-    containers.forEach(container => {
-      const items = container.querySelectorAll('.acro-timeline-item');
-
-      if (items.length > 0) {
-        const lastItem = items[items.length - 1];
-        const line = lastItem.querySelector('.acro-timeline-line');
-
-        if (line) {
-          // Create and style the icon
-          const icon = document.createElement('i');
-          icon.className = 'fa-solid fa-arrow-right timeline-icon';
-          
-
-          // Append the icon to the last timeline line
-          line.appendChild(icon);
-        }
-      }
-    });
-  }
-
-  function duplicateTimelineItems() {
+  // ✅ Stable duplication method
+  function manageTimelineDuplication() {
     const timelines = document.querySelectorAll('.acro-timeline-horizontal .acro-timeline-items');
 
     timelines.forEach(container => {
-      if (!container.dataset.duplicated) {
-        const clone = container.cloneNode(true);
-        clone.classList.add('duplicate');
-        container.parentElement.appendChild(clone);
-        container.dataset.duplicated = 'true';
-      }
+      // Remove old duplicate if any
+      container.parentElement.querySelectorAll('.acro-timeline-items.duplicate').forEach(dup => dup.remove());
+
+      // Clone and append a clean copy
+      const clone = container.cloneNode(true);
+      clone.classList.add('duplicate');
+      clone.dataset.duplicated = 'true';
+      container.parentElement.appendChild(clone);
     });
   }
 
@@ -68,13 +44,34 @@
     });
   }
 
-  window.addEventListener('resize', ()=>{
+  // ✅ Reset animations cleanly, including duplicates
+  function reset_animation_on_scroll() {
+    const timelines = document.querySelectorAll('.acro-timeline-items');
+    // document.querySelectorAll('.acro-timeline-items.duplicate').forEach(dup => dup.remove());
+    
+    
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const element = entry.target;
+        if (entry) {
+          element.style.animation = 'none';
+          void element.offsetWidth; // trigger reflow
+          element.style.animation = '';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    timelines.forEach(timeline => observer.observe(timeline));
+  }
+
+  // ✅ Safe reinitialization (when resize or reload)
+  function reinitializeTimeline() {
     setTimelineOrientation();
-    // addTimelineIcons();
-  });
-  window.addEventListener('load', ()=>{
-    setTimelineOrientation(); duplicateTimelineItems(); 
-    // addTimelineIcons(); 
+    reset_animation_on_scroll();
     pause_animation();
-  });
+  }
+
+  window.addEventListener('resize', reinitializeTimeline);
+  window.addEventListener('load', reinitializeTimeline);
 })();

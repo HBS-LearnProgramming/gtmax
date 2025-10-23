@@ -2,8 +2,8 @@
 
 .animation-scroll-slide {
     position: relative;
-    overflow-y: auto;
-    width: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
     padding: 10px;
     column-width: 250px; /* default */
     column-gap: 16px;

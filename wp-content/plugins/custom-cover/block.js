@@ -14,6 +14,7 @@
             textAlign: { type: 'string', default: 'center' },
             alignItems: { type: 'string', default: 'center' },
             textColor: { type: 'string', default: '#ffffff' },
+            textTransform: { type: 'string', default: 'none' },
             fontFamily: { type: 'string', default: 'inherit' },
             fontStyle: { type: 'string', default: 'normal' },
             fontSize: { type: 'string', default: '20px' },
@@ -26,7 +27,8 @@
             overlayOpacity: { type: 'number', default: 0.3 },
             width: { type: 'string', default: '100%' },
             height: { type: 'string', default: '300px' },
-            scale: { type: 'boolean', default: false}
+            scale: { type: 'boolean', default: false},
+            description: { type: 'string', default: '' },
         },
 
         edit: (props) => {
@@ -34,7 +36,7 @@
             const {
                 text, textAlign, alignItems, textColor, fontFamily, fontStyle, fontSize,
                 borderStyle, borderRadius, borderColor, bgImage, overlayOpacity,boxShadow,shadowColor,
-                width, height,scale
+                width, height,scale, description, textTransform
             } = attributes;
 
             const style = {
@@ -53,6 +55,7 @@
                 height: height,
                 position: 'relative',
                 color: textColor,
+                textTransform: textTransform,
                 fontFamily: fontFamily,
                 fontStyle: fontStyle,
                 fontSize: fontSize,
@@ -68,6 +71,7 @@
                 backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})`,
                 borderRadius: borderRadius + 'px',
                 boxShadow: boxShadow ? `0 0 ${boxShadow}px ${shadowColor}` : 'none',
+                pointerEvents: 'none',
             };
 
             return el('div', {},
@@ -144,6 +148,17 @@
                             onChange: (value) => setAttributes({ textAlign: value }),
                         }),
                         el(SelectControl, {
+                            label: __('Text Transform', 'custom-cover'),
+                            value: textTransform,
+                            options: [
+                                { label: 'None', value: 'none' },
+                                { label: 'Uppercase', value: 'uppercase' },
+                                { label: 'Lowercase', value: 'lowercase' },
+                                { label: 'Capitalize', value: 'capitalize' },
+                            ],
+                            onChange: (value) => setAttributes({ textTransform: value }),
+                        }),
+                        el(SelectControl, {
                             label: __('Vertical Align', 'custom-cover'),
                             value: alignItems,
                             options: [
@@ -182,7 +197,13 @@
                             label: __('Enable Hover Scale Effect', 'custom-cover'),
                             checked: scale,
                             onChange: (value) => setAttributes({ scale: value }),
-                        })
+                        }),
+                        el(TextControl, {
+                            label: __('Description (Tooltip Text)', 'custom-cover'),
+                            value: description,
+                            onChange: (value) => setAttributes({ description: value }),
+                            placeholder: __('Enter tooltip description...', 'custom-cover'),
+                        }),
                     )
                 ),
                 el('div', { className: `custom-cover-block ${scale ? 'hover-scale' : ''}`, style },
@@ -203,7 +224,7 @@
             const {
                 text, textAlign, alignItems, textColor, fontFamily, fontStyle, fontSize,
                 borderStyle, borderRadius, borderColor, bgImage, overlayOpacity,boxShadow,shadowColor,
-                width, height, scale
+                width, height, scale, description, textTransform
             } = attributes;
 
             return el('div', {
@@ -225,7 +246,9 @@
                     position: 'relative',
                     color: textColor,
                     fontFamily,
-                    fontStyle,
+                    textTransform: textTransform,
+                    fontStyle: fontStyle === 'bold' ? 'normal' : fontStyle,
+                    fontWeight: fontStyle === 'bold' ? 'bold' : 'normal',
                     fontSize,
                     transition: 'transform 0.3s ease',
                 }
@@ -244,7 +267,8 @@
                 }),
                 el('div', { style: { position: 'relative', zIndex: 2 } },
                     el(RichText.Content, { tagName: 'div', value: text })
-                )
+                ),
+                description && el('div', { className: 'cover-tooltip' }, description)
             );
         },
     });

@@ -19,6 +19,7 @@
             maxWidthLg: { type: 'string', default: '' },
             maxWidthXl: { type: 'string', default: '' },
             maxWidth2xl: { type: 'string', default: '' },
+            padding: { type: 'string', default: '0px' },
         },
 
         edit: function( props ) {
@@ -67,6 +68,12 @@
                             value: attrs.maxWidth2xl,
                             onChange: function( val ) { props.setAttributes( { maxWidth2xl: val } ); },
                             placeholder: 'e.g. 1536px'
+                        }),
+                        el( TextControl, {
+                            label: 'Padding (%/px/other)',
+                            value: attrs.padding,
+                            onChange: function( val ) { props.setAttributes( { padding: val } ); },
+                            placeholder: 'e.g. 1536px'
                         })
                     )
                 ),
@@ -92,6 +99,7 @@
                 'data-lg': attrs.maxWidthLg || '',
                 'data-xl': attrs.maxWidthXl || '',
                 'data-2xl': attrs.maxWidth2xl || '',
+                style: {padding: attrs.padding}
             } );
 
             return el(

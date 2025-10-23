@@ -1,4 +1,4 @@
-<div class="flex flex-wrap gap-20 container justify-between px-20 border-t border-solid border-gray-500 pt-5 ">
+    <div class="flex flex-wrap gap-20 container justify-between px-10 border-t border-solid border-gray-500 pt-5 min-w-full">
         <script type="text/javascript"
                     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
             </script>
@@ -86,7 +86,7 @@
 
     <footer>
         <!-- <p class="bg-[#484444] text-center"><span class="text-white">Copyright &copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?>. All rights reserved.</span></p> -->
-        <p class="bg-[#484444] text-center"><span class="text-white">Power by <?php bloginfo('name'); ?></span></p>
+        <p class="bg-[#484444] text-center"><span class="text-white">Powered by <?php bloginfo('name'); ?></span></p>
     </footer>
     <?php wp_footer(); ?>
 </body>

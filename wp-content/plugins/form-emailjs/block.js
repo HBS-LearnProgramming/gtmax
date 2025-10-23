@@ -10,6 +10,7 @@
         { label: "Number", value: "number" },
         { label: "Email", value: "email" },
         { label: "Tel", value: "tel" },
+        { label: "Upload PDF", value: "file" },
     ];
 
     registerBlockType("form-emailjs/form-block", {
@@ -176,6 +177,7 @@
                 {
                     className: "form-emailjs",
                     method: "POST",
+                    encType: "multipart/form-data",
                     action: "", // ✅ prevent GET 404
                     style: {
                         border: `2px ${borderStyle} ${borderColor}`,
@@ -202,6 +204,24 @@
                                       placeholder: item.placeholder,
                                       required: item.required || false,
                                   })
+                                : item.type === "file"
+                                ? wp.element.createElement(
+                                    "div",
+                                    { className: "custom-file-upload" },
+                                    wp.element.createElement(
+                                        "div",
+                                        { className: "upload-box" },
+                                        wp.element.createElement("span", { className: "upload-text" }, "Choose A File"),
+                                        wp.element.createElement("span", { className: "upload-plus" }, "+"),
+                                        wp.element.createElement("input", {
+                                            type: "file",
+                                            id: `field-${index}`,
+                                            name: item.name,
+                                            accept: ".pdf",
+                                            required: item.required || false,
+                                        })
+                                    )
+                                )
                                 : wp.element.createElement("input", {
                                       type: item.type,
                                       id: `field-${index}`,

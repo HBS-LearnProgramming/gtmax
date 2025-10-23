@@ -15,29 +15,27 @@
         .animation-typing-box {
             color: #4b4960ff;
             font-family: 'D-DIN', sans-serif;
-            font-size: 18px;
+            font-size: 14px;
+            text-transform: uppercase;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
-            margin-right: 90px;
+            right: 45px;
+            position: absolute;
         }
 
         .animation-typing-box .animation-main{
-            font-size: 28px;
+            font-size: 23px;
             font-weight: bold;
             color: #262161;
         }
 
-        .home-cover:last-child .animation-typing-box{
-            text-align: left;
-            margin: 0%;
-        }
 
         
     </style>
 </head>
 <body <?php body_class(); ?>>
-    <header id="site-header" class="absolute z-10 w-full px-20 translate-y-6 transition-all duration-300">
+    <header id="site-header" class="absolute z-10 w-full px-10 translate-y-6 transition-all duration-300">
         <!-- <div id="cloud" class="block overflow-hidden absolute -top-[100px] left-0 w-full z-0">
             <div class="flex justify-between animate-cloud relative">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/home/cloud.png" class="cloud-img" alt="">
@@ -58,113 +56,247 @@
         </nav>
     </header>
     <div>
-        <div class="home-cover relative w-full h-screen overflow-hidden flex justify-center bg-cover bg-no-repeat bg-center items-center z-0" style="background-image: url(<?php echo get_template_directory_uri() . '\images\home\homepage_img.png' ?>)">
-            <video autoplay muted loop playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 object-cover">
-                <source src="<?php echo get_template_directory_uri() . '\images\home\homepage_video.mp4'; ?>" type="video/mp4">
+        
+        <div class="home-cover relative w-full h-[30vh] lg:h-screen overflow-hidden flex justify-center bg-cover bg-no-repeat bg-center items-center z-0" style="background-image: url(<?php echo get_template_directory_uri() . '/images/home/HQ_KAPAR_VIDEO.png' ?>)">
+            <video id="myVideo" autoplay muted loop playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 object-cover">
+                <source src="<?php echo get_template_directory_uri() . '/images/home/Homepage_hq_hd_version.mp4'; ?>" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
 
-            <div class="absolute container mx-auto h-full top-0 flex justify-center items-center ">
-                <div class="flex w-full translate-x-[8px] sm:translate-x-[-8px]">
-                    <div class="pt-[15%] relative flex justify-start items-end">
-                        <img class="sm:w-[30%] w-[30%]" src="<?php echo get_template_directory_uri() . '/images/home/word-thankfulMemorialGallery_1.png' ?>" alt="">
-                    </div>
-                    <div class=""></div>
-
-                </div>
-            </div>
             <div class="animation-typing-box text-lg absolute z-2 right-2">
                 <span id="typing-text"></span>
             </div>
             
         </div>
-
-        <div class="home-cover relative w-full h-screen overflow-hidden flex justify-center bg-cover bg-no-repeat bg-center items-center z-0" style="background-image: url(<?php echo wp_upload_dir()['baseurl'] . '/2025/09/web-video.gif' ?>)">
+        <!-- <div class="home-cover relative w-full h-screen overflow-hidden flex justify-center bg-cover bg-no-repeat bg-center items-center z-0" style="background-image: url(<?php echo wp_upload_dir()['baseurl'] . '/2025/09/web-video.gif' ?>)">
             
             <div class="animation-typing-box text-lg absolute z-2 left-20 top-50">
                 <span id="typing-text2"></span>
             </div>
             
+        </div> -->
+
+        
+    </div>
+    <?php
+    /**
+     * Template Part - Main Content with 5I/5S Diagram
+     */
+
+    // Helper function to find ALL blocks by metadata name (recursive)
+    function findBlocksByMetadataName($blocks, $targetName, &$matches = []) {
+        foreach ($blocks as $block) {
+            if (isset($block['attrs']['metadata']['name']) && $block['attrs']['metadata']['name'] === $targetName) {
+                $matches[] = $block;
+            }
+
+            if (!empty($block['innerBlocks'])) {
+                findBlocksByMetadataName($block['innerBlocks'], $targetName, $matches);
+            }
+        }
+        return $matches;
+    }
+    ?>
+<div class="bg-[#f6f6f6] flex px-10 items-center py-20">
+    <div class=" text-2xl font-bold text-primary basis-2/12">
+        Who We Are
+    </div>
+    <div class="basis-10/12">
+        <div class="border-l border-solid border-gray-700 w-9/12 text-[30px] pl-8">
+            Founded in 1993, GT-MAX Motors (M) Sdn Bhd began as a small motorcycle repair shop in Shah Alam and has since grown into one of Malaysia’s leading motorcycle dealers.
+    For over three decades, we’ve been empowering riders across the nation with reliable motorcycles, trusted service, and a passion for two-wheeled freedom.
         </div>
     </div>
+</div>
+<div class="flex justify-evenly pt-20">
+    <div class=""></div>
+    <div class="data-border">
+        <h1 class="data-header" id="year-data"></h1>
+        <div class="data-content">Years of trusted experience</div>
+    </div>
+    <div class="data-border">
+        <h1 class="data-header">17 Branches </h1>
+        <div class="data-content">Across Selangor and Klang Valley</div>
+    </div>
+    <div class="data-border">
+        <h1 class="data-header">100,000+ </h1>
+        <div class="data-content">Riders served</div>
+    </div>
+</div>
+<main class="relative px-10">
 
-    <main class="relative">
-        <?php
-        if ( have_posts() ) :
-            while ( have_posts() ) : the_post();
-                the_content();
-            endwhile;
-        else :
-            echo '<p>No content found</p>';
-        endif;
+<?php
+if (have_posts()) :
+    while (have_posts()) : the_post();
+
+        // Parse Gutenberg blocks from page content
+        $blocks = parse_blocks(get_the_content());
+
+        // Find all "first" and "last" blocks (there might be multiple)
+        $firstBlocks = findBlocksByMetadataName($blocks, 'first');
+        $lastBlocks  = findBlocksByMetadataName($blocks, 'last');
+
+        // Render ALL "first" blocks (before diagram)
+        if (!empty($firstBlocks)) {
+            foreach ($firstBlocks as $block) {
+                echo render_block($block);
+            }
+        }
         ?>
+
         
-        <div >
-            <div class="diagram-section">
-            <!-- 5I Diagram -->
-            <section class="fivei-diagram">
-                <h2 class="diagram-title">5I Philosophy</h2>
-                <div class="diagram-container">
-                <div class="circle-center">5I</div>
-                <div class="circle-item-hover">
-                    <div class="circle-item imagination" data-title="Imagination" data-desc="Dream big and challenge.">Imagination</div>
-                </div>
-                <div class="circle-item-hover">
-                    <div class="circle-item innovation" data-title="Innovation" data-desc="Constant change and creativity.">Innovation</div>
-                </div>
-                <div class="circle-item-hover"><div class="circle-item integration" data-title="Integration" data-desc="Micro view and totality.">Integration</div></div>
-                <div class="circle-item-hover"><div class="circle-item involvement" data-title="Involvement" data-desc="Passion and participation.">Involvement</div></div>
-                <div class="circle-item-hover"> <div class="circle-item interaction" data-title="Interaction" data-desc="Communication and socialize.">Interaction</div></div>
-                </div>
-                <div class="item-info"></div>
-            </section>
+        <div class="">
+            <div class="overflow-hidden h-fit py-10 w-full mb-30">
+                <div class="animate-cloud grid p-5 grid-row-2 gap-4 grid-flow-col min-w-[1800px] max-w-fit">
+                    <div 
+                        class="career-box w-[500px] h-[400px] row-span-2"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Bukit_Beruntung.jpg');">
+                    </div>
+                    <div 
+                        class="career-box w-[300px] h-[400px] row-span-2"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/GT-Max_Meru.jpeg');">                    
+                    </div>
+                    <div 
+                        class="career-box w-[1000px] h-[400px] row-span-2 cols-span-3"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone1and2.jpg');">                    
+                    </div>
+                    <div 
+                        class="career-box w-[300px] h-[190px] row-span-1"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Zone3.jpeg');">                    
+                    </div>
+                    <div 
+                        class="career-box w-[300px] h-[190px] row-span-1"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone2(service).jpg');">                    
+                    </div>
 
-            <!-- 5S Diagram -->
-            <section class="fives-diagram">
-                <h2 class="diagram-title">5S Philosophy</h2>
-                <div class="diagram-container">
-                    <div class="circle-center">5S</div>
-                    <div class="circle-item-hover">
-                        <div class="circle-item sort" data-title="Sort" data-desc="Keep only what’s needed and remove the rest.">
-                            Sort
-                        </div>
+                    <!-- Repeat content -->
+                    <div 
+                        class="career-box w-[500px] h-[400px] row-span-2"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Bukit_Beruntung.jpg');">
                     </div>
-                    <div class="circle-item-hover">
-                        <div class="circle-item set" data-title="Set in Order" data-desc="Organize items so everything is easy to find and use.">
-                            Set in Order
-                        </div>
+                    <div 
+                        class="career-box w-[300px] h-[400px] row-span-2"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/GT-Max_Meru.jpeg');">                    
                     </div>
-                    <div class="circle-item-hover">
-                        <div class="circle-item shine" data-title="Shine" data-desc="Keep the workplace clean and spot problems quickly.">
-                            Shine
-                        </div>
+                    <div 
+                        class="career-box w-[1000px] h-[400px] row-span-2 cols-span-3"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone1and2.jpg');">                    
                     </div>
-                    <div class="circle-item-hover">
-                        <div class="circle-item standardize" data-title="Standardize" data-desc="Create rules to maintain cleanliness and order.">
-                            Standardize
-                        </div>
+                    <div 
+                        class="career-box w-[300px] h-[190px] row-span-1"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Zone3.jpeg');">                    
                     </div>
-                    <div class="circle-item-hover">
-                        <div class="circle-item sustain" data-title="Sustain" data-desc="Build habits to maintain standards long-term.">
-                            Sustain
+                    <div 
+                        class="career-box w-[300px] h-[190px] row-span-1"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone2(service).jpg');">                    
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-5">
+                <div class="flex justify-center basis-1/2 gap-5 shadow rounded shadow-gray-700 p-8">
+                    <div class="flex items-center justify-content-center">
+                        <img class="w-96 h-auto" src="<?php echo get_template_directory_uri() . '\images\home\idea.png' ?>" alt="">
+                    </div>
+                    <div class="p-8">
+                        <h1 class="diagram-title text-center">Our Vision</h1>
+                        <div class="w-full text-lg mx-auto">
+                            To become Malaysia’s most trusted and innovative motorcycle brand, connecting every rider to the perfect ride and service experience. 
                         </div>
                     </div>
                 </div>
+                <div class="flex justify-center basis-1/2 gap-5 shadow rounded shadow-gray-700 p-8">
+                    <div class="flex items-center justify-content-center">
+                        <img  class="w-78 h-auto"src="<?php echo get_template_directory_uri() . '\images\home\mission.png' ?>" alt="">
+                    </div>
+                    <div class="p-8">
+                        <h1 class="diagram-title text-center">Our Mission</h1>
+                        <div class="w-full text-lg mx-auto">
+                            To make motorcycle ownership simple, accessible, and enjoyable — through innovation, integrity, and exceptional service.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- === Diagram Section === -->
+            <div class="diagram-section ">
+                <h1 class="diagram-title text-center ">Our Philosophy</h1>
+                <div class="flex mt-20 flex-wrap lg:justify-evenly">
+                    <!-- 5I Diagram -->
+                    <section class="fivei-diagram sm:basis-full lg:basis-auto sm:mb-30 lg:mb-0">
+                        <div class="diagram-container">
+                            <div class="circle-center">5I</div>
 
-                <div class="item-info"></div>
-            </section>
+                            <div class="circle-item-hover">
+                                <div class="circle-item imagination" data-title="Imagination" data-desc="Dream big and challenge.">Imagination</div>
+                            </div>
+                            <div class="circle-item-hover">
+                                <div class="circle-item innovation" data-title="Innovation" data-desc="Constant change and creativity.">Innovation</div>
+                            </div>
+                            <div class="circle-item-hover">
+                                <div class="circle-item integration" data-title="Integration" data-desc="Micro view and totality.">Integration</div>
+                            </div>
+                            <div class="circle-item-hover">
+                                <div class="circle-item involvement" data-title="Involvement" data-desc="Passion and participation.">Involvement</div>
+                            </div>
+                            <div class="circle-item-hover">
+                                <div class="circle-item interaction" data-title="Interaction" data-desc="Communication and socialize.">Interaction</div>
+                            </div>
+                        </div>
+                        <div class="item-info"></div>
+                    </section>
 
+                    <!-- 5S Diagram -->
+                    <section class="fives-diagram sm:basis-full lg:basis-auto">
+                        <div class="diagram-container">
+                            <div class="circle-center">5S</div>
+
+                            <div class="circle-item-hover">
+                                <div class="circle-item sort" data-title="Sort" data-desc="Keep only what’s needed and remove the rest.">Sort</div>
+                            </div>
+                            <div class="circle-item-hover">
+                                <div class="circle-item set" data-title="Set in Order" data-desc="Organize items so everything is easy to find and use.">Set in Order</div>
+                            </div>
+                            <div class="circle-item-hover">
+                                <div class="circle-item shine" data-title="Shine" data-desc="Keep the workplace clean and spot problems quickly.">Shine</div>
+                            </div>
+                            <div class="circle-item-hover">
+                                <div class="circle-item standardize" data-title="Standardize" data-desc="Create rules to maintain cleanliness and order.">Standardize</div>
+                            </div>
+                            <div class="circle-item-hover">
+                                <div class="circle-item sustain" data-title="Sustain" data-desc="Build habits to maintain standards long-term.">Sustain</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+            
             </div>
 
         </div>
-    </main>
+
+        <?php
+        // Render ALL "last" blocks (after diagram)
+        if (!empty($lastBlocks)) {
+            foreach ($lastBlocks as $block) {
+                echo render_block($block);
+            }
+        }
+
+    endwhile;
+else :
+    echo '<p>No content found.</p>';
+endif;
+?>
+</main>
+
+
+
     
     
 <?php get_footer(); ?>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Header scroll logic remains the same...
+  // Header scroll logic
   const header = document.getElementById("site-header");
   window.addEventListener("scroll", function () {
     if (window.scrollY > 50) {
@@ -176,77 +308,104 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // === Diagram hover description logic ===
-  const diagrams = document.querySelectorAll('.diagram-container');
+  // === Tooltip logic for diagram items ===
+  const tooltip = document.createElement('div');
+  tooltip.className = 'diagram-tooltip';
+  document.body.appendChild(tooltip);
 
+  const diagrams = document.querySelectorAll('.diagram-container');
   diagrams.forEach(diagram => {
-    const infoBox = diagram.nextElementSibling;
     const items = diagram.querySelectorAll('.circle-item-hover');
 
     items.forEach(item => {
-      item.addEventListener('mouseenter', () => {
-        const ball = item.querySelector('.circle-item')
+      item.addEventListener('mouseenter', (e) => {
+        const ball = item.querySelector('.circle-item');
         const title = ball.getAttribute('data-title');
         const desc = ball.getAttribute('data-desc');
-        infoBox.innerHTML = `<strong>${title}</strong>: ${desc}`;
-        infoBox.style.opacity = '1';
+        tooltip.innerHTML = `<strong>${title}</strong><br>${desc}`;
+        tooltip.style.opacity = '1';
+        tooltip.style.visibility = 'visible';
+
+        const rect = e.target.getBoundingClientRect();
+        const tooltipX = rect.left + rect.width / 2;
+        const tooltipY = rect.top - 10; // above the circle
+        tooltip.style.left = `${tooltipX}px`;
+        tooltip.style.top = `${tooltipY}px`;
       });
+
+      item.addEventListener('mousemove', (e) => {
+        const tooltipX = e.pageX + 15;
+        const tooltipY = e.pageY - 20;
+        tooltip.style.left = `${tooltipX}px`;
+        tooltip.style.top = `${tooltipY}px`;
+      });
+
       item.addEventListener('mouseleave', () => {
-        infoBox.style.opacity = '0';
+        tooltip.style.opacity = '0';
+        tooltip.style.visibility = 'hidden';
       });
     });
   });
+
+  // === Typing animation logic (unchanged) ===
   const typingText = document.getElementById("typing-text");
   const typingText2 = document.getElementById("typing-text2");
   const currentYear = new Date().getFullYear();
   const period_industry = currentYear - 1993;
+  document.getElementById('year-data').innerText= period_industry+' Years';
   const lines = [
-    period_industry+" Years in the Motorcycle Industry,",
+    period_industry + " Years in the Motorcycle Industry",
     "GT-MAX MOTORS (M) SDN BHD Incorporated on 14th JULY 1993,",
     "with 17 retail outlets operating at the moment."
   ];
 
-let lineIndex = 0;
-let charIndex = 0;
-let typingSpeed = 30; // typing speed in ms
-let lineDelay = 1000; // delay before next line starts
+  let lineIndex = 0;
+  let charIndex = 0;
+  let typingSpeed = 30;
+  let lineDelay = 1000;
 
-function typeLine() {
-  if (lineIndex < lines.length) {
-    const currentLine = lines[lineIndex];
+  function typeLine() {
+    if (lineIndex < lines.length) {
+      const currentLine = lines[lineIndex];
+      let previousLines = lines.slice(0, lineIndex)
+        .map((text, i) => (i === 0 ? `<span class='animation-main'>${text}</span>` : text))
+        .join("<br>");
+        console.log('previousLines: ', previousLines);
+      let currentTyped =
+        lineIndex === 0
+          ? `<span class='animation-main'>${currentLine.substring(0, charIndex + 1)}</span>`
+          : currentLine.substring(0, charIndex + 1);
 
-    // Build previously typed lines
-    let previousLines = lines.slice(0, lineIndex)
-      .map((text, i) => (i === 0 ? `<span class='animation-main'>${text}</span>` : text))
-      .join("<br>");
+      typingText.innerHTML = previousLines
+        ? previousLines + "<br>" + currentTyped
+        : currentTyped;
 
-    // Build current typing progress
-    let currentTyped =
-      lineIndex === 0
-        ? `<span class='animation-main'>${currentLine.substring(0, charIndex + 1)}</span>`
-        : currentLine.substring(0, charIndex + 1);
-
-    typingText.innerHTML = previousLines
-      ? previousLines + "<br>" + currentTyped
-      : currentTyped;
-    typingText2.innerHTML = previousLines
-      ? previousLines + "<br>" + currentTyped
-      : currentTyped;
-    if (charIndex < currentLine.length - 1) {
-      charIndex++;
-      setTimeout(typeLine, typingSpeed);
-    } else {
-      lineIndex++;
-      charIndex = 0;
-      setTimeout(typeLine, lineDelay);
+      if (charIndex < currentLine.length - 1) {
+        charIndex++;
+        setTimeout(typeLine, typingSpeed);
+      } else {
+        lineIndex++;
+        charIndex = 0;
+        setTimeout(typeLine, lineDelay);
+      }
     }
-  } else {
-    
-    
   }
-}
 
+  typeLine();
 
-typeLine();
+    const cloudContainer = document.querySelector(".animate-cloud");
+    const boxes = document.querySelectorAll(".career-box");
+
+    // Pause animation on hover
+    boxes.forEach(box => {
+        box.addEventListener("mouseenter", () => {
+            cloudContainer.classList.add("paused");
+        });
+        box.addEventListener("mouseleave", () => {
+            cloudContainer.classList.remove("paused");
+        });
+    });
+
 });
+
 </script>

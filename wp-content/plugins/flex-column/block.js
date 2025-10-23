@@ -124,7 +124,12 @@
         attributes: {
             basis: { type: 'string', default: 'auto' },
             background_color: { type: 'string', default: 'auto' },
-            padding: {type: 'string', default: '0px' }
+            padding: {type: 'string', default: '0px' },
+            border: {type: 'string', default:'none'},
+            justify: {type: 'string', default: 'start'},
+            alignItems: {type: 'string', default: 'stretch'},
+            minWidth: { type: 'string', default: 'auto' },
+            minHeight: { type: 'string', default: 'auto' },
         },
 
         edit: function( props ) {
@@ -134,10 +139,43 @@
             return el( Fragment, null,
                 el( InspectorControls, null,
                     el( PanelBody, { title: 'Column Settings', initialOpen: true },
+                         el( SelectControl, {
+                            label: 'Justify Content',
+                            value: attributes.justify,
+                            options: [
+                                { label: 'Start', value: 'start' },
+                                { label: 'Center', value: 'center' },
+                                { label: 'End', value: 'end' },
+                                { label: 'Space Between', value: 'space-between' },
+                                { label: 'Space Around', value: 'space-around' }
+                            ],
+                            onChange: function( val ) { setAttributes( { justify: val } ); }
+                        }),
+                        el( SelectControl, {
+                            label: 'Align Items',
+                            value: attributes.alignItems,
+                            options: [
+                                { label: 'Stretch', value: 'stretch' },
+                                { label: 'Start', value: 'flex-start' },
+                                { label: 'Center', value: 'center' },
+                                { label: 'End', value: 'flex-end' }
+                            ],
+                            onChange: function( val ) { setAttributes( { alignItems: val } ); }
+                        }),
                         el( wp.components.TextControl, {
                             label: 'Flex Basis (px, %, auto)',
                             value: attributes.basis,
                             onChange: function( val ) { setAttributes( { basis: val } ); }
+                        }),
+                        el( wp.components.TextControl, {
+                            label: 'Min Height (px, %, auto)',
+                            value: attributes.minHeight,
+                            onChange: function( val ) { setAttributes( { minHeight: val } ); }
+                        }),
+                        el( wp.components.TextControl, {
+                            label: 'Min Width (px, %, auto)',
+                            value: attributes.minWidth,
+                            onChange: function( val ) { setAttributes( { minWidth: val } ); }
                         }),
                         el( wp.components.ColorPalette, {
                             label: 'Background Color',
@@ -148,6 +186,11 @@
                             label: 'Padding (px, %, auto)',
                             value: attributes.padding,
                             onChange: function( val ) { setAttributes( { padding: val } ); }
+                        }),
+                        el( wp.components.TextControl, {
+                            label: 'Border top ( width style color;)',
+                            value: attributes.border,
+                            onChange: function( val ) { setAttributes( { border: val } ); }
                         }),
                     )
                     
@@ -160,7 +203,7 @@
 
         save: function( props ) {
             var attributes = props.attributes;
-            return el( 'div', { className: 'flexcol-column', style: { flexBasis: attributes.basis , backgroundColor: attributes.background_color, padding: attributes.padding }},
+            return el( 'div', { className: 'flexcol-column', style: { justifyContent: attributes.justify, alignItems: attributes.alignItems ,flexBasis: attributes.basis , backgroundColor: attributes.background_color, padding: attributes.padding, borderTop: attributes.border, minHeight: attributes.minHeight, minWidth: attributes.minWidth }},
                 el( InnerBlocks.Content )
             );
         }

@@ -5,10 +5,10 @@ top: 0; bottom: 0; width: 1px; background: var(--acro-line-color); }
 .acro-timeline-root.acro-timeline-horizontal .acro-timeline-line { left: 0;
 right: 0; top: 0px; height: 3px; width: auto; }
 
-.acro-timeline-items { position: relative;  width: max-content; }
+.acro-timeline-items { position: relative;  width: max-content; margin-right: 500px;}
 .acro-timeline-root.acro-timeline-horizontal .acro-timeline-item {
 display:inline-block; vertical-align: top; }
-.acro-timeline-time { font-weight:700; margin-bottom:6px; }
+.acro-timeline-time { font-weight:700; margin-bottom:6px; font-size: 20px;}
 .acro-timeline-content { display:flex; align-items:flex-start; padding-top: 10px; transition: transform 0.3s ease;}
 .acro-timeline-horizontal .acro-timeline-content{
     border: var(--acro-border);
@@ -27,6 +27,7 @@ display:inline-block; vertical-align: top; }
 }
 .acro-timeline-vertical .acro-timeline-item .acro-timeline-time .timeline-time{
     margin-right: 10px;
+    
 }
 .acro-timeline-horizontal .acro-timeline-item .acro-timeline-time {
     margin-top: 30px;
@@ -66,7 +67,7 @@ display:inline-block; vertical-align: top; }
 .acro-timeline-horizontal .acro-timeline-items {
     display: flex;
     min-width: max-content;
-    animation: slide-left-to-right 20s linear infinite;
+    animation: slide-left-to-right 60s linear infinite;
     /* Ensure items are duplicated in HTML/JS for seamless loop */
 }
 
@@ -81,11 +82,14 @@ display:inline-block; vertical-align: top; }
    so the duplicated items appear as the first ones slide out. */
 @keyframes slide-left-to-right {
     0% {
-        transform: translateX(0);
+        transform: translateX(20%);
     }
     100% {
         transform: translateX(-100%);
     }
+}
+.acro-timeline-item .acro-timeline-content{
+    max-width: 400px;
 }
 
 .acro-timeline-horizontal {
@@ -106,12 +110,12 @@ display:inline-block; vertical-align: top; }
 .acro-timeline-horizontal .acro-timeline-line::after {
   content: "";
   position: absolute;
-  right: -15px; /* adjust based on your line thickness */
+  right: -15px; 
   top: 50%;
   transform: translateY(-50%);
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-left: 12px solid var(--acro-line-color); /* Arrow color same as line */
+  border-left: 12px solid var(--acro-line-color); 
 }
 
 /* Vertical arrow */
@@ -127,10 +131,10 @@ display:inline-block; vertical-align: top; }
 }
 
 .timeline-dot{
-    padding: 7px;
+    padding: 10px;
     float: left;
     border-radius: 100%;
-    width: 5px;
+    width: 7px;
     z-index: 1;
     position: relative;
     
@@ -141,7 +145,7 @@ display:inline-block; vertical-align: top; }
     left:60px;
 }
 .acro-timeline-horizontal .timeline-dot{
-    bottom: 66px;
+    bottom: 75px;
 
 }
 .paused {

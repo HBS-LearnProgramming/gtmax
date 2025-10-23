@@ -21,10 +21,34 @@ Text Domain: GTMAX-Theme
 
 
 @font-face {
-  font-family: 'D-DIN-Bold';
-  src: url('fonts/D-DIN-Bold.woff') format('woff');
-  font-weight: bold; /* or 700 */
+  font-family: 'D-DIN';
+  src: url('fonts/D-DIN.woff') format('woff');
   font-style: normal;
   font-display: swap; /* Optional: controls how the font loads and displays */
+}
+
+.branch-image{
+    border-radius: 10px;
+}
+.branch-content{
+    padding: 10px;
+}
+.career_more_detail_btn{
+    width: 150px !important;
+    position: relative;
+}
+.career_more_detail_btn::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%) rotate(90deg);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid white;
+}
+.list-style-disc {
+    list-style-type: disc;
+    list-style-position: inside;
 }
 
