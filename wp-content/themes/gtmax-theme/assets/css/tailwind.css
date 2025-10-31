@@ -109,7 +109,6 @@ html{
   margin-bottom: 10px;
   font-weight: bold;
   font-size: 36px;
-  color: #193540;
   margin-top: 20px;
 }
 
@@ -331,6 +330,64 @@ ul.list_style_design li::before {
 .breadcrumb{
   @apply flex gap-2 text-lg py-5;
 }
+
+/* typing animation */
+.show-cursor::after {
+  content: '';
+  display: inline-block;
+  width: 2px;             /* ✨ Make cursor thinner (try 1px–2px) */
+  height: 1em;            /* Matches text height */
+  margin-left: 4px;
+  animation: blink 0.8s infinite;
+  vertical-align: bottom;
+  @apply bg-primary;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.fadeIn {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.zoomIn {
+  animation: zoomIn 1s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Slide Left */
+.slideLeft {
+  display: inline-block;
+  animation: slideLeft 1s ease-in-out;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Slide Right */
+.slideRight {
+  display: inline-block;
+  animation: slideRight 1s ease-in-out;
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
 /* .wp-block-columns{
   @apply m-0;
 } */

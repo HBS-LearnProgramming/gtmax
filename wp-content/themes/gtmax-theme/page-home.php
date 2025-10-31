@@ -15,7 +15,7 @@
         .animation-typing-box {
             color: #4b4960ff;
             font-family: 'D-DIN', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             text-transform: uppercase;
             text-align: center;
             white-space: nowrap;
@@ -25,7 +25,7 @@
         }
 
         .animation-typing-box .animation-main{
-            font-size: 23px;
+            font-size: 25px;
             font-weight: bold;
             color: #262161;
         }
@@ -59,14 +59,16 @@
         
         <div class="home-cover relative w-full h-[30vh] lg:h-screen overflow-hidden flex justify-center bg-cover bg-no-repeat bg-center items-center z-0" style="background-image: url(<?php echo get_template_directory_uri() . '/images/home/HQ_KAPAR_VIDEO.png' ?>)">
             <video id="myVideo" autoplay muted loop playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 object-cover">
-                <source src="<?php echo get_template_directory_uri() . '/images/home/Homepage_hq_hd_version.mp4'; ?>" type="video/mp4">
+                <source src="<?php echo get_template_directory_uri() . '/images/home/stablizer1.mp4'; ?>" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-
-            <div class="animation-typing-box text-lg absolute z-2 right-2">
-                <span id="typing-text"></span>
+            <div class="abolute w-full h-[30vh] z-2 lg:h-screen" style="background: linear-gradient(100deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 90%);">
+                <div class="animation-typing-box text-lg right-3 top-1/2">
+                    <span id="typing-text" class="typing-container"></span>
+                </div>
             </div>
+            
             
         </div>
         <!-- <div class="home-cover relative w-full h-screen overflow-hidden flex justify-center bg-cover bg-no-repeat bg-center items-center z-0" style="background-image: url(<?php echo wp_upload_dir()['baseurl'] . '/2025/09/web-video.gif' ?>)">
@@ -120,7 +122,7 @@
         <div class="data-content">Across Selangor and Klang Valley</div>
     </div>
     <div class="data-border">
-        <h1 class="data-header">100,000+ </h1>
+        <h1 class="data-header">250,000+ </h1>
         <div class="data-content">Riders served</div>
     </div>
 </div>
@@ -219,7 +221,7 @@ if (have_posts()) :
             </div>
             <!-- === Diagram Section === -->
             <div class="diagram-section ">
-                <h1 class="diagram-title text-center ">Our Philosophy</h1>
+                <h1 class="diagram-title text-center text-primary typing-animation">Our Philosophy</h1>
                 <div class="flex mt-20 flex-wrap lg:justify-evenly">
                     <!-- 5I Diagram -->
                     <section class="fivei-diagram sm:basis-full lg:basis-auto sm:mb-30 lg:mb-0">
@@ -272,6 +274,7 @@ if (have_posts()) :
             
             </div>
 
+
         </div>
 
         <?php
@@ -307,6 +310,44 @@ document.addEventListener("DOMContentLoaded", function () {
       header.classList.remove("fixed", "bg-white", "shadow-md");
     }
   });
+
+    const text = "Our Philosophy";
+    const title = document.querySelector(".typing-animation");
+    let index = 0;
+    let typing = false; // Prevent overlapping animations
+
+    function type() {
+        if (index < text.length) {
+            title.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 60);
+        } else {
+            typing = false; // finished typing
+            title.classList.remove("show-cursor");
+        }
+    }
+
+    function startTyping() {
+        if (!typing) {
+            typing = true;
+            index = 0;
+            title.textContent = ""; // reset text
+            title.classList.add("show-cursor");
+            type();
+        }
+    }
+
+    // 👀 Observe when the element enters the viewport
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startTyping(); // restart typing when visible
+            }
+        });
+    }, { threshold: 0.5 }); // 0.5 = trigger when 50% visible
+
+    observer.observe(title);
+
 
   // === Tooltip logic for diagram items ===
   const tooltip = document.createElement('div');
@@ -349,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === Typing animation logic (unchanged) ===
   const typingText = document.getElementById("typing-text");
-  const typingText2 = document.getElementById("typing-text2");
+//   const typingText2 = document.getElementById("typing-text2");
   const currentYear = new Date().getFullYear();
   const period_industry = currentYear - 1993;
   document.getElementById('year-data').innerText= period_industry+' Years';
@@ -390,8 +431,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
+  const linesHTML = lines.map((line, index) => {
+    const animClass = "slideLeft";
+    const extraClass = index === 0 ? "animation-main" : "";
+    return `<div class="${animClass} ${extraClass}">${line}</div><br>`;
+  }).join("");
 
-  typeLine();
+  typingText.innerHTML = linesHTML;
 
     const cloudContainer = document.querySelector(".animate-cloud");
     const boxes = document.querySelectorAll(".career-box");

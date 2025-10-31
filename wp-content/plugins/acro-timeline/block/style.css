@@ -67,7 +67,7 @@ display:inline-block; vertical-align: top; }
 .acro-timeline-horizontal .acro-timeline-items {
     display: flex;
     min-width: max-content;
-    animation: slide-left-to-right 60s linear infinite;
+    animation: slide-left-to-right 50s linear infinite;
     /* Ensure items are duplicated in HTML/JS for seamless loop */
 }
 
