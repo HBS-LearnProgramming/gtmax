@@ -105,7 +105,7 @@
         Who We Are
     </div>
     <div class="basis-10/12">
-        <div class="border-l border-solid border-gray-700 w-9/12 text-[30px] pl-8">
+        <div class="border-l border-solid border-gray-700 w-9/12 text-[30px] pl-8 text-justify">
             Founded in 1993, GT-MAX Motors (M) Sdn Bhd began as a small motorcycle repair shop in Shah Alam and has since grown into one of Malaysia’s leading motorcycle dealers.
     For over three decades, we’ve been empowering riders across the nation with reliable motorcycles, trusted service, and a passion for two-wheeled freedom.
         </div>
@@ -222,53 +222,104 @@ if (have_posts()) :
             <!-- === Diagram Section === -->
             <div class="diagram-section ">
                 <h1 class="diagram-title text-center text-primary typing-animation">Our Philosophy</h1>
-                <div class="flex mt-20 flex-wrap lg:justify-evenly">
+                <div class="flex mt-20 flex-wrap lg:center justify-center">
                     <!-- 5I Diagram -->
                     <section class="fivei-diagram sm:basis-full lg:basis-auto sm:mb-30 lg:mb-0">
                         <div class="diagram-container">
-                            <div class="circle-center">5I</div>
+                            <div class="circle-center">1C5S</div>
 
                             <div class="circle-item-hover">
-                                <div class="circle-item imagination" data-title="Imagination" data-desc="Dream big and challenge.">Imagination</div>
+                                <div class="circle-item customer" data-title="Customer" data-desc="Build Up Customer Loyalty through engage activities">
+                                    <div>
+                                        <p>1C</p>
+                                        <p>CUSTOMER</p>
+                                    </div>
+                                    
+                                </div>
+                                <div class="description">
+                                    <div class="dec-line"></div>
+                                    <div class="content">
+                                        Build Up Customer Loyalty through engage activities
+                                    </div>
+                                </div>
+                                
                             </div>
                             <div class="circle-item-hover">
-                                <div class="circle-item innovation" data-title="Innovation" data-desc="Constant change and creativity.">Innovation</div>
+                                <div class="circle-item sales" data-title="Sales" data-desc="Increase motorcycle sales. And Build up strong shop branding through motorsports activies.">
+                                    <div>
+                                        <p>1S</p>
+                                        <p>SALES</p>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <div class="dec-line"></div>
+                                    <div class="content">
+                                        Increase motorcycle sales. And Build up strong shop branding through motorsports activies.
+                                    </div>
+                                </div>
                             </div>
                             <div class="circle-item-hover">
-                                <div class="circle-item integration" data-title="Integration" data-desc="Micro view and totality.">Integration</div>
+                                <div class="circle-item services" data-title="Services" data-desc="Gain customer trues through mechanics upskilling and excellent after sales support.">
+                                    <div>
+                                        <p>2S</p>
+                                        <p>SERVICES</p>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <div class="dec-line"></div>
+                                    <div class="content">
+                                        Gain customer trues through mechanics upskilling and excellent after sales support.
+                                    </div>
+                                </div>
                             </div>
                             <div class="circle-item-hover">
-                                <div class="circle-item involvement" data-title="Involvement" data-desc="Passion and participation.">Involvement</div>
+                                <div class="circle-item sparepart" data-title="Spare Part" data-desc="Build up YGP and Yamalube branding to boost up sales.">
+                                    <div>
+                                        <p>3S</p>
+                                        <p>SPARE PART</p>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <div class="content">
+                                        Build up YGP and Yamalube branding to boost up sales.
+                                    </div>
+                                    <div class="dec-line"></div>
+                                </div>
                             </div>
                             <div class="circle-item-hover">
-                                <div class="circle-item interaction" data-title="Interaction" data-desc="Communication and socialize.">Interaction</div>
+                                <div class="circle-item society" data-title="Society" data-desc="Contribute back to society and increase brand awareness.">
+                                    <div>
+                                        <p>4S</p>
+                                        <p>SOCIETY</p>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <div class="content">
+                                        Contribute back to society and increase brand awareness.
+                                    </div>
+                                    <div class="dec-line"></div>
+                                </div>
                             </div>
+                            <div class="circle-item-hover">
+                                <div class="circle-item safety" data-title="Safety" data-desc="Enhance safety awareness of the customer.">
+                                    <div>
+                                        <p>5S</p>
+                                        <p>SAFETY</p>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    
+                                    <div class="content">
+                                        Enhance safety awareness of the customer.
+                                    </div>
+                                    <div class="dec-line"></div>
+                                </div>
+                            </div>
+                            
                         </div>
                         <div class="item-info"></div>
                     </section>
 
-                    <!-- 5S Diagram -->
-                    <section class="fives-diagram sm:basis-full lg:basis-auto">
-                        <div class="diagram-container">
-                            <div class="circle-center">5S</div>
-
-                            <div class="circle-item-hover">
-                                <div class="circle-item sort" data-title="Sort" data-desc="Keep only what’s needed and remove the rest.">Sort</div>
-                            </div>
-                            <div class="circle-item-hover">
-                                <div class="circle-item set" data-title="Set in Order" data-desc="Organize items so everything is easy to find and use.">Set in Order</div>
-                            </div>
-                            <div class="circle-item-hover">
-                                <div class="circle-item shine" data-title="Shine" data-desc="Keep the workplace clean and spot problems quickly.">Shine</div>
-                            </div>
-                            <div class="circle-item-hover">
-                                <div class="circle-item standardize" data-title="Standardize" data-desc="Create rules to maintain cleanliness and order.">Standardize</div>
-                            </div>
-                            <div class="circle-item-hover">
-                                <div class="circle-item sustain" data-title="Sustain" data-desc="Build habits to maintain standards long-term.">Sustain</div>
-                            </div>
-                        </div>
-                    </section>
                 </div>
                 
             
@@ -347,46 +398,59 @@ document.addEventListener("DOMContentLoaded", function () {
     }, { threshold: 0.5 }); // 0.5 = trigger when 50% visible
 
     observer.observe(title);
+    const description = document.querySelectorAll('.description');
+    const tooltip = document.createElement('div');
+    if (window.innerWidth < 1000) {
+        description.forEach(el => el.style.display = 'none');
+        // === Tooltip logic for diagram items ===
+        
+        tooltip.className = 'diagram-tooltip';
+        document.body.appendChild(tooltip);
 
+        const diagrams = document.querySelectorAll('.diagram-container');
+        diagrams.forEach(diagram => {
+            const items = diagram.querySelectorAll('.circle-item-hover');
 
-  // === Tooltip logic for diagram items ===
-  const tooltip = document.createElement('div');
-  tooltip.className = 'diagram-tooltip';
-  document.body.appendChild(tooltip);
+            items.forEach(item => {
+            item.addEventListener('mouseenter', (e) => {
+                const ball = item.querySelector('.circle-item');
+                const title = ball.getAttribute('data-title');
+                const desc = ball.getAttribute('data-desc');
+                tooltip.innerHTML = `<strong>${title}</strong><br>${desc}`;
+                tooltip.style.opacity = '1';
+                tooltip.style.visibility = 'visible';
 
-  const diagrams = document.querySelectorAll('.diagram-container');
-  diagrams.forEach(diagram => {
-    const items = diagram.querySelectorAll('.circle-item-hover');
+                const rect = e.target.getBoundingClientRect();
+                const tooltipX = rect.left + rect.width / 2;
+                const tooltipY = rect.top - 10; // above the circle
+                tooltip.style.left = `${tooltipX}px`;
+                tooltip.style.top = `${tooltipY}px`;
+            });
 
-    items.forEach(item => {
-      item.addEventListener('mouseenter', (e) => {
-        const ball = item.querySelector('.circle-item');
-        const title = ball.getAttribute('data-title');
-        const desc = ball.getAttribute('data-desc');
-        tooltip.innerHTML = `<strong>${title}</strong><br>${desc}`;
-        tooltip.style.opacity = '1';
-        tooltip.style.visibility = 'visible';
+            item.addEventListener('mousemove', (e) => {
+                const tooltipX = e.pageX + 15;
+                const tooltipY = e.pageY - 20;
+                tooltip.style.left = `${tooltipX}px`;
+                tooltip.style.top = `${tooltipY}px`;
+            });
 
-        const rect = e.target.getBoundingClientRect();
-        const tooltipX = rect.left + rect.width / 2;
-        const tooltipY = rect.top - 10; // above the circle
-        tooltip.style.left = `${tooltipX}px`;
-        tooltip.style.top = `${tooltipY}px`;
-      });
+            item.addEventListener('mouseleave', () => {
+                tooltip.style.opacity = '0';
+                tooltip.style.visibility = 'hidden';
+            });
+            });
+        });
+    }else{
+        description.forEach(el => {
+            el.style.display = 'flex';
+            el.style.alignItems = 'center';
+        });
 
-      item.addEventListener('mousemove', (e) => {
-        const tooltipX = e.pageX + 15;
-        const tooltipY = e.pageY - 20;
-        tooltip.style.left = `${tooltipX}px`;
-        tooltip.style.top = `${tooltipY}px`;
-      });
-
-      item.addEventListener('mouseleave', () => {
+        // Hide tooltip when desktop view is active
         tooltip.style.opacity = '0';
         tooltip.style.visibility = 'hidden';
-      });
-    });
-  });
+    }
+  
 
   // === Typing animation logic (unchanged) ===
   const typingText = document.getElementById("typing-text");

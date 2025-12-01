@@ -19,6 +19,11 @@
             boxShadow: { type: 'number', default: 0 },
             boxShadowColor: { type: 'string', default: '#ffffff' },
             borderColor: { type: 'string', default: '#ffffff' },
+            listItems: { type: 'array', default: [] },
+            listType: { type: 'string', default: 'ul' },
+            listColor: { type: 'string', default: '#000000' },
+            listFontSize: { type: 'number', default: 16 },
+            listFontWeight: { type: 'string', default: '400' },
         },
 
         edit: function( props ) {
@@ -177,14 +182,78 @@
                                         allowedFormats: [ 'core/bold', 'core/italic', 'core/underline' ]
                                     } ),
 
-                                    createElement( RichText, {
-                                        tagName: 'div',
-                                        value: item.description,
-                                        className: 'description-item',
-                                        onChange: function( v ) { updateItem( index, { description: v } ); },
-                                        placeholder: __( 'Description...' ),
-                                        allowedFormats: [ 'core/bold', 'core/italic', 'core/underline' ]
-                                    } ),
+                                    // --- Description list configuration ---
+                                    createElement('div', { className: 'acro-description-settings' },
+                                        createElement('label', null, __('List Type')),
+                                        createElement('select', {
+                                            value: item.listType || 'ul',
+                                            onChange: (e) => updateItem(index, { listType: e.target.value })
+                                        },
+                                            createElement('option', { value: 'disc' }, __('Bulleted List')),
+                                            createElement('option', { value: 'decimal' }, __('Numbered List')),
+                                            createElement('option', { value: 'lower-alpha' }, __('Alpha List')),
+                                        ),
+                                        createElement('label', null, __('List Text Color')),
+                                        createElement(ColorPicker, {
+                                            color: item.listColor || '#000000',
+                                            value: item.listColor || '#000000',
+                                            onChange: (value) => updateItem(index, { listColor: value.hex || value })
+                                        }),
+                                        createElement('label', null, __('Font Size (px)')),
+                                        createElement(RangeControl, {
+                                            value: item.listFontSize || 16,
+                                            min: 10,
+                                            max: 48,
+                                            onChange: (value) => updateItem(index, { listFontSize: value })
+                                        }),
+                                        createElement('label', null, __('Font Weight')),
+                                        createElement('select', {
+                                            value: item.listFontWeight || '400',
+                                            onChange: (e) => updateItem(index, { listFontWeight: e.target.value })
+                                        },
+                                            createElement('option', { value: '300' }, __('Light')),
+                                            createElement('option', { value: '400' }, __('Normal')),
+                                            createElement('option', { value: '600' }, __('Semi-Bold')),
+                                            createElement('option', { value: '700' }, __('Bold'))
+                                        )
+                                    ),
+
+                                    // --- Dynamic list item editor ---
+                                    createElement('div', { className: 'acro-description-list' },
+                                        createElement('h5', null, __('List Items')),
+                                        (item.listItems || []).map((li, liIndex) =>
+                                            createElement('div', { className: 'list-item-editor', key: liIndex },
+                                                createElement(RichText, {
+                                                    tagName: 'div',
+                                                    value: li,
+                                                    placeholder: __('List item...'),
+                                                    onChange: (v) => {
+                                                        const newList = item.listItems ? [...item.listItems] : [];
+                                                        newList[liIndex] = v;
+                                                        updateItem(index, { listItems: newList });
+                                                    },
+                                                    allowedFormats: ['core/bold', 'core/italic', 'core/underline']
+                                                }),
+                                                createElement(Button, {
+                                                    isDestructive: true,
+                                                    onClick: () => {
+                                                        const newList = item.listItems ? [...item.listItems] : [];
+                                                        newList.splice(liIndex, 1);
+                                                        updateItem(index, { listItems: newList });
+                                                    }
+                                                }, __('Remove'))
+                                            )
+                                        ),
+                                        createElement(Button, {
+                                            isPrimary: true,
+                                            onClick: () => {
+                                                const newList = item.listItems ? [...item.listItems] : [];
+                                                newList.push('');
+                                                updateItem(index, { listItems: newList });
+                                            }
+                                        }, __('Add List Item'))
+                                    ),
+
 
                                     createElement( 'div', { className: 'acro-item-style' },
                                         createElement( TextControl, {
@@ -219,7 +288,7 @@
                 )
             );
         },
-
+        
         save: function( props ) {
             const { attributes } = props;
             const items = attributes.items || [];
@@ -236,12 +305,13 @@
                 '--acro-border-radius': `${borderRadius}px`,
                 '--acro-box-shadow': boxShadow ? `0 0 ${boxShadow}px ${boxShadowColor}` : 'none',
             };
-
+            
             return (
                 createElement( 'div', { className: 'acro-timeline-root acro-timeline-' + orientation, style: styleVars },
                     createElement( 'div', { className: 'acro-timeline-line' } ),
                     createElement( 'div', { className: 'acro-timeline-items' },
-                        items.map( function( item, index ) {                                                                                                                                                                                                                                
+                        items.map( function( item, index ) {             
+                            console.log('listType: ', item.listType);                                                                                                                                                                                                                   
                             return createElement( 'div', { className: 'acro-timeline-item', key: index},
                                 createElement( 'div', { className: 'acro-timeline-time' }, item.time ),
                                 createElement( 'div', { className: 'acro-timeline-content' },
@@ -252,7 +322,21 @@
                                         createElement( 'h3', { className: 'acro-timeline-title', style: item.textStyle && item.textStyle.bold ? { fontWeight: '700' } : {} },
                                             createElement( RichText.Content, { tagName: 'span', value: item.title } )
                                         ),
-                                        createElement( RichText.Content, { tagName: 'div', className: 'acro-timeline-desc', value: item.description } )
+                                        (item.listItems && item.listItems.length > 0) ? 
+                                            createElement('ul', {
+                                                className: 'acro-timeline-desc-list',
+                                                style: {
+                                                    listStyleType: item.listType || ' disc',
+                                                    color: item.listColor || '#000',
+                                                    fontSize: (item.listFontSize || 16) + 'px',
+                                                    fontWeight: item.listFontWeight || '400',
+                                                }
+                                            },
+                                                item.listItems.map((li, liIndex) =>
+                                                    createElement('li', { key: liIndex }, li)
+                                                )
+                                            )
+                                        : null
                                     )
                                 )
                             );

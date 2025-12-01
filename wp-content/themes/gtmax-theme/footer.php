@@ -1,4 +1,4 @@
-    <div class="flex flex-wrap gap-20 container justify-between px-10 border-t border-solid border-gray-500 pt-5 min-w-full">
+    <div class="flex flex-wrap gap-20 container justify-between px-10 border-t border-solid border-gray-500 py-8 min-w-full">
         <script type="text/javascript"
                     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
             </script>

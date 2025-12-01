@@ -14,3 +14,15 @@ background: #fafafa; }
   width: var(--acro-img-width, auto);
   object-fit: cover;
 }
+
+.acro-timeline-desc-list {
+  margin: 0;
+  padding-left: 20px;
+}
+.acro-timeline-desc-item {
+  margin-bottom: 4px;
+}
+.acro-timeline-desc-list[style*="list-style-type: none"] {
+  padding-left: 0;
+}
+

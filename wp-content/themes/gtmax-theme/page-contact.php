@@ -28,15 +28,17 @@
     </header>
 
     <main>
-        <?php
-        if ( have_posts() ) :
-            while ( have_posts() ) : the_post();
-                the_content();
-            endwhile;
-        else :
-            echo '<p>No content found</p>';
-        endif;
-        ?>
+        
+            <?php
+            if ( have_posts() ) :
+                while ( have_posts() ) : the_post();
+                    the_content();
+                endwhile;
+            else :
+                echo '<p>No content found</p>';
+            endif;
+            ?>
+      
 
         <div class="relative mt-25">
             <div class="w-[95vw] top bg-gray-100 py-10 mx-auto absolute -top-10 left-7">

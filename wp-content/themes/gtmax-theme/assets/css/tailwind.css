@@ -126,12 +126,11 @@ code, kbd, samp, pre {
 .circle-center {
   @apply bg-primary;
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 140px;
   color: #fff;
   font-weight: bold;
   font-size: 40px;
-  border-radius: 50%;
   display: flex;
   box-shadow: 5px 5px 1px rgb(126, 126, 126);
   justify-content: center;
@@ -140,17 +139,24 @@ code, kbd, samp, pre {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
+  clip-path: polygon(
+    25% 0%,
+    75% 0%,
+    100% 50%,
+    75% 100%,
+    25% 100%,
+    0% 50%
+  );
 }
 
 .circle-item {
   z-index: 2;
-  width: 140px;
+  width: 160px;
   height: 140px;
   position: relative;
   background: #00b6b6;
   color: #fff;
   text-transform: uppercase;
-  border-radius: 50%;
   box-shadow: 5px 5px 1px rgb(126, 126, 126);
   display: flex;
   justify-content: center;
@@ -161,7 +167,18 @@ code, kbd, samp, pre {
   transition: all 0.4s ease;
   cursor: pointer;
   padding: 15px;
+
+  /* HEXAGON SHAPE */
+  clip-path: polygon(
+    25% 0%,
+    75% 0%,
+    100% 50%,
+    75% 100%,
+    25% 100%,
+    0% 50%
+  );
 }
+
 
 
 .circle-item-hover{
@@ -169,82 +186,131 @@ code, kbd, samp, pre {
   width: 140px;
   height: 140px;
 }
+.circle-item-hover .description{
+  @apply absolute items-center;
+}
+.fivei-diagram .circle-item-hover .description .dec-line{
+  @apply h-1 bg-primary w-[100px] relative opacity-70;
+}
 
+/* Add dots at both ends */
+
+.fivei-diagram .circle-item-hover .description .dec-line::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: #262161; /* matches --color-primary */
+  border-radius: 9999px;
+}
+
+/* place left and right dots centered on the ends of the line */
+.fivei-diagram .circle-item-hover .description .dec-line::before{
+  left: -5px; /* half of dot width to center on line start */
+}
+.fivei-diagram .circle-item-hover .description .dec-line::after{
+  right: -5px; /* half of dot width to center on line end */
+}
+.fivei-diagram .circle-item-hover .description .content{
+  box-shadow: 0px 0px 20px rgb(201, 201, 201);
+  @apply text-lg rounded text-primary tracking-wider border-primary border-solid px-5 py-2 border min-w-[250px]  bg-white;
+}
 /* Position each circle evenly around the center */
 .fivei-diagram .circle-item-hover:nth-child(2) { 
   top: -1%; 
-  left: 50%; 
+  left: 47.5%; 
   transform: translate(-50%, -20%); 
+}
+.fivei-diagram .circle-item-hover:nth-child(2) .description{
+  top: -8%; 
+  left: 95%; 
 }
 
 .fivei-diagram .circle-item-hover:nth-child(3) { 
-  top: 26%; 
-  right: -8%; 
+  top: 17%; 
+  right: -1%; 
   transform: translate(0, -15%); 
 }
+.fivei-diagram .circle-item-hover:nth-child(3) .description .dec-line{
+  @apply w-[80px];
+}
+.fivei-diagram .circle-item-hover:nth-child(3) .description{
+  top: 14%; 
+  left: 112%; 
+}
+
 
 .fivei-diagram .circle-item-hover:nth-child(4) { 
-  bottom: -1%; 
-  right: 7%; 
+  bottom: 12%; 
+  right: -1%; 
   transform: translate(0, 0); 
+}
+.fivei-diagram .circle-item-hover:nth-child(4) .description .dec-line{
+  @apply w-[80px];
+}
+.fivei-diagram .circle-item-hover:nth-child(4) .description{
+  bottom: 14%; 
+  left: 112%; 
 }
 
 .fivei-diagram .circle-item-hover:nth-child(5) { 
-  bottom: -1%; 
-  left: 7%; 
+  bottom: -8%; 
+  right: 35%; 
   transform: translate(0, 0); 
+}
+
+.fivei-diagram .circle-item-hover:nth-child(5) .description .dec-line{
+  @apply w-[100px];
+  transform: rotate(180deg);
+}
+.fivei-diagram .circle-item-hover:nth-child(5) .description{
+  bottom: -8%; 
+  right: 81%; 
 }
 
 .fivei-diagram .circle-item-hover:nth-child(6) { 
-  top: 26%; 
-  left: -8%; 
-  transform: translate(0, -15%); 
-}
-
-/* 5s */
-.fives-diagram .circle-item-hover:nth-child(2) { 
-  top: -1%; 
-  left: 50%; 
-  transform: translate(-50%, -20%); 
-}
-
-.fives-diagram .circle-item-hover:nth-child(3) { 
-  top: 26%; 
-  right: -8%; 
-  transform: translate(0, -15%); 
-}
-
-.fives-diagram .circle-item-hover:nth-child(4) { 
-  bottom: -1%; 
-  right: 7%; 
+  bottom: 12%; 
+  left: -7%; 
   transform: translate(0, 0); 
 }
-
-.fives-diagram .circle-item-hover:nth-child(5) { 
-  bottom: -1%; 
-  left: 7%; 
-  transform: translate(0, 0); 
+.fivei-diagram .circle-item-hover:nth-child(6) .description .dec-line{
+  @apply w-[50px];
+  transform: rotate(180deg);
+}
+.fivei-diagram .circle-item-hover:nth-child(6) .description{
+  bottom: 14%; 
+  right: 98%; 
 }
 
-.fives-diagram .circle-item-hover:nth-child(6) { 
-  top: 26%; 
-  left: -8%; 
+.fivei-diagram .circle-item-hover:nth-child(7) { 
+  top: 17%; 
+  left: -7%; 
   transform: translate(0, -15%); 
 }
 
+.fivei-diagram .circle-item-hover:nth-child(7) .description .dec-line{
+  @apply w-[50px];
+  transform: rotate(180deg);
+}
+.fivei-diagram .circle-item-hover:nth-child(7) .description{
+  top: 24%; 
+  right: 98%; 
+}
 
 
-.fivei-diagram .circle-item.imagination { background: #ff4b4b; }
-.fivei-diagram .circle-item.innovation { background: #ff9900; }
-.fivei-diagram .circle-item.integration { background: #9b59b6; }
-.fivei-diagram .circle-item.involvement { background: #27ae60; }
-.fivei-diagram .circle-item.interaction { background: #00b6b6; }
 
-.fives-diagram .circle-item.sort { background: #e74c3c; }
-.fives-diagram .circle-item.set { background: #f39c12; }
-.fives-diagram .circle-item.shine { background: #3498db; }
-.fives-diagram .circle-item.standardize { background: #16a085; }
-.fives-diagram .circle-item.career-box { background: #8e44ad; }
+
+
+.fivei-diagram .circle-item.customer { background: #ff4b4b; }
+.fivei-diagram .circle-item.sales { background: #ff9900; }
+.fivei-diagram .circle-item.services { background: #9b59b6; }
+.fivei-diagram .circle-item.sparepart { background: #27ae60; }
+.fivei-diagram .circle-item.society { background: #00b6b6; }
+.fivei-diagram .circle-item.safety { background: #ae2797; }
+
+
 
 .diagram-tooltip {
   @apply text-primary;
@@ -269,7 +335,7 @@ code, kbd, samp, pre {
 .circle-item-hover:hover .circle-item {
   transform: scale(1.15);
   box-shadow: 0 0 25px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.4);
-  z-index: 20;
+  z-index: 3;
 }
 
 .circle-item-hover:hover ~ .item-info {
@@ -296,25 +362,11 @@ code, kbd, samp, pre {
 
 ul.list_style_design {
   list-style: none; /* remove default bullets */
-  padding-left: 0;
+  list-style-position: inside;
+  list-style-image: url('../../images/icon/small_check.png');
 }
-
-ul.list_style_design li {
-  position: relative;
-  
-  padding-left: 30px; /* space for the icon */
-}
-
-ul.list_style_design li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 25%;
-  width: 17px;
-  height: 17px;
-  background-image: url('../../images/icon/check.png');
-  background-size: contain;
-  background-repeat: no-repeat;
+ul.list_style_design li > ul.list_style_design{
+  padding-left: 20px;
 }
 
 .data-border{

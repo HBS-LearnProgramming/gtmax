@@ -207,7 +207,7 @@
                                 : item.type === "file"
                                 ? wp.element.createElement(
                                     "div",
-                                    { className: "custom-file-upload" },
+                                    { className: "custom-file-upload", },
                                     wp.element.createElement(
                                         "div",
                                         { className: "upload-box" },

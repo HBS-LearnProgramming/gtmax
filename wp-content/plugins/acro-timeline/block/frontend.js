@@ -65,12 +65,97 @@
     timelines.forEach(timeline => observer.observe(timeline));
   }
 
+  
+
   // ✅ Safe reinitialization (when resize or reload)
   function reinitializeTimeline() {
     setTimelineOrientation();
     reset_animation_on_scroll();
     pause_animation();
   }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const timelines = document.querySelectorAll(".acro-timeline-root[data-orientation='horizontal']");
+
+    timelines.forEach((timeline) => {
+      const timelineItems = timeline.querySelector(".acro-timeline-items");
+      if (!timelineItems) return;
+
+      // Create container for left and right buttons
+      const btnLeft = document.createElement("button");
+      const btnRight = document.createElement("button");
+      const buttonBox = document.createElement('div');
+
+      btnLeft.className = "acro-nav-button acro-left-btn";
+      btnLeft.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+      btnRight.className = "acro-nav-button acro-right-btn";
+      btnRight.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+      buttonBox.className = "acro-button-box";
+      buttonBox.appendChild(btnLeft);
+      buttonBox.appendChild(btnRight);
+      // Insert navigation buttons OUTSIDE the timeline
+      timeline.parentElement.style.position = "relative"; // ensure positioning context
+      timeline.parentElement.appendChild(buttonBox);
+
+      // Track manual progress control
+      let currentPercent = 0;
+      const step = 5; // manual move step
+      const maxLeft = 20;
+      const maxRight = -90;
+      let autoTimer;
+
+      function getCurrentPercent() {
+        const style = window.getComputedStyle(timelineItems);
+        const matrix = new WebKitCSSMatrix(style.transform || style.webkitTransform);
+        const translateX = matrix.m41; // X translation in px
+        const width = timelineItems.scrollWidth;
+        return (translateX / width) * 100; // % based on full width
+      }
+
+      function applyProgress(direction) {
+        currentPercent = getCurrentPercent();
+
+        // Check bounds
+        if ((direction === "left" && currentPercent > maxLeft) ||
+            (direction === "right" && currentPercent < maxRight)) {
+          currentPercent = direction === "left" ? maxLeft : maxRight;
+          timelineItems.style.animation = 'slide-left-to-right 50s linear infinite';
+          timelineItems.style.transform = '';
+        } else {
+          timelineItems.style.animation = 'none';
+          timelineItems.style.transform = `translateX(${currentPercent + (direction === "left" ? step : -step)}%)`;
+        }
+        resetAutoTimer();
+      }
+
+      function move(direction) {
+        currentPercent += direction === "left" ? step : -step;
+
+        // if (currentPercent > 20) currentPercent = 20;
+        // if (currentPercent < -100) currentPercent = -100;
+        applyProgress(direction, currentPercent);
+      }
+
+      // Button events
+      btnLeft.addEventListener("click", () => move("left"));
+      btnRight.addEventListener("click", () => move("right"));
+
+      function startAutoAnimation() {
+        timelineItems.style.animation = 'slide-left-to-right 50s linear infinite';
+        timelineItems.style.transform = '';
+      }
+
+      function resetAutoTimer() {
+        clearTimeout(autoTimer);
+        autoTimer = setTimeout(startAutoAnimation, 10000); // 10s
+      }
+
+      // Start the timer initially
+      resetAutoTimer();
+    });
+  });
+
+
 
   window.addEventListener('resize', reinitializeTimeline);
   window.addEventListener('load', reinitializeTimeline);

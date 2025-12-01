@@ -10,10 +10,36 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("EmailJS init failed:", e);
         }
     })();
-    const LARAVEL_API_URL = "http://gemini_api_management.test/api/resume_upload";
+    const LARAVEL_API_URL = "https://aimanagement.azurewebsites.net/api/resume_upload";
     const forms = document.querySelectorAll("form.form-emailjs");
 
     forms.forEach(form => {
+        const file = form.querySelector("input[type=file]");
+        console.log('file: ', file.value);
+        
+        file.addEventListener('change', function() {
+            console.log('file value: ', this.value);
+
+            const customUploadBox = document.querySelector('.custom-file-upload');
+
+            // ✅ Remove previous filename span (optional, if you only want to show the latest file)
+            const existingName = customUploadBox.querySelector('.file-name');
+            if (existingName) existingName.remove();
+
+            // ✅ Only add if a file is selected
+            if (this.files && this.files.length > 0) {
+                const fileName = this.files[0].name;
+
+                // Create and style span
+                const fileNameSpan = document.createElement('span');
+                fileNameSpan.textContent = fileName;
+                fileNameSpan.classList.add('file-name');
+
+                // ✅ Append after all other existing tags/elements
+                customUploadBox.appendChild(fileNameSpan);
+            }
+        });
+
         form.addEventListener("submit", function (e) {
             e.preventDefault();
 
@@ -40,9 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             // Button UX
             const btn = form.querySelector("button[type=submit]") || form.querySelector("button");
+            
             const oldText = btn ? btn.innerText : '';
             if (btn) { btn.disabled = true; btn.innerText = "Sending..."; }
             if(sendData['file']){
+                console.log('file: ', sendData['file']);
                 fetch(LARAVEL_API_URL, {
                     method: "POST",
                     body: formData,

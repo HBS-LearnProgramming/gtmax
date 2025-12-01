@@ -107,9 +107,27 @@ function acro_timeline_render_callback( $attributes, $content ) {
                         <div class="acro-timeline-content">
                             <div class="acro-timeline-text" style="<?php echo $textColor ? 'color:' . esc_attr( $textColor ) . ';' : ''; ?>">
                                 <h3 class="acro-timeline-title" style="<?php if ( ! empty( $textStyle['bold'] ) ) echo 'font-weight:700;'; ?>"><?php echo wp_kses_post( $title ); ?></h3>
-                                <div class="acro-timeline-desc" style="<?php if ( ! empty( $textStyle['italic'] ) ) echo 'font-style:italic;'; if ( ! empty( $textStyle['underline'] ) ) echo 'text-decoration:underline;'; ?>">
-                                    <?php echo wp_kses_post( $desc ); ?>
-                                </div>
+                                <?php
+                                    $listType = isset( $item['listType'] ) ? $item['listType'] : 'disc';
+                                    $listItems = isset( $item['listItems'] ) ? $item['listItems'] : array();
+                                    $listColor = isset( $item['listColor'] ) ? $item['listColor'] : '#000000';
+                                    $listFontSize = isset( $item['listFontSize'] ) ? intval( $item['listFontSize'] ) : 16;
+                                    $listFontWeight = isset( $item['listFontWeight'] ) ? $item['listFontWeight'] : '400';
+                                ?>
+
+                                <?php if ( !empty($listItems) ) : ?>
+                                    <ul
+                                        class="acro-timeline-desc-list" 
+                                        style="color:<?php echo esc_attr($listColor); ?>;
+                                            list-style-type: <?php echo esc_attr($listType); ?>;
+                                            font-size:<?php echo esc_attr($listFontSize); ?>px;
+                                            font-weight:<?php echo esc_attr($listFontWeight); ?>;">
+                                        <?php foreach ( $listItems as $li ) : ?>
+                                            <li><?php echo wp_kses_post( $li ); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
+
                             <?php if ( $img ): ?>
                                 <div class="acro-timeline-image" style="width:<?php echo esc_attr( $imgSize ); ?>px; height:auto;">
                                     <img src="<?php echo esc_url( $img ); ?>" alt="" style="max-width:100%; height:auto; display:block;" />
