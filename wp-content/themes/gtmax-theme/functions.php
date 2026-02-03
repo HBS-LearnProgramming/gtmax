@@ -125,5 +125,37 @@ function gtmax_breadcrumbs() {
 
     echo '</nav>';
 }
+// add the insurance.js to insurance-page
+function gtmax_enqueue_insurance_assets() {
+
+    if (!is_page_template('page-Insurance.php')) {
+        return;
+    }
+
+    wp_enqueue_script(
+        'sweetalert2',
+        'https://cdn.jsdelivr.net/npm/sweetalert2@11',
+        [],
+        null,
+        true
+    );
+
+    wp_enqueue_script(
+        'gtmax-insurance',
+        get_template_directory_uri() . '/assets/js/insurance.js',
+        ['jquery', 'sweetalert2'],
+        '1.0.4',
+        true
+    );
+
+    wp_localize_script('gtmax-insurance', 'GTMAX_CONFIG', [
+        'apiUrl' => 'https://gtmaxmanagement.gtmax.com.my/api/insurance_registration',
+        'token'  => 'Bearer 5c63174c9bbe98178b95bb8b99d9e8b4b8ea4821c4c06596620652ddd5eefdbf1fd441b0de2ce1b8',
+        'lang'   => get_locale(),
+    ]);
+}
+add_action('wp_enqueue_scripts', 'gtmax_enqueue_insurance_assets');
+
+
 
 

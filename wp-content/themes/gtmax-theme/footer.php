@@ -86,7 +86,7 @@
 
     <footer>
         <!-- <p class="bg-[#484444] text-center"><span class="text-white">Copyright &copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?>. All rights reserved.</span></p> -->
-        <p class="bg-[#484444] text-center"><span class="text-white">Powered by <?php bloginfo('name'); ?></span></p>
+        <p class="bg-[#484444] text-center"><span class="text-white">Powered by GT-Max Motors (M) SDN BHD</span></p>
     </footer>
     <?php wp_footer(); ?>
 </body>

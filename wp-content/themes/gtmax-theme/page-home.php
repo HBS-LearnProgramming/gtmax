@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Template Name: WP Home
@@ -55,6 +54,9 @@
             ?>
         </nav>
     </header>
+    
+
+<main>
     <div>
         
         <div class="home-cover relative w-full h-[30vh] lg:h-screen overflow-hidden flex justify-center bg-cover bg-no-repeat bg-center items-center z-0" style="background-image: url(<?php echo get_template_directory_uri() . '/images/home/HQ_KAPAR_VIDEO.png' ?>)">
@@ -100,247 +102,248 @@
         return $matches;
     }
     ?>
-<div class="bg-[#f6f6f6] flex px-10 items-center py-20">
-    <div class=" text-2xl font-bold text-primary basis-2/12">
-        Who We Are
-    </div>
-    <div class="basis-10/12">
-        <div class="border-l border-solid border-gray-700 w-9/12 text-[30px] pl-8 text-justify">
-            Founded in 1993, GT-MAX Motors (M) Sdn Bhd began as a small motorcycle repair shop in Shah Alam and has since grown into one of Malaysia’s leading motorcycle dealers.
-    For over three decades, we’ve been empowering riders across the nation with reliable motorcycles, trusted service, and a passion for two-wheeled freedom.
+    <div class="bg-[#f6f6f6] flex px-10 items-center py-20">
+        <div class=" text-2xl font-bold text-primary basis-2/12">
+            Who We Are
+        </div>
+        <div class="basis-10/12">
+            <div class="border-l border-solid border-gray-700 w-9/12 text-[30px] pl-8 text-justify">
+                Founded in 1993, GT-MAX Motors (M) Sdn Bhd began as a small motorcycle repair shop in Shah Alam and has since grown into one of Malaysia’s leading motorcycle dealers.
+        For over three decades, we’ve been empowering riders across the nation with reliable motorcycles, trusted service, and a passion for two-wheeled freedom.
+            </div>
         </div>
     </div>
-</div>
-<div class="flex justify-evenly pt-20">
-    <div class=""></div>
-    <div class="data-border">
-        <h1 class="data-header" id="year-data"></h1>
-        <div class="data-content">Years of trusted experience</div>
-    </div>
-    <div class="data-border">
-        <h1 class="data-header">17 Branches </h1>
-        <div class="data-content">Across Selangor and Klang Valley</div>
-    </div>
-    <div class="data-border">
-        <h1 class="data-header">250,000+ </h1>
-        <div class="data-content">Riders served</div>
-    </div>
-</div>
-<main class="relative px-10">
-
-<?php
-if (have_posts()) :
-    while (have_posts()) : the_post();
-
-        // Parse Gutenberg blocks from page content
-        $blocks = parse_blocks(get_the_content());
-
-        // Find all "first" and "last" blocks (there might be multiple)
-        $firstBlocks = findBlocksByMetadataName($blocks, 'first');
-        $lastBlocks  = findBlocksByMetadataName($blocks, 'last');
-
-        // Render ALL "first" blocks (before diagram)
-        if (!empty($firstBlocks)) {
-            foreach ($firstBlocks as $block) {
-                echo render_block($block);
-            }
-        }
-        ?>
-
-        
-        <div class="">
-            <div class="overflow-hidden h-fit py-10 w-full mb-30">
-                <div class="animate-cloud grid p-5 grid-row-2 gap-4 grid-flow-col min-w-[1800px] max-w-fit">
-                    <div 
-                        class="career-box w-[500px] h-[400px] row-span-2"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Bukit_Beruntung.jpg');">
-                    </div>
-                    <div 
-                        class="career-box w-[300px] h-[400px] row-span-2"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/GT-Max_Meru.jpeg');">                    
-                    </div>
-                    <div 
-                        class="career-box w-[1000px] h-[400px] row-span-2 cols-span-3"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone1and2.jpg');">                    
-                    </div>
-                    <div 
-                        class="career-box w-[300px] h-[190px] row-span-1"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Zone3.jpeg');">                    
-                    </div>
-                    <div 
-                        class="career-box w-[300px] h-[190px] row-span-1"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone2(service).jpg');">                    
-                    </div>
-
-                    <!-- Repeat content -->
-                    <div 
-                        class="career-box w-[500px] h-[400px] row-span-2"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Bukit_Beruntung.jpg');">
-                    </div>
-                    <div 
-                        class="career-box w-[300px] h-[400px] row-span-2"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/GT-Max_Meru.jpeg');">                    
-                    </div>
-                    <div 
-                        class="career-box w-[1000px] h-[400px] row-span-2 cols-span-3"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone1and2.jpg');">                    
-                    </div>
-                    <div 
-                        class="career-box w-[300px] h-[190px] row-span-1"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Zone3.jpeg');">                    
-                    </div>
-                    <div 
-                        class="career-box w-[300px] h-[190px] row-span-1"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone2(service).jpg');">                    
-                    </div>
-                </div>
-            </div>
-            <div class="flex gap-5">
-                <div class="flex justify-center basis-1/2 gap-5 shadow rounded shadow-gray-700 p-8">
-                    <div class="flex items-center justify-content-center">
-                        <img class="w-96 h-auto" src="<?php echo get_template_directory_uri() . '\images\home\idea.png' ?>" alt="">
-                    </div>
-                    <div class="p-8">
-                        <h1 class="diagram-title text-center">Our Vision</h1>
-                        <div class="w-full text-lg mx-auto">
-                            To become Malaysia’s most trusted and innovative motorcycle brand, connecting every rider to the perfect ride and service experience. 
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center basis-1/2 gap-5 shadow rounded shadow-gray-700 p-8">
-                    <div class="flex items-center justify-content-center">
-                        <img  class="w-78 h-auto"src="<?php echo get_template_directory_uri() . '\images\home\mission.png' ?>" alt="">
-                    </div>
-                    <div class="p-8">
-                        <h1 class="diagram-title text-center">Our Mission</h1>
-                        <div class="w-full text-lg mx-auto">
-                            To make motorcycle ownership simple, accessible, and enjoyable — through innovation, integrity, and exceptional service.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- === Diagram Section === -->
-            <div class="diagram-section ">
-                <h1 class="diagram-title text-center text-primary typing-animation">Our Philosophy</h1>
-                <div class="flex mt-20 flex-wrap lg:center justify-center">
-                    <!-- 5I Diagram -->
-                    <section class="fivei-diagram sm:basis-full lg:basis-auto sm:mb-30 lg:mb-0">
-                        <div class="diagram-container">
-                            <div class="circle-center">1C5S</div>
-
-                            <div class="circle-item-hover">
-                                <div class="circle-item customer" data-title="Customer" data-desc="Build Up Customer Loyalty through engage activities">
-                                    <div>
-                                        <p>1C</p>
-                                        <p>CUSTOMER</p>
-                                    </div>
-                                    
-                                </div>
-                                <div class="description">
-                                    <div class="dec-line"></div>
-                                    <div class="content">
-                                        Build Up Customer Loyalty through engage activities
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="circle-item-hover">
-                                <div class="circle-item sales" data-title="Sales" data-desc="Increase motorcycle sales. And Build up strong shop branding through motorsports activies.">
-                                    <div>
-                                        <p>1S</p>
-                                        <p>SALES</p>
-                                    </div>
-                                </div>
-                                <div class="description">
-                                    <div class="dec-line"></div>
-                                    <div class="content">
-                                        Increase motorcycle sales. And Build up strong shop branding through motorsports activies.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="circle-item-hover">
-                                <div class="circle-item services" data-title="Services" data-desc="Gain customer trues through mechanics upskilling and excellent after sales support.">
-                                    <div>
-                                        <p>2S</p>
-                                        <p>SERVICES</p>
-                                    </div>
-                                </div>
-                                <div class="description">
-                                    <div class="dec-line"></div>
-                                    <div class="content">
-                                        Gain customer trues through mechanics upskilling and excellent after sales support.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="circle-item-hover">
-                                <div class="circle-item sparepart" data-title="Spare Part" data-desc="Build up YGP and Yamalube branding to boost up sales.">
-                                    <div>
-                                        <p>3S</p>
-                                        <p>SPARE PART</p>
-                                    </div>
-                                </div>
-                                <div class="description">
-                                    <div class="content">
-                                        Build up YGP and Yamalube branding to boost up sales.
-                                    </div>
-                                    <div class="dec-line"></div>
-                                </div>
-                            </div>
-                            <div class="circle-item-hover">
-                                <div class="circle-item society" data-title="Society" data-desc="Contribute back to society and increase brand awareness.">
-                                    <div>
-                                        <p>4S</p>
-                                        <p>SOCIETY</p>
-                                    </div>
-                                </div>
-                                <div class="description">
-                                    <div class="content">
-                                        Contribute back to society and increase brand awareness.
-                                    </div>
-                                    <div class="dec-line"></div>
-                                </div>
-                            </div>
-                            <div class="circle-item-hover">
-                                <div class="circle-item safety" data-title="Safety" data-desc="Enhance safety awareness of the customer.">
-                                    <div>
-                                        <p>5S</p>
-                                        <p>SAFETY</p>
-                                    </div>
-                                </div>
-                                <div class="description">
-                                    
-                                    <div class="content">
-                                        Enhance safety awareness of the customer.
-                                    </div>
-                                    <div class="dec-line"></div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="item-info"></div>
-                    </section>
-
-                </div>
-                
-            
-            </div>
-
-
+    <div class="flex justify-evenly pt-20">
+        <div class=""></div>
+        <div class="data-border">
+            <h1 class="data-header" id="year-data"></h1>
+            <div class="data-content">Years of trusted experience</div>
         </div>
-
+        <div class="data-border">
+            <h1 class="data-header">17 Branches </h1>
+            <div class="data-content">Across Selangor and Klang Valley</div>
+        </div>
+        <div class="data-border">
+            <h1 class="data-header">250,000+ </h1>
+            <div class="data-content">Riders served</div>
+        </div>
+    </div>
+    <div class="relative px-10 ">
         <?php
-        // Render ALL "last" blocks (after diagram)
-        if (!empty($lastBlocks)) {
-            foreach ($lastBlocks as $block) {
-                echo render_block($block);
-            }
-        }
+        if (have_posts()) :
+            while (have_posts()) : the_post();
 
-    endwhile;
-else :
-    echo '<p>No content found.</p>';
-endif;
-?>
+                // Parse Gutenberg blocks from page content
+                $blocks = parse_blocks(get_the_content());
+
+                // Find all "first" and "last" blocks (there might be multiple)
+                $firstBlocks = findBlocksByMetadataName($blocks, 'first');
+                $lastBlocks  = findBlocksByMetadataName($blocks, 'last');
+
+                // Render ALL "first" blocks (before diagram)
+                if (!empty($firstBlocks)) {
+                    foreach ($firstBlocks as $block) {
+                        echo render_block($block);
+                    }
+                }
+                ?>
+
+                
+                <div class="">
+                    <div class="overflow-hidden h-fit py-10 w-full mb-30">
+                        <div class="animate-cloud grid p-5 grid-row-2 gap-4 grid-flow-col min-w-[1800px] max-w-fit">
+                            <div 
+                                class="career-box w-[500px] h-[400px] row-span-2"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Bukit_Beruntung.jpg');">
+                            </div>
+                            <div 
+                                class="career-box w-[300px] h-[400px] row-span-2"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/GT-Max_Meru.jpeg');">                    
+                            </div>
+                            <div 
+                                class="career-box w-[1000px] h-[400px] row-span-2 cols-span-3"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone1and2.jpg');">                    
+                            </div>
+                            <div 
+                                class="career-box w-[300px] h-[190px] row-span-1"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Zone3.jpeg');">                    
+                            </div>
+                            <div 
+                                class="career-box w-[300px] h-[190px] row-span-1"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone2(service).jpg');">                    
+                            </div>
+
+                            <!-- Repeat content -->
+                            <div 
+                                class="career-box w-[500px] h-[400px] row-span-2"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Bukit_Beruntung.jpg');">
+                            </div>
+                            <div 
+                                class="career-box w-[300px] h-[400px] row-span-2"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/GT-Max_Meru.jpeg');">                    
+                            </div>
+                            <div 
+                                class="career-box w-[1000px] h-[400px] row-span-2 cols-span-3"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone1and2.jpg');">                    
+                            </div>
+                            <div 
+                                class="career-box w-[300px] h-[190px] row-span-1"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/Zone3.jpeg');">                    
+                            </div>
+                            <div 
+                                class="career-box w-[300px] h-[190px] row-span-1"
+                                style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home/branches/yamaha_lifestyle_zone2(service).jpg');">                    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5">
+                        <div class="flex justify-center basis-1/2 gap-5 shadow rounded shadow-gray-700 p-8">
+                            <div class="flex items-center justify-content-center">
+                                <img class="w-96 h-auto" src="<?php echo get_template_directory_uri() . '\images\home\idea.png' ?>" alt="">
+                            </div>
+                            <div class="p-8">
+                                <h1 class="diagram-title text-center">Our Vision</h1>
+                                <div class="w-full text-lg mx-auto">
+                                    To become Malaysia’s most trusted and innovative motorcycle brand, connecting every rider to the perfect ride and service experience. 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center basis-1/2 gap-5 shadow rounded shadow-gray-700 p-8">
+                            <div class="flex items-center justify-content-center">
+                                <img  class="w-78 h-auto"src="<?php echo get_template_directory_uri() . '\images\home\mission.png' ?>" alt="">
+                            </div>
+                            <div class="p-8">
+                                <h1 class="diagram-title text-center">Our Mission</h1>
+                                <div class="w-full text-lg mx-auto">
+                                    To make motorcycle ownership simple, accessible, and enjoyable — through innovation, integrity, and exceptional service.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- === Diagram Section === -->
+                    <div class="diagram-section ">
+                        <h1 class="diagram-title text-center text-primary typing-animation">Our Philosophy</h1>
+                        <div class="flex mt-20 flex-wrap lg:center justify-center">
+                            <!-- 5I Diagram -->
+                            <section class="fivei-diagram sm:basis-full lg:basis-auto sm:mb-30 lg:mb-0">
+                                <div class="diagram-container">
+                                    <div class="circle-center">1C5S</div>
+
+                                    <div class="circle-item-hover">
+                                        <div class="circle-item customer" data-title="Customer" data-desc="Build Up Customer Loyalty through engage activities">
+                                            <div>
+                                                <p>1C</p>
+                                                <p>CUSTOMER</p>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="description">
+                                            <div class="dec-line"></div>
+                                            <div class="content">
+                                                Build Up Customer Loyalty through engage activities
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="circle-item-hover">
+                                        <div class="circle-item sales" data-title="Sales" data-desc="Increase motorcycle sales. And Build up strong shop branding through motorsports activies.">
+                                            <div>
+                                                <p>1S</p>
+                                                <p>SALES</p>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <div class="dec-line"></div>
+                                            <div class="content">
+                                                Increase motorcycle sales. And Build up strong shop branding through motorsports activies.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="circle-item-hover">
+                                        <div class="circle-item services" data-title="Services" data-desc="Gain customer trues through mechanics upskilling and excellent after sales support.">
+                                            <div>
+                                                <p>2S</p>
+                                                <p>SERVICES</p>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <div class="dec-line"></div>
+                                            <div class="content">
+                                                Gain customer trues through mechanics upskilling and excellent after sales support.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="circle-item-hover">
+                                        <div class="circle-item sparepart" data-title="Spare Part" data-desc="Build up YGP and Yamalube branding to boost up sales.">
+                                            <div>
+                                                <p>3S</p>
+                                                <p>SPARE PART</p>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <div class="content">
+                                                Build up YGP and Yamalube branding to boost up sales.
+                                            </div>
+                                            <div class="dec-line"></div>
+                                        </div>
+                                    </div>
+                                    <div class="circle-item-hover">
+                                        <div class="circle-item society" data-title="Society" data-desc="Contribute back to society and increase brand awareness.">
+                                            <div>
+                                                <p>4S</p>
+                                                <p>SOCIETY</p>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <div class="content">
+                                                Contribute back to society and increase brand awareness.
+                                            </div>
+                                            <div class="dec-line"></div>
+                                        </div>
+                                    </div>
+                                    <div class="circle-item-hover">
+                                        <div class="circle-item safety" data-title="Safety" data-desc="Enhance safety awareness of the customer.">
+                                            <div>
+                                                <p>5S</p>
+                                                <p>SAFETY</p>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            
+                                            <div class="content">
+                                                Enhance safety awareness of the customer.
+                                            </div>
+                                            <div class="dec-line"></div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="item-info"></div>
+                            </section>
+
+                        </div>
+                        
+                    
+                    </div>
+
+
+                </div>
+
+                <?php
+                // Render ALL "last" blocks (after diagram)
+                if (!empty($lastBlocks)) {
+                    foreach ($lastBlocks as $block) {
+                        echo render_block($block);
+                    }
+                }
+
+            endwhile;
+        else :
+            echo '<p>No content found.</p>';
+        endif;
+        ?>
+    </div>
+
 </main>
 
 
@@ -361,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function () {
       header.classList.remove("fixed", "bg-white", "shadow-md");
     }
   });
-
+    
     const text = "Our Philosophy";
     const title = document.querySelector(".typing-animation");
     let index = 0;
@@ -405,8 +408,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // === Tooltip logic for diagram items ===
         
         tooltip.className = 'diagram-tooltip';
+        const footer = document.querySelector('footer');
         document.body.appendChild(tooltip);
-
+        footer.parentNode.insertBefore(tooltip, footer);
         const diagrams = document.querySelectorAll('.diagram-container');
         diagrams.forEach(diagram => {
             const items = diagram.querySelectorAll('.circle-item-hover');

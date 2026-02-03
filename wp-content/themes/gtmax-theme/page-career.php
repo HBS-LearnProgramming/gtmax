@@ -27,10 +27,11 @@
         </nav>
     </header>
     <div class="overflow-hidden h-auto py-10 w-full">
-        <div class="animate-cloud grid p-5 grid-row-2 gap-4 grid-flow-col min-w-[1800px] max-w-fit">
+      
+        <div class="animate-cloud grid p-5 grid-row-2 gap-4 grid-flow-col min-w-[1900px] max-w-fit">
             <div 
-                class="career-box w-[500px] h-[450px] row-span-2"
-                style="background-image: url('<?php echo esc_url( get_site_url() . '/wp-content/uploads/2025/10/IMG-20251009-WA0054.jpg' ); ?>');">
+                class="career-box w-[700px] h-[450px] row-span-2 cols-span-2"
+                style="background-image: url('<?php echo esc_url( get_site_url() . '/wp-content/uploads/2025/12/IMG20251219201502-scaled.jpg' ); ?>');">
             </div>
             <div 
                 class="career-box w-[300px] h-54 row-span-1"
@@ -61,8 +62,8 @@
 
             <!-- Repeat content -->
              <div 
-                class="career-box w-[500px] h-[450px] row-span-2"
-                style="background-image: url('<?php echo esc_url( get_site_url() . '/wp-content/uploads/2025/10/IMG-20251009-WA0054.jpg' ); ?>');">
+                class="career-box w-[700px] h-[450px] row-span-2 cols-span-2"
+                style="background-image: url('<?php echo esc_url( get_site_url() . '/wp-content/uploads/2025/12/IMG20251219201502-scaled.jpg' ); ?>');">
             </div>
         </div>
     </div>
