@@ -128,7 +128,11 @@ function gtmax_breadcrumbs() {
 // add the insurance.js to insurance-page
 function gtmax_enqueue_insurance_assets() {
 
-    if (!is_page_template('page-Insurance.php')) {
+    $is_insurance_page = is_page_template('page-Insurance.php')
+        || is_page_template('page-insurance.php')
+        || is_page('insurance');
+
+    if (!$is_insurance_page) {
         return;
     }
 
@@ -144,7 +148,7 @@ function gtmax_enqueue_insurance_assets() {
         'gtmax-insurance',
         get_template_directory_uri() . '/assets/js/insurance.js',
         ['jquery', 'sweetalert2'],
-        '1.0.4',
+        filemtime(get_template_directory() . '/assets/js/insurance.js'),
         true
     );
 

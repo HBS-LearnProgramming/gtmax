@@ -58,7 +58,11 @@
                     <div class="flex gap-5 flex-col lg:flex-row">
                         <div class="flex flex-col lg:basis-1/2 gap-2">
                             <label data-i18n="nric" class="font-bold text-2xl" for="nric">Vehicle Owner's NRIC</label>
-                            <input class="form-input border border-[#e5e5e5] w-full stroke-[#e5e5e5] text-lg px-3 py-2 outline-none" type="text" name="nric" id="nric" placeholder="XXXXXX-XX-XXXX">
+                            <input class="form-input border border-[#e5e5e5] w-full stroke-[#e5e5e5] text-lg px-3 py-2 outline-none" type="text" name="nric" id="nric" placeholder="XXXXXX-XX-XXXX" maxlength="14" inputmode="numeric" autocomplete="off">
+                            <div class="flex items-center gap-2 mt-1">
+                                <input type="checkbox" class="form-input" name="is_malaysian" id="is_malaysian" checked>
+                                <label data-i18n="is_malaysian" class="text-base" for="is_malaysian">I am a Malaysian citizen</label>
+                            </div>
                             <p class="text-red-600 text-sm mt-1 hidden" data-error-for="nric"></p>
                         </div>
                         <div class="flex flex-col lg:basis-1/2 gap-2">
