@@ -47,9 +47,9 @@
             </div>
             <!-- start insurance form design -->
             <div class="lg:w-1/2 w-full mx-auto mb-20">
-                <h1 data-i18n="main_title" class="text-4xl font-bold text-center mx-1 mb-4">Renew Your Motor Insurance in <span class="text-[#478ac9]">Minutes</span></h1>
+                <h1 data-i18n="main_title" class="text-4xl font-bold text-left mb-4">Renew Your Motor Insurance in <span class="text-[#478ac9]">Minutes</span></h1>
                 <form id="insurance-form" class="flex flex-col gap-7">
-                    <h2 data-i18n="quote_title" class="text-[#478ac9] text-left text-2xl font-bold ml-10">We Will Send you a Quote</h2>
+                    <h2 data-i18n="quote_title" class="text-[#478ac9] text-left text-2xl font-bold">We will send you a quote</h2>
                     <div class="flex flex-col gap-2">
                         <label data-i18n="name" class="font-bold text-2xl" for="name">Name</label>
                         <input class="form-input border border-[#e5e5e5] w-full stroke-[#e5e5e5] text-lg px-3 py-2 outline-none" type="text" name="name" id="name" placeholder="Enter your name">

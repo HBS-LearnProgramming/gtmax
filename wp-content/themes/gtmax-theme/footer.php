@@ -77,7 +77,7 @@
                     <a target="_blank" class="rounded" href="https://www.facebook.com/gtmaxmotorsports/"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/facebook-black.png" alt="" srcset=""></a>
                     <a target="_blank" class="rounded" href="https://www.youtube.com/@gtmaxmotors9580"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/youtube-black.png" alt="" srcset=""></a>
                     <a target="_blank" class="rounded" href="https://www.instagram.com/gtmaxmotors/"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/instagram-black.png" alt="" srcset=""></a>
-                    <a target="_blank" class="rounded" href="https://www.tiktok.com/@gtmaxmotorofficial"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/tiktok-black.png" alt="" srcset=""></a>
+                    <a target="_blank" class="rounded" href="https://www.tiktok.com/@shahalammotors?_r=1&_t=ZS-94o1wQeI1Ya"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/tiktok-black.png" alt="" srcset=""></a>
                 </div>
             </div>
         </div>

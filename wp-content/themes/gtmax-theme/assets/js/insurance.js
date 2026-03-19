@@ -3,7 +3,7 @@
         const translations = {
             en: {
                 main_title: 'Renew Your Motor Insurance in <span class="text-[#478ac9]">Minutes</span>',
-                quote_title: 'We Will Send you a Quote',
+                quote_title: 'We will send you a quote',
                 name: 'Name',
                 nric: "Vehicle Owner\'s NRIC",
                 passport: 'Vehicle Owner\'s Passport Number',
