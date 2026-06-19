@@ -27,8 +27,8 @@
         </nav>
     </header>
 
-    <main>
-        
+    <main >
+        <div class="mininumHeight">
             <?php
             if ( have_posts() ) :
                 while ( have_posts() ) : the_post();
@@ -38,8 +38,7 @@
                 echo '<p>No content found</p>';
             endif;
             ?>
-      
-
+        </div>
         <div class="relative mt-25">
             <div class="w-[95vw] top bg-gray-100 py-10 mx-auto absolute -top-10 left-7">
                 <div class="flex justify-evenly ">
@@ -113,8 +112,23 @@
 document.addEventListener("DOMContentLoaded", function () {
     const header = document.getElementById("site-header");
     const cloudContainer = document.querySelector(".animate-cloud");
+    const mininumHeight = document.querySelector(".mininumHeight");
     const boxes = document.querySelectorAll(".career-box");
+    
+    function handleMobileHeight() {
+        if (window.innerWidth < 1000) {
+            
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+            mininumHeight.style.minHeight = "calc(var(--vh, 1vh) * 66.5)";
+        } else {
+            mininumHeight.style.height = "auto";
+        }
+    }
 
+    handleMobileHeight();
+    window.addEventListener("resize", handleMobileHeight);
+    
     // Pause animation on hover
     boxes.forEach(box => {
         box.addEventListener("mouseenter", () => {

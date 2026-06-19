@@ -77,6 +77,8 @@ class FormEmailJS {
             'serviceId'  => $service_id,
             'templateId' => $template_id,
             'publicKey'  => $public_key,
+            'apiToken'   => defined('GTMAX_API_TOKEN') ? GTMAX_API_TOKEN : '',
+
         ]);
 
         wp_enqueue_script(

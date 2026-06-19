@@ -86,7 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     body: formData,
                     headers: {
                         "Accept": "application/json",
-                        "Authorization": "Bearer 1d54075a11ab47358afa886b5f363c19125cb6b1e64af7a4164355a11d502452e15afb3bea47e869"
+                        "Authorization": "Bearer " + (FormEmailJSSettings?.apiToken || "")
+
                     }
                 })
                 .then(res => res.json())
