@@ -11,7 +11,24 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("EmailJS init failed:", e);
     }
 
-    const LARAVEL_API_URL = "https://gtmaxmanagement.gtmax.com.my/api/resume_upload";
+    // Dynamic LARAVEL_API_URL using GTMAX_CONFIG with fallbacks
+    const LARAVEL_API_URL = (typeof GTMAX_CONFIG !== "undefined" && GTMAX_CONFIG.resumeUrl)
+        ? GTMAX_CONFIG.resumeUrl
+        : ((typeof GTMAX_CONFIG !== "undefined" && GTMAX_CONFIG.apiUrl)
+            ? GTMAX_CONFIG.apiUrl.replace(/\/insurance_registration\/?$/, "") + "/resume_upload"
+            : "https://gtmaxmanagement.test/api/resume_upload");
+
+    // Dynamic Authorization token using GTMAX_CONFIG with fallbacks
+    function getAuthToken() {
+        if (typeof GTMAX_CONFIG !== "undefined" && GTMAX_CONFIG.token) {
+            return GTMAX_CONFIG.token.startsWith("Bearer ") ? GTMAX_CONFIG.token : "Bearer " + GTMAX_CONFIG.token;
+        }
+        if (typeof FormEmailJSSettings !== "undefined" && FormEmailJSSettings.apiToken) {
+            return FormEmailJSSettings.apiToken.startsWith("Bearer ") ? FormEmailJSSettings.apiToken : "Bearer " + FormEmailJSSettings.apiToken;
+        }
+        return "";
+    }
+
     const forms = document.querySelectorAll("form.form-emailjs");
 
     forms.forEach(form => {
@@ -86,8 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     body: formData,
                     headers: {
                         "Accept": "application/json",
-                        "Authorization": "Bearer " + (FormEmailJSSettings?.apiToken || "")
-
+                        "Authorization": getAuthToken()
                     }
                 })
                 .then(res => res.json())

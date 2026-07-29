@@ -177,7 +177,7 @@ if (!class_exists('GeoGuru_RequestsInterceptor')) {
             
             // Get the values we need
             $llm_page_url = $this->build_llm_view_url();
-            $link_text = isset($options['link_text']) ? $options['link_text'] : 'Hey AI, learn about this page';
+            $link_text = isset($options['link_text']) ? $options['link_text'] : '';
             
             // Build the inline script
             $inline_script = "(function() {
@@ -212,7 +212,7 @@ if (!class_exists('GeoGuru_RequestsInterceptor')) {
          */
         public function render_llm_link_shortcode($atts) {
             $options = get_option('geoguru_llm_version_settings', array());
-            $link_text = isset($options['link_text']) ? $options['link_text'] : 'Hey AI, learn about this page';
+            $link_text = isset($options['link_text']) ? $options['link_text'] : '';
 
             $atts = shortcode_atts(array(
                 'text' => $link_text,
@@ -498,7 +498,7 @@ if(typeof fetch==='function'&&typeof Request!=='undefined'){fetch(c.proxyUrl,{me
             $options = get_option('geoguru_llm_version_settings', array());
             $show_on_posts = isset($options['show_on_posts']) ? $options['show_on_posts'] : 1;
             $show_on_pages = isset($options['show_on_pages']) ? $options['show_on_pages'] : 1;
-            $link_text = isset($options['link_text']) ? $options['link_text'] : 'Hey AI, learn about this page';
+            $link_text = isset($options['link_text']) ? $options['link_text'] : '';
             $link_position = isset($options['link_position']) ? $options['link_position'] : 'center';
             $css_selector = isset($options['css_selector']) ? $options['css_selector'] : '';
 

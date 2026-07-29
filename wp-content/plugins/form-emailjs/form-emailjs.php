@@ -78,7 +78,12 @@ class FormEmailJS {
             'templateId' => $template_id,
             'publicKey'  => $public_key,
             'apiToken'   => defined('GTMAX_API_TOKEN') ? GTMAX_API_TOKEN : '',
+        ]);
 
+        wp_localize_script('form-emailjs-frontend', 'GTMAX_CONFIG', [
+            'apiUrl'    => 'https://gtmaxmanagement.test/api/insurance_registration',
+            'resumeUrl' => 'https://gtmaxmanagement.test/api/resume_upload',
+            'token'     => defined('GTMAX_API_TOKEN') ? GTMAX_API_TOKEN : '',
         ]);
 
         wp_enqueue_script(

@@ -154,13 +154,84 @@ function gtmax_enqueue_insurance_assets() {
     );
 
     wp_localize_script('gtmax-insurance', 'GTMAX_CONFIG', [
-        'apiUrl' => 'https://gtmaxmanagement.gtmax.com.my/api/insurance_registration',
-        'token'  => 'Bearer 5c63174c9bbe98178b95bb8b99d9e8b4b8ea4821c4c06596620652ddd5eefdbf1fd441b0de2ce1b8',
-        'lang'   => get_locale(),
+        'apiUrl'       => 'https://api.gtmax.com.my/api/insurance_registration',
+        'token'        => 'Bearer b734087da2b3f49177f3c47c9f3e7027da495b37882d05afb8f671ede08bfd011f88520e595274cb',
+        'lang'         => get_locale(),
+        'quotationUrl' => home_url('/insurance-quotation/'),
     ]);
 }
 add_action('wp_enqueue_scripts', 'gtmax_enqueue_insurance_assets');
 
+// add the quotation.js to insurance-quotation page
 
+function gtmax_enqueue_quotation_assets() {
 
+    $is_quotation_page = is_page_template('page-quotation.php')
+        || is_page('insurance-quotation');
+
+    if (!$is_quotation_page) {
+        return;
+    }
+
+    wp_enqueue_script(
+        'sweetalert2',
+        'https://cdn.jsdelivr.net/npm/sweetalert2@11',
+        [],
+        null,
+        true
+    );
+
+    wp_enqueue_script(
+        'gtmax-quotation',
+        get_template_directory_uri() . '/assets/js/quotation.js',
+        ['sweetalert2'],
+        filemtime(get_template_directory() . '/assets/js/quotation.js'),
+        true
+    );
+
+    wp_localize_script('gtmax-quotation', 'GTMAX_CONFIG', [
+        'apiUrl'       => 'https://api.gtmax.com.my/api/insurance_registration',
+        'token'        => 'Bearer b734087da2b3f49177f3c47c9f3e7027da495b37882d05afb8f671ede08bfd011f88520e595274cb',
+        'lang'         => get_locale(),
+        'quotationUrl' => home_url('/insurance-quotation/'),
+        'paymentUrl'   => home_url('/insurance-payment/'),
+    ]);
+}
+add_action('wp_enqueue_scripts', 'gtmax_enqueue_quotation_assets');
+
+// add the payment.js to insurance-payment page
+function gtmax_enqueue_payment_assets() {
+
+    $is_payment_page = is_page_template('page-payment.php')
+        || is_page('insurance-payment');
+
+    if (!$is_payment_page) {
+        return;
+    }
+
+    wp_enqueue_script(
+        'sweetalert2',
+        'https://cdn.jsdelivr.net/npm/sweetalert2@11',
+        [],
+        null,
+        true
+    );
+
+    wp_enqueue_script(
+        'gtmax-payment',
+        get_template_directory_uri() . '/assets/js/payment.js',
+        ['sweetalert2'],
+        filemtime(get_template_directory() . '/assets/js/payment.js'),
+        true
+    );
+
+    wp_localize_script('gtmax-payment', 'GTMAX_CONFIG', [
+        'apiUrl'       => 'https://api.gtmax.com.my/api/insurance_registration',
+        'token'        => 'Bearer b734087da2b3f49177f3c47c9f3e7027da495b37882d05afb8f671ede08bfd011f88520e595274cb',
+        'lang'         => get_locale(),
+        'quotationUrl' => home_url('/insurance-quotation/'),
+        'paymentUrl'   => home_url('/insurance-payment/'),
+    ]);
+}
+add_action('wp_enqueue_scripts', 'gtmax_enqueue_payment_assets');
 

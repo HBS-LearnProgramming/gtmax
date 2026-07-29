@@ -909,6 +909,58 @@
                 order: 0;
             }
         }
+
+        /* Custom SweetAlert2 popup styling for vehicle confirmation */
+        .vehicle-confirm-popup-html {
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: left !important;
+        }
+
+        .variant-card {
+            border: 2px solid #e2e8f0;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #ffffff;
+        }
+
+        .variant-card:hover {
+            border-color: #3b82f6;
+            background-color: #f8fafc;
+            transform: translateY(-1px);
+        }
+
+        .variant-card.selected-active {
+            border-color: #3b82f6 !important;
+            background-color: #eff6ff !important;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
+        }
+
+        .variant-card input[type="radio"]:checked + div .custom-radio {
+            border-color: #3b82f6 !important;
+            background-color: #3b82f6 !important;
+        }
+
+        .variant-card input[type="radio"]:checked + div .custom-radio div {
+            display: block !important;
+        }
+
+        #variant-list-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #variant-list-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+
+        #variant-list-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        #variant-list-container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
     </style>
 </head>
 
@@ -1134,12 +1186,12 @@
                                             name="vehicle_number" id="vehicle_number" placeholder="ABC1234"
                                             data-i18n-placeholder="vehicle_placeholder">
                                     </div>
-                                    <div class="flex items-center gap-2 mt-2">
+                                    <!-- <div class="flex items-center gap-2 mt-2">
                                         <input type="checkbox" class="form-input w-4 h-4 accent-blue-600 rounded"
                                             name="vehicle_type" id="vehicle_type">
                                         <label data-i18n="vehicle_type" class="text-sm text-gray-600"
                                             for="vehicle_type">Car Registered</label>
-                                    </div>
+                                    </div> -->
                                     <p class="text-red-600 text-sm mt-1 hidden font-medium"
                                         data-error-for="vehicle_number">
                                     </p>
@@ -1182,35 +1234,26 @@
                                 </div>
                             </div>
 
-                            <!-- Address Row -->
-                            <div class="space-y-2">
-                                <label class="font-semibold text-sm text-gray-700" for="address">
-                                    <span data-i18n="address1">Address (1)</span>
-                                    <span data-i18n="optional" class="text-xs text-gray-400 ml-1">(OPTIONAL)</span>
+                            <!-- Start Address Row -->
+                           <div class="space-y-2">
+                                <label class="font-semibold text-sm text-gray-700"
+                                    for="postcode">
+                                    <span id="postcode_label" data-i18n="postcode">Postcode</span><span
+                                            class="text-red-500 ml-0.5">*</span>
                                 </label>
-                                <div class="input-with-icon textarea-with-icon">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon/address.png"
+                                <div class="input-with-icon">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon/postcode.png"
                                         alt="" class="input-icon">
-                                    <input type="text" class="modern-input form-input w-full text-base px-4 py-3.5"
-                                        name="address" id="address1" placeholder="Enter your address"
-                                        data-i18n-placeholder="address_placeholder"></input>
+                                    <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
+                                        name="postcode" id="postcode" placeholder="Enter your postcode"
+                                        data-i18n-placeholder="postcode_placeholder">
                                 </div>
-                                <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="address1"></p>
+                                <p class="text-red-600 text-sm mt-1 hidden font-medium"
+                                    data-error-for="postcode">
+                                </p>
                             </div>
-                            <div class="space-y-2">
-                                <label class="font-semibold text-sm text-gray-700" for="address">
-                                    <span data-i18n="address2">Address (2)</span>
-                                    <span data-i18n="optional" class="text-xs text-gray-400 ml-1">(OPTIONAL)</span>
-                                </label>
-                                <div class="input-with-icon textarea-with-icon">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon/address.png"
-                                        alt="" class="input-icon">
-                                    <input type="text" class="modern-input form-input w-full text-base px-4 py-3.5"
-                                        name="address" id="address2" placeholder="Enter your address"
-                                        data-i18n-placeholder="address_placeholder"></input>
-                                </div>
-                                <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="address"></p>
-                            </div>
+
+
 
                             <p class="text-red-600 text-sm hidden font-medium" data-error-for="contact"></p>
 
@@ -1272,14 +1315,16 @@
                                     'standard',
                                     'uob',
                                 ],
-                                // 'ewallet_title' => [
-                                //     'boost',
-                                //     'grabpay',
-                                //     'spaylater',
-                                //     'touchngo',
-                                //     'duitnow',
-                                //     'mae',
-                                // ],
+                                'ewallet_title' => [
+                                    'boost',
+                                    'grabpay',
+                                    'spaylater',
+                                    'touchngo',
+                                    'duitnow',
+                                    'mae',
+                                    'atome',
+                                    'paylatergrab'
+                                ],
                             ];
 
                             $categorized_images = [

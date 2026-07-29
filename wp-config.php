@@ -44,7 +44,7 @@ define( 'DB_COLLATE', '' );
 
 define(
     'GTMAX_API_TOKEN',
-    '5c63174c9bbe98178b95bb8b99d9e8b4b8ea4821c4c06596620652ddd5eefdbf1fd441b0de2ce1b8'
+    'a1a3e31759d4b1b179037afc6c163e63ae4815feb3f45633a40f4225ad278822e6b000642af887bf'
 );
 
 /**#@+
@@ -103,8 +103,8 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 define( 'FS_METHOD', 'direct' );
 define( 'COOKIEHASH', '3cffbb70315d0fb063b6b9f28c96fe97' );
 define( 'WP_AUTO_UPDATE_CORE', 'minor' );
-define('WP_HOME', 'https://gtmax.com.my');
-define('WP_SITEURL', 'https://gtmax.com.my');
+define('WP_HOME', 'http://gtmax.test/');
+define('WP_SITEURL', 'http://gtmax.test/');
 
 /* That's all, stop editing! Happy publishing. */
 
