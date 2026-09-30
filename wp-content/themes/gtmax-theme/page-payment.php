@@ -146,27 +146,92 @@
 
         /* ── Status Screens (Success / Failed / Cancelled / Expired) ── */
         .pm-status-card {
-            text-align: center; padding: 48px 32px;
-            background: #ffffff; border-radius: 20px;
-            max-width: 680px; margin: 40px auto;
+            text-align: center; padding: 44px 32px;
+            background: #ffffff; border-radius: 24px;
+            max-width: 680px; margin: 36px auto;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            animation: pm-fadein .4s ease both;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+            animation: pm-fadein .4s cubic-bezier(0.16, 1, 0.3, 1) both;
+            position: relative;
+            overflow: hidden;
         }
-        @keyframes pm-fadein { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+        @keyframes pm-fadein { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
 
         .pm-status-icon {
-            width: 76px; height: 76px; border-radius: 50%;
+            width: 80px; height: 80px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 2.4rem; margin: 0 auto 20px;
+            font-size: 2.5rem; margin: 0 auto 18px;
+            position: relative;
+            transition: transform 0.3s ease;
         }
-        .pm-status-success .pm-status-icon { background: #dcfce7; color: #15803d; }
-        .pm-status-failed .pm-status-icon  { background: #fee2e2; color: #b91c1c; }
-        .pm-status-cancel .pm-status-icon  { background: #fef3c7; color: #b45309; }
-        .pm-status-expired .pm-status-icon { background: #fee2e2; color: #dc2626; }
+        .pm-status-card:hover .pm-status-icon { transform: scale(1.04); }
 
-        .pm-status-title { font-size: 1.55rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
-        .pm-status-msg   { font-size: 0.98rem; color: #64748b; line-height: 1.6; margin-bottom: 28px; }
+        .pm-status-success .pm-status-icon { background: #dcfce7; color: #15803d; box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.1); }
+        .pm-status-failed .pm-status-icon  { background: #fee2e2; color: #b91c1c; box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.1); }
+        .pm-status-cancel .pm-status-icon  { background: #fef3c7; color: #d97706; box-shadow: 0 0 0 8px rgba(245, 158, 11, 0.14); }
+        .pm-status-expired .pm-status-icon { background: #fee2e2; color: #dc2626; box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.1); }
+
+        .pm-status-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px;
+        }
+        .pm-status-cancel .pm-status-badge { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+
+        .pm-status-title { font-size: 1.7rem; font-weight: 800; color: #0f172a; margin-bottom: 10px; letter-spacing: -0.02em; }
+        .pm-status-msg   { font-size: 0.98rem; color: #64748b; line-height: 1.6; margin-bottom: 24px; max-width: 540px; margin-left: auto; margin-right: auto; }
+
+        /* ── Cancelled Quotation Preview Box ── */
+        .pm-cancel-summary {
+            background: linear-gradient(135deg, #fefce8 0%, #fffbeb 100%);
+            border: 1.5px solid #fde68a;
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.05);
+        }
+        .pm-cancel-summary-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px dashed #fcd34d; padding-bottom: 10px; margin-bottom: 14px;
+        }
+        .pm-cancel-summary-title { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #92400e; }
+        .pm-cancel-ref { font-size: 0.82rem; font-weight: 700; color: #b45309; background: #fef3c7; padding: 3px 10px; border-radius: 6px; font-mono: inherit; }
+
+        .pm-cancel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+        @media (max-width: 520px) { .pm-cancel-grid { grid-template-columns: 1fr; } }
+
+        .pm-cancel-amount-highlight {
+            grid-column: 1 / -1; background: #ffffff; border: 1px solid #fde68a;
+            padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center;
+            margin-top: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .pm-cancel-amount-label { font-size: 0.85rem; font-weight: 700; color: #78350f; }
+        .pm-cancel-amount-val { font-size: 1.3rem; font-weight: 800; color: #2563eb; }
+
+        /* ── Reassurance Chips ── */
+        .pm-cancel-features {
+            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 26px;
+        }
+        .pm-cancel-feat-item {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 0.82rem; font-weight: 600; color: #475569; background: #f8fafc;
+            padding: 6px 14px; border-radius: 20px; border: 1px solid #e2e8f0;
+        }
+
+        /* ── Cancelled Button Stack ── */
+        .pm-cancel-actions { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+        .pm-cancel-main-btns { display: flex; gap: 12px; justify-content: center; width: 100%; flex-wrap: wrap; }
+        .pm-cancel-main-btns .pm-confirm-btn { flex: 1; min-width: 210px; max-width: 280px; margin-top: 0; }
+        .pm-cancel-main-btns .pm-secondary-btn { flex: 1; min-width: 170px; max-width: 240px; }
+
+        .pm-support-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.88rem; font-weight: 600; color: #16a34a; text-decoration: none;
+            padding: 8px 16px; border-radius: 8px; transition: background .15s ease;
+            margin-top: 2px;
+        }
+        .pm-support-link:hover { background: #f0fdf4; text-decoration: underline; }
 
         .pm-receipt-box {
             background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px;

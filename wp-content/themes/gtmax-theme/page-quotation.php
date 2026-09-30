@@ -152,6 +152,12 @@
             background: #eff6ff !important;
             box-shadow: 0 0 0 3px rgba(37,99,235,0.10);
         }
+        .qt-addon-card.mandatory-addon,
+        .qt-addon-card.mandatory-addon *,
+        .qt-addon-card.mandatory-addon input,
+        .qt-addon-card.mandatory-addon .qt-toggle-slider {
+            cursor: no-drop !important;
+        }
 
         .qt-addon-left  { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
         .qt-addon-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }

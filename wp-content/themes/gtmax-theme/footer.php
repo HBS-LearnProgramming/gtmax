@@ -72,7 +72,11 @@
         ?>
         <div class="flex items-center">
             <div>
-                <h1 class="uppercase font-bold text-[#262161]">Follow Us</h1>
+                <a href="<?php echo esc_url(home_url('/insurance-policy/')); ?>" 
+                   class="text-primary font-bold hover:cursor-pointer border border-solid border-primary px-3 py-2 rounded-md">
+                    <span>Insurance Policy</span>
+                </a>
+                <h1 class="uppercase mt-4 font-bold text-[#262161]">Follow Us</h1>
                 <div class="flex gap-4 mt-2">
                     <a target="_blank" class="rounded" href="https://www.facebook.com/gtmaxmotorsports/"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/facebook-black.png" alt="" srcset=""></a>
                     <a target="_blank" class="rounded" href="https://www.youtube.com/@gtmaxmotors9580"><img class="icon_size" src="<?php echo get_template_directory_uri(); ?>/images/icon/youtube-black.png" alt="" srcset=""></a>

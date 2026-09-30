@@ -24,36 +24,53 @@
                 quote_subtitle: 'Complete the form to receive an instant quotation',
                 name: 'Full Name',
                 name_placeholder: 'Enter your full name',
+                identity_type: 'Identity Type',
+                id_type_nric: 'NRIC (MyKad)',
+                id_type_old_ic: 'Old IC / Others',
+                id_type_pass: 'Passport',
+                id_type_pol: 'Police / Army ID',
                 nric: 'NRIC Number',
+                old_ic: 'Old IC / Other ID',
                 passport: 'Passport Number',
+                police_army_id: 'Police / Army ID Number',
+                gender: 'Gender',
+                gender_male: 'Male / Man',
+                gender_female: 'Female / Woman',
                 is_malaysian: 'Malaysian Citizen',
                 motor_registration: 'Motor Registration',
                 car_registration: 'Car Registration',
                 vehicle_type: 'Car Registered',
                 vehicle_placeholder: 'ABC1234',
-                whatsapp: 'WhatsApp Number',
+                whatsapp: 'Mobile Number',
                 whatsapp_placeholder: '60123456789',
                 email: 'Email Address',
                 email_placeholder: 'your@email.com',
                 address1: 'Address (1)',
                 address2: 'Address (2)',
-                postcode_placeholder: 'Enter your postcode for cover note',
-                state_placeholder: 'Enter your state',
-                postcode: 'Postcode for cover note',
+                postcode_placeholder: 'Enter postcode',
+                state_placeholder: 'Enter state',
+                postcode: 'Postcode',
                 state: 'State',
                 city: 'City',
                 country: 'Country',
-                address_placeholder: 'Enter your address',
-                city_placeholder: 'Enter your city',
-                country_placeholder: 'Enter your country',
+                address_placeholder: 'Enter address',
+                city_placeholder: 'Enter city',
+                country_placeholder: 'Enter country',
                 optional: '(Optional)',
                 send_whatsapp: 'Yes, send quotation to my email',
-                agreement: 'By submitting, I agree to receive quotes and offers from GT-MAX, and accept the <a href="#" class="text-blue-600 font-semibold hover:underline">Terms & Conditions</a> and <a href="#" class="text-blue-600 font-semibold hover:underline">Privacy Policy</a>.',
+                agreement: 'I confirm that I have read and understood the <a href="https://az.my/partner-CMCC-motorcycleplus-PDS_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Product Disclosure Sheet</a>, <a href="https://az.my/partner-AMP-PW_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Policy Wording</a> & <a href="https://az.my/PrivacyNotice-AGIC" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Privacy Notice</a>, and agree to the processing of my personal data for the purposes stated in the Privacy Notice.',
+                relationship_title: 'Registered Agent Relationship Disclosure',
+                relationship_disclosure: 'GT-MAX Motors (M) Sdn. Bhd. is a registered agent of Allianz General Insurance Company (Malaysia) Berhad.',
+                pidm_title: 'PIDM Protection Statement',
+                pidm_disclosure: 'The benefit(s) payable under eligible certificate/policy/product is(are) protected by PIDM up to limits. Please refer to <a href="https://www.pidm.gov.my/pidm2022/files/92/92bdfcde-3534-4a29-9031-5186387623ee.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">PIDM’s TIPS Brochure</a> or contact Allianz General Insurance Company (Malaysia) Berhad or PIDM (visit <a href="https://www.pidm.gov.my" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">www.pidm.gov.my</a>).',
                 submit: 'Get Quote Now',
                 nric_placeholder: 'XXXXXX-XX-XXXX',
+                old_ic_placeholder: 'Enter Old IC / Other ID',
                 passport_placeholder: 'Enter passport number',
-                contact_hint: 'At least one of WhatsApp or Email is required',
-                contact_required: 'Please provide at least one: WhatsApp Number or Email Address.',
+                police_army_placeholder: 'Enter Police / Army ID',
+                contact_hint: 'At least one of Mobile Number or Email is required',
+                contact_required: 'Please provide at least one: Mobile Number or Email Address.',
+                whatsapp_invalid: 'Please enter a valid phone number (e.g. 60123456789 or 0123456789).',
                 is_gtmax_staff: 'Are You GTMAX Staff?',
                 staff_id_placeholder: 'GR00XXX',
                 vehicle_confirm_title: 'Confirm Vehicle Details',
@@ -68,7 +85,10 @@
                 cancel_btn: 'Cancel',
                 thank_you_title: 'Thank You!',
                 thank_you_message: 'Thank you for registering your insurance using the GT Max Motor Platform. Please check your Email or WhatsApp to get your quotation.',
-                validation_select_variant: 'Please select a vehicle variant/model.'
+                validation_select_variant: 'Please select a vehicle variant/model.',
+                recommended: 'Recommended',
+                birthday: 'Date of Birth',
+                birthday_placeholder: 'YYYY-MM-DD'
             },
             zh: {
                 // Badge
@@ -93,36 +113,54 @@
                 quote_subtitle: '填写表格以获取即时报价',
                 name: '姓名',
                 name_placeholder: '请输入您的姓名',
+                identity_type: '身份证明类型',
+                id_type_nric: '身份证 (MyKad)',
+                id_type_old_ic: '旧身份证 / 其他',
+                id_type_pass: '护照',
+                id_type_pol: '警察 / 军人身份证',
                 nric: '车主身份证号码',
+                old_ic: '旧身份证号码 / 其他',
                 passport: '车主护照号码',
+                police_army_id: '警察 / 军人身份证号码',
+                gender: '性别',
+                gender_male: '男 (Male)',
+                gender_female: '女 (Female)',
                 is_malaysian: '我是马来西亚公民',
                 motor_registration: '摩托车注册',
                 car_registration: '汽车注册',
                 vehicle_type: '汽车注册',
                 vehicle_placeholder: 'ABC1234',
-                whatsapp: 'Whatsapp号码',
+                whatsapp: '电话号码',
                 whatsapp_placeholder: '60123456789',
                 email: '电子邮件',
                 email_placeholder: 'your@email.com',
                 address1: '地址 (1)',
                 address2: '地址 (2)',
-                state: '州',
-                postcode: '邮政编码（用于保险单）',
+                state: '州属',
+                postcode: '邮政编码',
                 optional: '（选填）',
                 send_whatsapp: '是的，通过电子邮件发送我的报价。',
-                agreement: '提交即表示我同意通过电子邮件接收GT-MAX的报价、提醒和优惠，并已阅读且接受<a href="#" class="text-blue-600 font-semibold hover:underline">条款与条件</a>及<a href="#" class="text-blue-600 font-semibold hover:underline">隐私政策</a>。',
+                agreement: '我确认已阅读并理解 <a href="https://az.my/partner-CMCC-motorcycleplus-PDS_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">产品披露说明书</a>、<a href="https://az.my/partner-AMP-PW_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">保单条款</a> 及 <a href="https://az.my/PrivacyNotice-AGIC" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">隐私通知</a>，并同意根据隐私通知所述目的处理我的个人数据。',
+                relationship_title: '注册代理关系披露',
+                relationship_disclosure: 'GT-MAX Motors (M) Sdn. Bhd. 是 Allianz General Insurance Company (Malaysia) Berhad 的注册代理人。',
+                pidm_title: 'PIDM 保障声明',
+                pidm_disclosure: '受保障证书/保单/产品下应付的利益受 PIDM 保障至相关上限。请参阅 <a href="https://www.pidm.gov.my/pidm2022/files/92/92bdfcde-3534-4a29-9031-5186387623ee.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">PIDM TIPS 手册</a> 或联系 Allianz General Insurance Company (Malaysia) Berhad 或 PIDM（浏览 <a href="https://www.pidm.gov.my" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">www.pidm.gov.my</a>）。',
                 submit: '立即获取报价！',
                 nric_placeholder: 'XXXXXX-XX-XXXX',
+                old_ic_placeholder: '请输入旧身份证号码',
                 passport_placeholder: '请输入护照号码',
-                postcode_placeholder: '请输入您的邮政编码（用于保险单）',
-                state_placeholder: '请输入您的州',
-                address_placeholder: '请输入您的地址',
-                city_placeholder: '请输入您的城市',
-                country_placeholder: '请输入您的国家',
+                police_army_placeholder: '请输入警察/军人身份证号码',
+                postcode_placeholder: '请输入邮政编码',
+                state_placeholder: '请输入州属',
+                address_placeholder: '请输入地址',
+                city_placeholder: '请输入城市',
+                country_placeholder: '请输入国家',
                 city: '城市',
+                state: '州属',
                 country: '国家',
-                contact_hint: 'WhatsApp 号码或电子邮件，至少需填写一项',
-                contact_required: '请至少填写以下其中一项：WhatsApp 号码或电子邮件地址。',
+                contact_hint: '手机号码或电子邮件，至少需填写一项',
+                contact_required: '请至少填写以下其中一项：手机号码或电子邮件地址。',
+                whatsapp_invalid: '请输入有效的电话号码（例如 60123456789 或 0123456789）。',
                 is_gtmax_staff: '您是 GTMAX 员工吗？',
                 staff_id_placeholder: 'GR00XXX',
                 vehicle_confirm_title: '确认车辆信息',
@@ -137,7 +175,10 @@
                 cancel_btn: '取消',
                 thank_you_title: '谢谢您！',
                 thank_you_message: '感谢您使用 GT Max Motor Platform 注册您的保险。请检查您的电子邮件或 WhatsApp 以获取报价。',
-                validation_select_variant: '请选择一个车辆版本/型号。'
+                validation_select_variant: '请选择一个车辆版本/型号。',
+                recommended: '推荐',
+                birthday: '出生日期',
+                birthday_placeholder: 'YYYY-MM-DD'
             },
             bm: {
                 // Badge
@@ -162,36 +203,55 @@
                 quote_subtitle: 'Lengkapkan borang untuk menerima sebut harga segera',
                 name: 'Nama',
                 name_placeholder: 'Masukkan nama penuh anda',
+                identity_type: 'Jenis Identiti',
+                id_type_nric: 'NRIC (MyKad)',
+                id_type_old_ic: 'Kad Pengenalan Lama / Lain-lain',
+                id_type_pass: 'Pasport',
+                id_type_pol: 'ID Polis / Tentera',
                 nric: 'No. IC Pemilik Kenderaan',
+                old_ic: 'No. KP Lama / Lain-lain Pemilik',
                 passport: 'No. Pasport Pemilik Kenderaan',
+                police_army_id: 'No. ID Polis / Tentera Pemilik',
+                gender: 'Jantina',
+                gender_male: 'Lelaki (Male)',
+                gender_female: 'Perempuan (Female)',
                 is_malaysian: 'Saya warganegara Malaysia',
                 motor_registration: 'Pendaftaran Motor',
                 car_registration: 'Pendaftaran Kereta',
                 vehicle_type: 'Kereta Didaftarkan',
                 vehicle_placeholder: 'ABC1234',
-                whatsapp: 'Nombor Whatsapp',
+                whatsapp: 'Nombor Telefon',
                 whatsapp_placeholder: '60123456789',
                 email: 'Emel',
                 email_placeholder: 'your@email.com',
                 address1: 'Alamat (1)',
                 address2: 'Alamat (2)',
-                postcode_placeholder: 'Masukkan poskod anda (untuk nota perlindungan)',
-                state_placeholder: 'Masukkan negeri anda',
-                postcode: 'Poskod untuk nota perlindungan',
+                postcode_placeholder: 'Masukkan poskod',
+                state_placeholder: 'Masukkan negeri',
+                city_placeholder: 'Masukkan bandar',
+                postcode: 'Poskod',
+                city: 'Bandar',
                 state: 'Negeri',
-                address_placeholder: 'Masukkan alamat anda',
+                address_placeholder: 'Masukkan alamat',
                 optional: '(Pilihan)',
                 send_whatsapp: 'Ya, hantar sebut harga saya melalui emel.',
-                agreement: 'Dengan menghantar, saya bersetuju menerima sebut harga, peringatan, dan tawaran daripada GT-MAX melalui emel serta telah membaca dan menerima <a href="#" class="text-blue-600 font-semibold hover:underline">Terma dan Syarat</a> dan <a href="#" class="text-blue-600 font-semibold hover:underline">Polisi Privasi</a>.',
+                agreement: 'Saya mengesahkan bahawa saya telah membaca dan memahami <a href="https://az.my/partner-CMCC-motorcycleplus-PDS_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Lembaran Pendedahan Produk</a>, <a href="https://az.my/partner-AMP-PW_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Teks Polisi</a> & <a href="https://az.my/PrivacyNotice-AGIC" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Notis Privasi</a>, dan bersetuju dengan pemprosesan data peribadi saya untuk tujuan yang dinyatakan dalam Notis Privasi.',
+                relationship_title: 'Pendedahan Hubungan Ejen Berdaftar',
+                relationship_disclosure: 'GT-MAX Motors (M) Sdn. Bhd. adalah ejen berdaftar Allianz General Insurance Company (Malaysia) Berhad.',
+                pidm_title: 'Penyataan Perlindungan PIDM',
+                pidm_disclosure: 'Manfaat yang dibayar di bawah sijil/polisi/produk yang layak dilindungi oleh PIDM sehingga had perlindungan. Sila rujuk <a href="https://www.pidm.gov.my/pidm2022/files/92/92bdfcde-3534-4a29-9031-5186387623ee.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Broshur TIPS PIDM</a> atau hubungi Allianz General Insurance Company (Malaysia) Berhad atau PIDM (layari <a href="https://www.pidm.gov.my" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">www.pidm.gov.my</a>).',
                 submit: 'Dapatkan Sebut Harga Sekarang!',
                 nric_placeholder: 'XXXXXX-XX-XXXX',
+                old_ic_placeholder: 'Masukkan Nombor KP Lama',
                 passport_placeholder: 'Masukkan nombor pasport',
+                police_army_placeholder: 'Masukkan ID Polis / Tentera',
                 city_placeholder: 'Masukkan bandar anda',
                 country_placeholder: 'Masukkan negara anda',
                 city: 'Bandar',
                 country: 'Negara',
-                contact_hint: 'Sekurang-kurangnya satu antara WhatsApp atau Emel diperlukan',
-                contact_required: 'Sila isi sekurang-kurangnya satu: Nombor WhatsApp atau Emel.',
+                contact_hint: 'Sekurang-kurangnya satu antara Nombor Telefon atau Emel diperlukan',
+                contact_required: 'Sila isi sekurang-kurangnya satu: Nombor Telefon atau Emel.',
+                whatsapp_invalid: 'Sila masukkan nombor telefon yang sah (cth. 60123456789 atau 0123456789).',
                 is_gtmax_staff: 'Adakah Anda Kakitangan GTMAX?',
                 staff_id_placeholder: 'GR00XXX',
                 vehicle_confirm_title: 'Sahkan Maklumat Kenderaan',
@@ -206,21 +266,37 @@
                 cancel_btn: 'Batal',
                 thank_you_title: 'Terima Kasih!',
                 thank_you_message: 'Terima kasih kerana mendaftar insurans anda menggunakan Platform Motor GT Max. Sila semak Emel atau WhatsApp anda untuk mendapatkan sebut harga.',
-                validation_select_variant: 'Sila pilih varian/model kenderaan.'
+                validation_select_variant: 'Sila pilih varian/model kenderaan.',
+                recommended: 'Disyorkan',
+                birthday: 'Tarikh Lahir',
+                dob_placeholder: 'YYYY-MM-DD'
             }
         };
 
         const nricInput = document.getElementById('nric');
         const nricLabel = document.getElementById('nric_label_text');
-        const isMalaysianCheckbox = document.getElementById('is_malaysian');
         const nricIcon = document.getElementById('nric_icon');
 
         const vehicleTypeCheckbox = document.getElementById('vehicle_type');
         const vehicleLabel = document.getElementById('vehicle_label');
         const vehicleIcon = document.getElementById('vehicle_icon');
+        const whatsappInput = document.getElementById('whatsapp_number');
 
         const getSelectedLang = () => {
             return localStorage.getItem('site_lang') || 'bm';
+        };
+
+        const formatPhone = (value) => {
+            if (!value) return '';
+            const hasPlus = value.startsWith('+');
+            const digits = value.replace(/\D/g, '').slice(0, 11);
+            return hasPlus ? '+' + digits : digits;
+        };
+
+        const isValidPhone = (value) => {
+            if (!value) return true;
+            const digits = value.replace(/\D/g, '');
+            return digits.length >= 9 && digits.length <= 11;
         };
 
         const formatNric = (value) => {
@@ -248,20 +324,47 @@
             }
 
             const selectedLang = translations[lang] ? lang : 'bm';
-            const isMalaysian = !isMalaysianCheckbox || isMalaysianCheckbox.checked;
+            const identityTypeSelect = document.getElementById('identity_type');
+            const selectedType = identityTypeSelect ? identityTypeSelect.value : 'NRIC';
 
             if (nricLabel) {
-                nricLabel.textContent = isMalaysian
-                    ? translations[selectedLang].nric
-                    : translations[selectedLang].passport;
+                if (selectedType === 'NRIC') {
+                    nricLabel.textContent = translations[selectedLang].nric;
+                } else if (selectedType === 'OLD_IC') {
+                    nricLabel.textContent = translations[selectedLang].old_ic;
+                } else if (selectedType === 'PASS') {
+                    nricLabel.textContent = translations[selectedLang].passport;
+                } else if (selectedType === 'POL') {
+                    nricLabel.textContent = translations[selectedLang].police_army_id;
+                }
             }
 
-            nricInput.placeholder = isMalaysian
-                ? translations[selectedLang].nric_placeholder
-                : translations[selectedLang].passport_placeholder;
-            nricInput.maxLength = isMalaysian ? 14 : 20;
-            nricInput.setAttribute('inputmode', isMalaysian ? 'numeric' : 'text');
-            nricInput.value = isMalaysian ? formatNric(nricInput.value) : formatPassport(nricInput.value);
+            if (selectedType === 'NRIC') {
+                nricInput.placeholder = translations[selectedLang].nric_placeholder;
+                nricInput.maxLength = 14;
+                nricInput.setAttribute('inputmode', 'numeric');
+                nricInput.value = formatNric(nricInput.value);
+            } else if (selectedType === 'OLD_IC') {
+                nricInput.placeholder = translations[selectedLang].old_ic_placeholder;
+                nricInput.maxLength = 20;
+                nricInput.setAttribute('inputmode', 'text');
+                nricInput.value = formatPassport(nricInput.value);
+            } else if (selectedType === 'PASS') {
+                nricInput.placeholder = translations[selectedLang].passport_placeholder;
+                nricInput.maxLength = 20;
+                nricInput.setAttribute('inputmode', 'text');
+                nricInput.value = formatPassport(nricInput.value);
+            } else if (selectedType === 'POL') {
+                nricInput.placeholder = translations[selectedLang].police_army_placeholder;
+                nricInput.maxLength = 20;
+                nricInput.setAttribute('inputmode', 'text');
+                nricInput.value = formatPassport(nricInput.value);
+            }
+
+            const genderWrapper = document.getElementById('gender_wrapper');
+            if (genderWrapper) {
+                genderWrapper.classList.remove('hidden');
+            }
 
             // Update NRIC/Passport icon if it exists and THEME_URI is defined
             // Both NRIC and Passport use nric.png as per requirements
@@ -302,7 +405,14 @@
                 }
 
                 // Elements that should use innerHTML (contain HTML tags like <span> or <a>)
-                const htmlKeys = ['main_title', 'agreement'];
+                const htmlKeys = [
+                    'main_title',
+                    'agreement',
+                    'relationship_disclosure',
+                    'level_of_service_a',
+                    'direct_channel_a',
+                    'pidm_disclosure'
+                ];
 
                 if (htmlKeys.includes(key)) {
                     element.innerHTML = translatedText;
@@ -338,18 +448,93 @@
             });
         });
 
+        const identityTypeSelect = document.getElementById('identity_type');
+
+        const parseNricData = (nricVal) => {
+            if (!nricVal) return null;
+            const digits = nricVal.replace(/\D/g, '');
+            if (digits.length < 6) return null;
+
+            const yyStr = digits.slice(0, 2);
+            const mmStr = digits.slice(2, 4);
+            const ddStr = digits.slice(4, 6);
+
+            const yy = parseInt(yyStr, 10);
+            const mm = parseInt(mmStr, 10);
+            const dd = parseInt(ddStr, 10);
+
+            if (isNaN(yy) || isNaN(mm) || isNaN(dd)) return null;
+            if (mm < 1 || mm > 12) return null;
+            if (dd < 1 || dd > 31) return null;
+
+            const currentYearShort = parseInt(new Date().getFullYear().toString().slice(-2), 10);
+            const fullYear = (yy > currentYearShort) ? (1900 + yy) : (2000 + yy);
+
+            const formattedMm = String(mm).padStart(2, '0');
+            const formattedDd = String(dd).padStart(2, '0');
+            const birthday = `${fullYear}-${formattedMm}-${formattedDd}`;
+
+            let gender = null;
+            if (digits.length >= 12) {
+                const lastDigit = parseInt(digits.slice(11, 12), 10);
+                if (!isNaN(lastDigit)) {
+                    gender = (lastDigit % 2 === 1) ? 'M' : 'F';
+                }
+            } else if (digits.length > 6) {
+                const lastDigit = parseInt(digits.slice(-1), 10);
+                if (!isNaN(lastDigit)) {
+                    gender = (lastDigit % 2 === 1) ? 'M' : 'F';
+                }
+            }
+
+            return { birthday, gender };
+        };
+
+        const genderSelect = document.getElementById('gender');
+        const dobInput = document.getElementById('birthday');
+
+        const autoDetectNricDetails = () => {
+            const identityTypeSelect = document.getElementById('identity_type');
+            const selectedType = identityTypeSelect ? identityTypeSelect.value : 'NRIC';
+            if (selectedType !== 'NRIC' || !nricInput) return;
+
+            const parsed = parseNricData(nricInput.value);
+            if (parsed) {
+                if (parsed.gender && genderSelect) {
+                    genderSelect.value = parsed.gender;
+                }
+                if (parsed.birthday && dobInput) {
+                    dobInput.value = parsed.birthday;
+                }
+            }
+        };
+
         if (nricInput) {
             nricInput.addEventListener('input', () => {
-                const isMalaysian = !isMalaysianCheckbox || isMalaysianCheckbox.checked;
-                nricInput.value = isMalaysian ? formatNric(nricInput.value) : formatPassport(nricInput.value);
+                const selectedType = identityTypeSelect ? identityTypeSelect.value : 'NRIC';
+                if (selectedType === 'NRIC') {
+                    nricInput.value = formatNric(nricInput.value);
+                    autoDetectNricDetails();
+                } else {
+                    nricInput.value = formatPassport(nricInput.value);
+                }
             });
         }
 
-        if (isMalaysianCheckbox) {
-            isMalaysianCheckbox.addEventListener('change', () => {
+        if (identityTypeSelect) {
+            identityTypeSelect.addEventListener('change', () => {
                 updateIdentityFieldUI(getSelectedLang());
             });
         }
+
+        if (whatsappInput) {
+            whatsappInput.setAttribute('inputmode', 'tel');
+            whatsappInput.addEventListener('input', () => {
+                whatsappInput.value = formatPhone(whatsappInput.value);
+            });
+        }
+
+
 
         if (vehicleTypeCheckbox) {
             vehicleTypeCheckbox.addEventListener('change', () => {
@@ -412,50 +597,106 @@
         };
 
         const showFieldErrors = (errors) => {
-            const contactFields = ['whatsapp_number', 'email'];
-            const hasContactError = contactFields.some(f => errors[f]);
-            if (hasContactError) {
-                const lang = getSelectedLang();
-                const contactError = document.querySelector('[data-error-for="contact"]');
-                if (contactError) {
-                    contactError.textContent = translations[lang].contact_required;
-                    contactError.classList.remove('hidden');
-                }
-                contactFields.forEach(f => {
-                    const input = document.getElementById(f === 'whatsapp_number' ? 'whatsapp_number' : 'email');
-                    if (input) input.classList.add('input-error');
-                });
+            const fieldMap = {
+                'identityType': 'identityType',
+                'identity_type': 'identityType',
+                'address1': 'address1',
+                'address_1': 'address1',
+                'addressLine1': 'address1',
+                'address2': 'address2',
+                'address_2': 'address2',
+                'addressLine2': 'address2',
+                'birthday': 'birthday',
+                'whatsapp_number': 'whatsapp_number',
+                'email': 'email',
+                'staff_id': 'staff_id',
+                'nric': 'nric',
+                'name': 'name',
+                'vehicle_number': 'vehicle_number',
+                'vehicle_type': 'vehicle_type',
+                'gender': 'gender',
+                'postcode': 'postcode',
+                'city': 'city',
+                'state': 'state',
+                'send_whatsapp': 'send_whatsapp',
+                'is_malaysian': 'nric'
+            };
+
+            const elementIdMap = {
+                'identityType': 'identity_type'
+            };
+
+            let firstErrorElement = null;
+
+            // Ensure staff_id input wrapper is unhidden if staff_id error exists
+            if (errors.staff_id) {
+                const isGtmaxStaffCheckbox = document.getElementById('is_gtmax_staff');
+                const staffIdWrapper = document.getElementById('staff_id_wrapper');
+                if (isGtmaxStaffCheckbox) isGtmaxStaffCheckbox.checked = true;
+                if (staffIdWrapper) staffIdWrapper.classList.remove('hidden');
             }
-            Object.entries(errors).forEach(([field, messages]) => {
-                if (contactFields.includes(field)) return;
-                const input = document.getElementById(field);
-                const errorEl = document.querySelector(`[data-error-for="${field}"]`);
-                if (input) input.classList.add('input-error');
+
+            // Ensure gender/birthday wrappers are unhidden if gender/birthday errors exist
+            if (errors.gender) {
+                const genderWrapper = document.getElementById('gender_wrapper');
+                if (genderWrapper) genderWrapper.classList.remove('hidden');
+            }
+            if (errors.birthday) {
+                const dobWrapper = document.getElementById('birthday_wrapper');
+                if (dobWrapper) dobWrapper.classList.remove('hidden');
+            }
+
+            // Handle contact general message if both contact fields are missing
+            const whatsappVal = form.whatsapp_number ? form.whatsapp_number.value.trim() : '';
+            const emailVal = form.email ? form.email.value.trim() : '';
+            const contactErrorEl = document.querySelector('[data-error-for="contact"]');
+
+            if (!whatsappVal && !emailVal && (errors.whatsapp_number || errors.email)) {
+                const lang = getSelectedLang();
+                if (contactErrorEl) {
+                    contactErrorEl.textContent = translations[lang].contact_required;
+                    contactErrorEl.classList.remove('hidden');
+                    if (!firstErrorElement) firstErrorElement = contactErrorEl;
+                }
+            }
+
+            Object.entries(errors).forEach(([rawField, messages]) => {
+                if (!messages) return;
+
+                const canonicalField = fieldMap[rawField] || rawField;
+                const elementId = elementIdMap[canonicalField] || canonicalField;
+
+                const input = document.getElementById(elementId);
+                const errorEl = document.querySelector(`[data-error-for="${canonicalField}"]`) ||
+                    document.querySelector(`[data-error-for="${rawField}"]`);
+
+                if (input) {
+                    input.classList.add('input-error');
+                    if (!firstErrorElement) firstErrorElement = input;
+                }
+
                 if (errorEl) {
-                    errorEl.textContent = messages[0];
-                    errorEl.classList.remove('hidden');
+                    const msgText = Array.isArray(messages) ? (messages[0] || '') : messages;
+                    if (msgText) {
+                        errorEl.textContent = msgText;
+                        errorEl.classList.remove('hidden');
+                        if (!firstErrorElement) firstErrorElement = errorEl;
+                    }
                 }
             });
+
+            if (firstErrorElement) {
+                firstErrorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (typeof firstErrorElement.focus === 'function') {
+                    firstErrorElement.focus();
+                }
+            }
         };
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+            e.stopPropagation();
             clearErrors();
-
-            // At least one of WhatsApp or Email is required
-            const whatsappVal = form.whatsapp_number.value.trim();
-            const emailVal = form.email.value.trim();
-            if (!whatsappVal && !emailVal) {
-                const lang = getSelectedLang();
-                const contactError = document.querySelector('[data-error-for="contact"]');
-                if (contactError) {
-                    contactError.textContent = translations[lang].contact_required;
-                    contactError.classList.remove('hidden');
-                }
-                document.getElementById('whatsapp_number').classList.add('input-error');
-                document.getElementById('email').classList.add('input-error');
-                return;
-            }
 
             Swal.fire({
                 title: 'Submitting...',
@@ -468,13 +709,20 @@
 
             const payload = {
                 name: form.name.value.trim(),
+                identityType: form.identityType ? form.identityType.value : 'NRIC',
                 nric: form.nric.value.trim(),
-                is_malaysian: form.is_malaysian && form.is_malaysian.checked ? 1 : 0,
+                is_malaysian: (form.identityType ? form.identityType.value : 'NRIC') !== 'PASS' ? 1 : 0,
+                gender: form.gender ? form.gender.value : '',
+                birthday: form.birthday ? form.birthday.value.trim() : '',
                 vehicle_number: form.vehicle_number.value.trim(),
                 vehicle_type: form.vehicle_type && form.vehicle_type.checked ? 'Car' : 'Motorcycle',
                 whatsapp_number: form.whatsapp_number.value.trim(),
                 email: form.email.value.trim(),
+                address1: form.address1 ? form.address1.value.trim() : '',
+                address2: form.address2 ? form.address2.value.trim() : '',
                 postcode: form.postcode ? form.postcode.value.trim() : '',
+                city: form.city ? form.city.value.trim() : '',
+                state: form.state ? form.state.value.trim() : '',
                 send_whatsapp: form.email.value.trim() && form.send_whatsapp.checked ? 1 : 0,
                 staff_id: (form.is_gtmax_staff && form.is_gtmax_staff.checked && form.staff_id) ? form.staff_id.value.trim() : '',
                 language: localStorage.getItem('site_lang') || 'bm'
@@ -544,15 +792,26 @@
                     let variantsHtml = '';
                     if (message.nvicList && message.nvicList.length > 0) {
                         message.nvicList.forEach((item, index) => {
+                            const isRecommended = (item.recommendInd === 'Y' || item.recommendInd === 'y');
+                            const activeClass = isRecommended ? ' selected-active' : '';
+                            const checkedAttr = isRecommended ? ' checked' : '';
+                            const dotHidden = isRecommended ? '' : ' hidden';
+                            const recBadge = isRecommended
+                                ? `<span class="inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border border-amber-300 ml-1.5 shadow-sm">⭐ ${t.recommended || 'Recommended'}</span>`
+                                : '';
+
                             variantsHtml += `
-                                <label class="variant-card flex items-center justify-between p-3.5 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-blue-500 hover:bg-blue-50/20 transition-all duration-200 mb-2 relative">
-                                    <input type="radio" name="selected_nvic" value="${item.nvic || item.azVariant}" data-index="${index}" class="absolute opacity-0 variant-radio">
+                                <label class="variant-card flex items-center justify-between p-3.5 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-blue-500 hover:bg-blue-50/20 transition-all duration-200 mb-2 relative${activeClass}">
+                                    <input type="radio" name="selected_nvic" value="${item.nvic || item.azVariant}" data-index="${index}" class="absolute opacity-0 variant-radio"${checkedAttr}>
                                     <div class="flex items-center gap-3">
                                         <div class="custom-radio flex items-center justify-center w-5 h-5 rounded-full border-2 border-gray-300 bg-white transition-all duration-200">
-                                            <div class="w-2.5 h-2.5 rounded-full bg-blue-600 hidden"></div>
+                                            <div class="w-2.5 h-2.5 rounded-full bg-blue-600${dotHidden}"></div>
                                         </div>
                                         <div>
-                                            <div class="font-bold text-gray-800 text-sm md:text-base">${item.vehicleVariant}</div>
+                                            <div class="font-bold text-gray-800 text-sm md:text-base flex items-center flex-wrap gap-1">
+                                                ${item.vehicleVariant}
+                                                ${recBadge}
+                                            </div>
                                             <div class="text-xs text-gray-500 mt-0.5">Engine CC: ${item.vehicleEngineCC || ''} | Type: ${item.engineType || ''}</div>
                                         </div>
                                     </div>
@@ -645,9 +904,21 @@
                             const cards = document.querySelectorAll('.variant-card');
                             let selectedVariant = null;
 
+                            // Pre-select recommended variant if present in nvicList
+                            if (message.nvicList && message.nvicList.length > 0) {
+                                const recIndex = message.nvicList.findIndex(item => item.recommendInd === 'Y' || item.recommendInd === 'y');
+                                if (recIndex !== -1) {
+                                    selectedVariant = message.nvicList[recIndex];
+                                }
+                            }
+
                             cards.forEach(card => {
                                 card.addEventListener('click', () => {
-                                    cards.forEach(c => c.classList.remove('selected-active'));
+                                    cards.forEach(c => {
+                                        c.classList.remove('selected-active');
+                                        const dot = c.querySelector('.custom-radio div');
+                                        if (dot) dot.classList.add('hidden');
+                                    });
                                     card.classList.add('selected-active');
                                     const radio = card.querySelector('input[type="radio"]');
                                     if (radio) {
@@ -655,6 +926,8 @@
                                         const index = parseInt(radio.getAttribute('data-index'), 10);
                                         selectedVariant = message.nvicList[index];
                                     }
+                                    const dot = card.querySelector('.custom-radio div');
+                                    if (dot) dot.classList.remove('hidden');
                                     const errorMsg = document.getElementById('variant-error-msg');
                                     if (errorMsg) errorMsg.classList.add('hidden');
                                 });
@@ -663,6 +936,7 @@
                             confirmBtn.addEventListener('click', async () => {
                                 if (message.nvicList && message.nvicList.length > 0 && !selectedVariant) {
                                     const errorMsg = document.getElementById('variant-error-msg');
+                                    console.log('errorMsg: ', errorMsg);
                                     if (errorMsg) {
                                         errorMsg.textContent = t.validation_select_variant;
                                         errorMsg.classList.remove('hidden');
@@ -713,7 +987,7 @@
 
                                     const confirmData = await confirmRes.json();
                                     Swal.close();
-
+                                    console.log('confirmData: ', confirmData);
                                     if (!confirmRes.ok) {
                                         Swal.fire('Error', confirmData?.error_message || 'Confirmation failed', 'error');
                                         return;

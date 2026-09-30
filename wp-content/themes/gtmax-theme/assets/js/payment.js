@@ -26,11 +26,15 @@
             label_year: 'Year',
             label_variant: 'Variant',
             label_coverage: 'Coverage Type',
+            label_poi: 'Period of Insurance (POI)',
+            label_effective_date: 'Policy Effective Date',
+            label_expiring_date: 'Policy Expiring Date',
             label_sum_insured: 'Sum Insured',
             label_ncd: 'NCD',
             label_basic: 'Basic Premium',
             label_ncd_disc: 'NCD Discount',
             label_annual: 'Annual Premium',
+            label_gross: 'Gross Premium',
             label_addons: 'Add-on Covers',
             label_tax: 'Service Tax (8%)',
             label_stamp: 'Stamp Duty',
@@ -45,6 +49,9 @@
             error_try_again: '← Try Again',
             loading: 'Loading payment details…',
             excess_label: 'Excess Amount',
+            label_staff_discount: 'Staff Discount (10%)',
+            label_agent_commission: 'Agent Commission (10%)',
+            label_staff_id: 'Staff ID',
             countdown_label: 'Quotation expires in:',
 
             // Success State
@@ -64,9 +71,16 @@
             btn_retry: '🔄 Try Payment Again',
 
             // Cancelled State
+            cancel_badge: 'Quotation Saved & Valid',
             cancel_title: 'Payment Cancelled',
-            cancel_msg: 'You have cancelled the payment process. Your quotation remains saved until it expires.',
+            cancel_msg: 'You have cancelled the payment process. Don\'t worry, your quotation details and locked pricing remain safely saved.',
+            cancel_summary_title: 'Saved Quotation Summary',
             btn_cancel_retry: '💳 Resume & Pay Now',
+            btn_modify_quote: '✏️ Modify Quotation',
+            btn_whatsapp_support: '💬 Need Help? WhatsApp Support',
+            cancel_feat_secure: '🔒 100% Secure Gateway',
+            cancel_feat_instant: '⚡ Instant Cover Note',
+            cancel_feat_locked: '🏷️ Guaranteed Price',
         },
         bm: {
             page_title: 'Ringkasan Pembayaran',
@@ -85,11 +99,15 @@
             label_year: 'Tahun',
             label_variant: 'Varian',
             label_coverage: 'Jenis Perlindungan',
+            label_poi: 'Tempoh Insurans (POI)',
+            label_effective_date: 'Tarikh Berkuat Kuasa Polisi',
+            label_expiring_date: 'Tarikh Luput Polisi',
             label_sum_insured: 'Jumlah Diinsuranskan',
             label_ncd: 'NCD',
             label_basic: 'Premium Asas',
             label_ncd_disc: 'Diskaun NCD',
             label_annual: 'Premium Tahunan',
+            label_gross: 'Premium Kasar',
             label_addons: 'Perlindungan Tambahan',
             label_tax: 'Cukai Perkhidmatan (8%)',
             label_stamp: 'Duti Setem',
@@ -104,6 +122,9 @@
             error_try_again: '← Cuba Lagi',
             loading: 'Memuatkan butiran pembayaran…',
             excess_label: 'Amaun Lebihan',
+            label_staff_discount: 'Diskaun Staf (10%)',
+            label_agent_commission: 'Komisen Ejen (10%)',
+            label_staff_id: 'ID Staf',
             countdown_label: 'Sebut harga tamat tempoh dalam:',
 
             // Success State
@@ -123,9 +144,16 @@
             btn_retry: '🔄 Cuba Pembayaran Semula',
 
             // Cancelled State
+            cancel_badge: 'Sebut Harga Disimpan & Sah',
             cancel_title: 'Pembayaran Dibatalkan',
-            cancel_msg: 'Anda telah membatalkan proses pembayaran. Sebut harga anda masih disimpan sehingga tamat tempoh.',
+            cancel_msg: 'Anda telah membatalkan proses pembayaran. Jangan risau, butiran sebut harga dan harga terpelihara anda masih disimpan dengan selamat.',
+            cancel_summary_title: 'Ringkasan Sebut Harga Disimpan',
             btn_cancel_retry: '💳 Teruskan Pembayaran',
+            btn_modify_quote: '✏️ Ubah Sebut Harga',
+            btn_whatsapp_support: '💬 Perlukan Bantuan? Sokongan WhatsApp',
+            cancel_feat_secure: '🔒 Gateway 100% Selamat',
+            cancel_feat_instant: '⚡ Nota Perlindungan Segera',
+            cancel_feat_locked: '🏷️ Kadar Dijamin',
         },
         zh: {
             page_title: '付款摘要',
@@ -144,11 +172,15 @@
             label_year: '年份',
             label_variant: '车型',
             label_coverage: '保障类型',
+            label_poi: '保险期限 (POI)',
+            label_effective_date: '保单生效日期',
+            label_expiring_date: '保单到期日期',
             label_sum_insured: '保额',
             label_ncd: 'NCD',
             label_basic: '基本保费',
             label_ncd_disc: 'NCD 折扣',
             label_annual: '年度保费',
+            label_gross: '毛保费',
             label_addons: '附加险种',
             label_tax: '服务税 (8%)',
             label_stamp: '印花税',
@@ -163,6 +195,9 @@
             error_try_again: '← 重试',
             loading: '正在加载付款详情…',
             excess_label: '超额金额',
+            label_staff_discount: '员工折扣 (10%)',
+            label_agent_commission: '代理佣金 (10%)',
+            label_staff_id: '员工 ID',
             countdown_label: '报价将在以下时间后过期:',
 
             // Success State
@@ -182,9 +217,16 @@
             btn_retry: '🔄 重新尝试付款',
 
             // Cancelled State
+            cancel_badge: '报价已保存且有效',
             cancel_title: '付款已取消',
-            cancel_msg: '您已取消付款流程。在过期之前，您的报价将继续保存。',
+            cancel_msg: '您已取消付款流程。请放心，您的报价信息和已锁定的优惠价格将继续安全保存。',
+            cancel_summary_title: '已保存的报价摘要',
             btn_cancel_retry: '💳 继续支付',
+            btn_modify_quote: '✏️ 修改报价信息',
+            btn_whatsapp_support: '💬 需要帮助？WhatsApp 客服',
+            cancel_feat_secure: '🔒 100% 安全支付',
+            cancel_feat_instant: '⚡ 支付后即时出单',
+            cancel_feat_locked: '🏷️ 价格已锁定',
         },
     };
 
@@ -289,6 +331,88 @@
         return '<div class="pm-sum-row' + (extra ? ' ' + extra : '') + '"><span>' + label + '</span><span>' + value + '</span></div>';
     }
 
+    function getPolicyDates(quote, payload, resData, customer) {
+        quote = quote || {};
+        payload = payload || {};
+        resData = resData || {};
+        customer = customer || {};
+
+        var eff = quote.effectiveDate || quote.policyEffectiveDate || quote.effective_date || quote.effDate || quote.inceptionDate || quote.startDate || quote.start_date || quote.coverEffectiveDate
+            || payload.effectiveDate || payload.policyEffectiveDate || payload.effective_date || payload.effDate || payload.inceptionDate || payload.startDate || payload.start_date
+            || resData.effectiveDate || resData.effective_date || resData.policyEffectiveDate || resData.policy_effective_date
+            || customer.effective_date || customer.effectiveDate;
+
+        var exp = quote.expiryDate || quote.expiringDate || quote.expiring_date || quote.expiry_date || quote.policyExpiryDate || quote.expDate || quote.endDate || quote.end_date || quote.coverExpiryDate
+            || payload.expiryDate || payload.expiringDate || payload.expiring_date || payload.expiry_date || payload.policyExpiryDate || payload.expDate || payload.endDate || payload.end_date
+            || resData.expiryDate || resData.expiring_date || resData.expiry_date || resData.policyExpiryDate || resData.policy_expiry_date
+            || customer.expiry_date || customer.expiring_date || customer.expiryDate;
+
+        var poiObj = quote.periodOfInsurance || payload.periodOfInsurance || resData.periodOfInsurance;
+        if (poiObj) {
+            if (typeof poiObj === 'object') {
+                if (!eff) eff = poiObj.effectiveDate || poiObj.startDate || poiObj.effective_date;
+                if (!exp) exp = poiObj.expiryDate || poiObj.expiringDate || poiObj.endDate || poiObj.expiry_date;
+            } else if (typeof poiObj === 'string' && poiObj.includes(' to ')) {
+                var parts = poiObj.split(' to ');
+                if (!eff) eff = parts[0].trim();
+                if (!exp) exp = parts[1].trim();
+            }
+        }
+
+        function formatDate(dStr) {
+            if (!dStr) return null;
+            if (typeof dStr !== 'string' && !(dStr instanceof Date)) return String(dStr);
+            var str = String(dStr).trim();
+            var d = new Date(str);
+            if (isNaN(d.getTime())) {
+                var m = str.match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})/);
+                if (m) {
+                    d = new Date(parseInt(m[3], 10), parseInt(m[2], 10) - 1, parseInt(m[1], 10));
+                } else {
+                    return str;
+                }
+            }
+            if (isNaN(d.getTime())) return str;
+
+            var day = String(d.getDate()).padStart(2, '0');
+            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            var monthStr = months[d.getMonth()];
+            var year = d.getFullYear();
+            return day + ' ' + monthStr + ' ' + year;
+        }
+
+        var formattedEff;
+        var startDateObj;
+        if (eff) {
+            formattedEff = formatDate(eff);
+            startDateObj = new Date(eff);
+            if (isNaN(startDateObj.getTime())) {
+                var m = String(eff).match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})/);
+                if (m) startDateObj = new Date(parseInt(m[3], 10), parseInt(m[2], 10) - 1, parseInt(m[1], 10));
+                else startDateObj = new Date();
+            }
+        } else {
+            startDateObj = new Date();
+            formattedEff = formatDate(startDateObj);
+        }
+
+        var formattedExp;
+        if (exp) {
+            formattedExp = formatDate(exp);
+        } else {
+            var endDateObj = new Date(startDateObj);
+            endDateObj.setFullYear(endDateObj.getFullYear() + 1);
+            endDateObj.setDate(endDateObj.getDate() - 1);
+            formattedExp = formatDate(endDateObj);
+        }
+
+        return {
+            effectiveDate: formattedEff,
+            expiryDate: formattedExp,
+            poiRange: formattedEff + ' - ' + formattedExp
+        };
+    }
+
     function expiredHtml(t) {
         return '<div class="pm-status-card pm-status-expired"><div class="pm-status-icon">⏳</div>'
             + '<h2 class="pm-status-title">' + t.expired_title + '</h2>'
@@ -305,29 +429,45 @@
 
     /* ── Render Payment Success Screen ──────────────────────────────────────── */
     function renderSuccessScreen(t, root, uuid, resData) {
-        var quotation = resData.quotation || {};
-        var qRes = quotation.quotation_result_updated || quotation.quotation_result;
-        var details = qRes ? qRes.payment_details : null;
+        resData = resData || {};
 
-        var tranId = resData.tranID || (details ? details.tranID : null) || '—';
-        var amount = resData.amount || (details ? details.amount : null) || '—';
-        var dateStr = (details && details.updated_at) ? new Date(details.updated_at).toLocaleString() : new Date().toLocaleString();
+        var rawMsg = resData.message || {};
+        var quotation = (rawMsg && rawMsg.quotation_result) ? rawMsg.quotation_result : rawMsg;
+
+        var details = quotation.payment_details || {};
+        var customer = resData.customer || {};
+        var vehicleNo = customer.vehicle_number || (resData.payload && resData.payload.vehicle_number) || '—';
+
+        var tranId = details.tranID || '—';
+        var poiDates = getPolicyDates(quotation, resData.payload, resData, customer);
+
+        var rawAmount = details.amount;
+
+        var amount = (rawAmount !== null && rawAmount !== undefined && rawAmount !== '' && rawAmount !== '—')
+            ? (typeof rawAmount === 'number' || (!isNaN(parseFloat(rawAmount)) && !String(rawAmount).includes('RM')) ? fmt(rawAmount) : rawAmount)
+            : '—';
+
+        var dateStr = details.paydate;
+
+        var dateStr = dateStr ? new Date(dateStr).toLocaleString() : new Date().toLocaleString();
 
         var html = '<div class="pm-status-card pm-status-success">'
             + '<div class="pm-status-icon">✓</div>'
             + '<h1 class="pm-status-title">' + t.success_title + '</h1>'
             + '<p class="pm-status-msg">' + t.success_msg + '</p>'
             + '<div class="pm-receipt-box">'
-            + '<div class="pm-receipt-header"><span class="pm-receipt-title">' + t.receipt_title + '</span><span>' + (quotation.payload ? quotation.payload.vehicle_number || '' : '') + '</span></div>'
+            + '<div class="pm-receipt-header"><span class="pm-receipt-title">' + t.receipt_title + '</span><span>' + vehicleNo + '</span></div>'
             + '<div class="pm-receipt-grid">'
             + dRow(t.label_order_ref, uuid)
             + dRow(t.label_tran_id, tranId)
-            + dRow(t.label_amount, typeof amount === 'number' || !isNaN(parseFloat(amount)) ? fmt(amount) : amount)
+            + dRow(t.label_amount, amount)
+            + dRow(t.label_effective_date, poiDates.effectiveDate)
+            + dRow(t.label_expiring_date, poiDates.expiryDate)
             + dRow(t.label_date, dateStr)
             + '</div></div>'
             + '<div class="pm-btn-group">'
             + '<button id="pm-print-btn" class="pm-secondary-btn">' + t.btn_print + '</button>'
-            + '<a href="/" class="pm-confirm-btn" style="width:auto;margin-top:0;padding:12px 28px;">' + t.btn_home + '</a>'
+            + '<a href="/insurance" class="pm-confirm-btn" style="width:auto;margin-top:0;padding:12px 28px;">' + t.btn_home + '</a>'
             + '</div>'
             + '</div>';
 
@@ -335,9 +475,27 @@
 
         var printBtn = document.getElementById('pm-print-btn');
         if (printBtn) {
-            printBtn.addEventListener('click', function () { window.print(); });
+            printBtn.addEventListener('click', function () {
+                var btn = this;
+                var origText = btn.textContent;
+                btn.textContent = '⏳ Opening PDF...';
+                btn.disabled = true;
+
+                var rawToken = (GTMAX_CONFIG.token || '').replace(/^Bearer\s+/i, '');
+                var receiptUrl = GTMAX_CONFIG.apiUrl + '/payment/receipt/' + encodeURIComponent(uuid);
+                if (rawToken) {
+                    receiptUrl += '?api_token=' + encodeURIComponent(rawToken);
+                }
+                window.open(receiptUrl, '_blank');
+
+                setTimeout(function () {
+                    btn.textContent = origText;
+                    btn.disabled = false;
+                }, 1500);
+            });
         }
     }
+
 
     /* ── Render Payment Failed Screen ───────────────────────────────────────── */
     function renderFailedScreen(t, root, uuid, errorMsg) {
@@ -356,17 +514,116 @@
 
     /* ── Render Payment Cancelled Screen ────────────────────────────────────── */
     function renderCancelledScreen(t, root, uuid) {
+        var statusBadge = t.cancel_badge || 'Quotation Saved & Valid';
+        var summaryTitle = t.cancel_summary_title || 'Saved Quotation Summary';
+        var retryBtnText = t.btn_cancel_retry || '💳 Resume & Pay Now';
+        var modifyBtnText = t.btn_modify_quote || '✏️ Modify Quotation';
+        var supportBtnText = t.btn_whatsapp_support || '💬 Need Help? WhatsApp Support';
+
+        var featSecure = t.cancel_feat_secure || '🔒 100% Secure Gateway';
+        var featInstant = t.cancel_feat_instant || '⚡ Instant Cover Note';
+        var featLocked = t.cancel_feat_locked || '🏷️ Guaranteed Price';
+
         var html = '<div class="pm-status-card pm-status-cancel">'
-            + '<div class="pm-status-icon">🚫</div>'
+            + '<div class="pm-status-badge">🛡️ ' + statusBadge + '</div>'
+            + '<div class="pm-status-icon">'
+            + '<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'
+            + '<circle cx="12" cy="12" r="10"></circle>'
+            + '<line x1="15" y1="9" x2="9" y2="15"></line>'
+            + '<line x1="9" y1="9" x2="15" y2="15"></line>'
+            + '</svg>'
+            + '</div>'
             + '<h1 class="pm-status-title">' + t.cancel_title + '</h1>'
             + '<p class="pm-status-msg">' + t.cancel_msg + '</p>'
-            + '<div class="pm-btn-group">'
-            + '<a href="/insurance-payment/?uuid=' + encodeURIComponent(uuid) + '" class="pm-confirm-btn" style="width:auto;margin-top:0;padding:12px 28px;">' + t.btn_cancel_retry + '</a>'
-            + '<a href="/insurance" class="pm-secondary-btn">' + t.back_btn + '</a>'
+            + '<div class="pm-cancel-summary" id="pm-cancel-summary-box">'
+            + '<div class="pm-cancel-summary-header">'
+            + '<span class="pm-cancel-summary-title">' + summaryTitle + '</span>'
+            + '<span class="pm-cancel-ref">Ref: ' + (uuid || '—') + '</span>'
+            + '</div>'
+            + '<div class="pm-cancel-grid" id="pm-cancel-details-grid">'
+            + dRow(t.label_order_ref, uuid || '—')
+            + dRow(t.label_plate || 'Vehicle No.', '—')
+            + dRow(t.label_coverage || 'Coverage', '—')
+            + dRow(t.label_ncd || 'NCD', '—')
+            + '<div class="pm-cancel-amount-highlight">'
+            + '<span class="pm-cancel-amount-label">' + (t.label_total || 'Total Payable') + '</span>'
+            + '<span class="pm-cancel-amount-val" id="pm-cancel-total-val">RM --.--</span>'
+            + '</div>'
+            + '</div>'
+            + '</div>'
+            + '<div class="pm-cancel-features">'
+            + '<div class="pm-cancel-feat-item">' + featSecure + '</div>'
+            + '<div class="pm-cancel-feat-item">' + featInstant + '</div>'
+            + '<div class="pm-cancel-feat-item">' + featLocked + '</div>'
+            + '</div>'
+            + '<div class="pm-cancel-actions">'
+            + '<div class="pm-cancel-main-btns">'
+            + '<a href="/insurance-payment/?uuid=' + encodeURIComponent(uuid) + '" class="pm-confirm-btn">' + retryBtnText + '</a>'
+            + '<a href="/insurance?uuid=' + encodeURIComponent(uuid) + '" class="pm-secondary-btn">' + modifyBtnText + '</a>'
+            + '</div>'
+            + '<a href="https://wa.me/60123456789?text=' + encodeURIComponent('Hi GT Max, I need assistance regarding quotation ' + (uuid || '')) + '" target="_blank" rel="noopener" class="pm-support-link">' + supportBtnText + '</a>'
             + '</div>'
             + '</div>';
 
         root.innerHTML = html;
+
+        // Asynchronously fetch quotation details to populate summary box
+        if (uuid) {
+            fetch(GTMAX_CONFIG.apiUrl + '/return_quotation/' + uuid, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': GTMAX_CONFIG.token,
+                },
+            })
+                .then(function (res) { return res.json(); })
+                .then(function (result) {
+                    if (result && result.success) {
+                        var customer = result.customer || {};
+                        var payload = result.payload || {};
+                        var rawMsg = result.message || {};
+                        var quote = (rawMsg && rawMsg.quotation_result_updated)
+                            ? rawMsg.quotation_result_updated
+                            : ((rawMsg && rawMsg.quotation_result) ? rawMsg.quotation_result : rawMsg);
+                        var premium = quote.premium || {};
+
+                        var staffId = (customer && customer.staff_id) || (payload && payload.staff_id);
+                        var grandTotal;
+                        if (typeof result !== 'undefined' && result && result.total_payment) {
+                            grandTotal = parseFloat(result.total_payment);
+                        } else if (typeof data !== 'undefined' && data && data.total_payment) {
+                            grandTotal = parseFloat(data.total_payment);
+                        } else if (staffId) {
+                            var netPrem = parseFloat(premium.premiumDue || premium.premiumDueRounded || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0);
+                            grandTotal = netPrem - (netPrem * 0.10) + parseFloat(premium.serviceTaxAmount || 0) + parseFloat(premium.stampDuty || 0);
+                        } else {
+                            grandTotal = parseFloat(premium.premiumDueAfterPTV || premium.premiumDue || premium.premiumDueRoundedAfterPTV || premium.premiumDueRounded || 0);
+                        }
+                        var plateNo = customer.vehicle_number || payload.vehicle_number || payload.vehicleLicenseId || '—';
+                        var coverageStr = payload.coverageType || 'Motor Comprehensive';
+                        var ncdVal = (premium.ncdPct || payload.ncdPercentage || 0) + '%';
+                        var cancelPoiDates = getPolicyDates(quote, payload, result, customer);
+
+                        var gridEl = document.getElementById('pm-cancel-details-grid');
+                        if (gridEl) {
+                            gridEl.innerHTML = dRow(t.label_order_ref, uuid)
+                                + dRow(t.label_plate || 'Vehicle No.', plateNo)
+                                + dRow(t.label_coverage || 'Coverage', coverageStr)
+                                + dRow(t.label_ncd || 'NCD', ncdVal)
+                                + dRow(t.label_effective_date || 'Policy Effective Date', cancelPoiDates.effectiveDate)
+                                + dRow(t.label_expiring_date || 'Policy Expiring Date', cancelPoiDates.expiryDate)
+
+                                + '<div class="pm-cancel-amount-highlight">'
+                                + '<span class="pm-cancel-amount-label">' + (t.label_total || 'Total Payable') + '</span>'
+                                + '<span class="pm-cancel-amount-val">' + (grandTotal > 0 ? fmt(grandTotal) : '—') + '</span>'
+                                + '</div>';
+                        }
+                    }
+                })
+                .catch(function (err) {
+                    console.warn('Could not fetch quotation details for cancelled view:', err);
+                });
+        }
     }
 
     /* ── Render Payment Summary & Initiation Screen ──────────────────────────── */
@@ -378,10 +635,24 @@
             ? rawMsg.quotation_result_updated
             : ((rawMsg && rawMsg.quotation_result) ? rawMsg.quotation_result : rawMsg);
         var premium = quote.premium || {};
+        var poiDates = getPolicyDates(quote, payload, data, customer);
 
-        var addons = (quote.additionalCover || []).filter(function (a) { return a.selectedIndicator; });
+        var addons = (quote.selectedAdditionalCover || quote.additionalCover || []).filter(function (a) {
+            return (a.selectedIndicator === true || a.selectedIndicator === 'true') && a.addDisplayInd !== false && a.azolHiddenInd !== 1;
+        });
         var addonSum = addons.reduce(function (acc, a) { return acc + parseFloat(a.displayPremium || 0); }, 0);
-        var grandTotal = parseFloat(premium.premiumDueAfterPTV || premium.premiumDueRounded || premium.premiumDue || 0);
+        var staffId = (customer && customer.staff_id) || (payload && payload.staff_id);
+        var grandTotal;
+        if (typeof result !== 'undefined' && result && result.total_payment) {
+            grandTotal = parseFloat(result.total_payment);
+        } else if (typeof data !== 'undefined' && data && data.total_payment) {
+            grandTotal = parseFloat(data.total_payment);
+        } else if (staffId) {
+            var netPrem = parseFloat(premium.premiumDue || premium.premiumDueRounded || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0);
+            grandTotal = netPrem - (netPrem * 0.10) + parseFloat(premium.serviceTaxAmount || 0) + parseFloat(premium.stampDuty || 0);
+        } else {
+            grandTotal = parseFloat(premium.premiumDueAfterPTV || premium.premiumDue || premium.premiumDueRoundedAfterPTV || premium.premiumDueRounded || 0);
+        }
 
         // Customer info
         var customerHtml = '<div class="pm-card">'
@@ -392,6 +663,7 @@
             + (customer.email ? dRow(t.label_email, customer.email) : '')
             + (customer.whatsapp_number ? dRow(t.label_whatsapp, customer.whatsapp_number) : '')
             + (customer.postcode ? dRow(t.label_postcode, customer.postcode) : '')
+            + (staffId ? dRow(t.label_staff_id || 'Staff ID', staffId) : '')
             + '</div></div>';
 
         // Vehicle info
@@ -399,11 +671,13 @@
             + '<div class="pm-card-header"><span class="pm-card-icon">🏍️</span><div><h2 class="pm-card-title">' + t.section_vehicle + '</h2></div></div>'
             + '<div class="pm-details-grid">'
             + dRow(t.label_plate, customer.vehicle_number || payload.vehicle_number || payload.vehicleLicenseId || '—')
-            + dRow(t.label_make, (payload.vehicleMake || '') + ' ' + (payload.vehicleModel || payload.vehicleModelDesc || ''))
+            + dRow(t.label_make, (payload.vehicleMake || '') + ' ' + (payload.vehicleModelDesc || ''))
             + dRow(t.label_year, payload.yearOfManufacture || '—')
             + dRow(t.label_variant, payload.vehicleVariant || '—')
             + dRow(t.label_coverage, payload.coverageType || '—')
             + dRow(t.label_ncd, (premium.ncdPct || payload.ncdPercentage || 0) + '%')
+            + dRow(t.label_effective_date, poiDates.effectiveDate)
+            + dRow(t.label_expiring_date, poiDates.expiryDate)
             + dRow(t.label_sum_insured, fmt(payload.vehicleMarketValue))
             + '</div></div>';
 
@@ -423,14 +697,20 @@
                 + '</div></div>';
         }
 
+        var agentComm = (!staffId) ? data.commission : 0;
+        var rawGrossPrem = parseFloat(premium.grossPremium || 0);
+        var grossPremDisplay = (!staffId && agentComm > 0) ? Math.max(0, rawGrossPrem - agentComm) : rawGrossPrem;
+
         // Payment summary sidebar
         var summaryHtml = '<div class="pm-card pm-summary-card" id="pm-summary">'
             + '<div class="pm-card-header"><span class="pm-card-icon">💳</span><div><h2 class="pm-card-title">' + t.section_summary + '</h2></div></div>'
             + '<div class="pm-sum-rows">'
             + pRow(t.label_basic, fmt(premium.basicPremium))
             + pRow(t.label_ncd_disc, '− ' + fmt(premium.ncdAmt), 'discount')
-            + pRow(t.label_annual, fmt(premium.annualPremium))
+            + pRow(t.label_gross, fmt(grossPremDisplay))
+            + (!staffId && agentComm > 0 ? pRow(t.label_agent_commission || 'Agent Commission (10%)', fmt(agentComm)) : '')
             + (addonSum > 0 ? pRow(t.label_addons, fmt(addonSum)) : '')
+            + (staffId ? pRow(t.label_staff_discount || 'Staff Discount (10%)', '− ' + fmt((parseFloat(premium.premiumDueRounded || premium.premiumDue || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0)) * 0.10), 'discount') : '')
             + pRow(t.label_tax, fmt(premium.serviceTaxAmount))
             + pRow(t.label_stamp, fmt(premium.stampDuty))
             + '</div>'
@@ -577,8 +857,8 @@
                 }
 
                 // If quotation is already Completed (already paid), render Success Screen directly
-                if (d.status === 'completed' || d.status === 'Completed') {
-                    renderSuccessScreen(t, root, uuid, { success: true, quotation: { quotation_result: d.message } });
+                if (d.status && String(d.status).toLowerCase() === 'completed') {
+                    renderSuccessScreen(t, root, uuid, d);
                     return;
                 }
 

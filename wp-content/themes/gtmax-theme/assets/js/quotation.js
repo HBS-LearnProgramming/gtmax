@@ -20,14 +20,21 @@
             label_ncd: "NCD",
             label_variant: "Variant",
             label_coverage: "Coverage Type",
+            label_poi: "Period of Insurance (POI)",
+            label_effective_date: "Policy Effective Date",
+            label_expiring_date: "Policy Expiring Date",
             label_sum_insured: "Sum Insured",
             label_basic_premium: "Basic Premium",
             label_ncd_amount: "NCD Discount",
             label_annual_premium: "Annual Premium",
+            label_gross_premium: "Gross Premium",
             label_service_tax: "Service Tax (8%)",
             label_stamp_duty: "Stamp Duty",
             label_total_due: "Total Premium Due",
             label_excess: "Excess Amount",
+            label_staff_discount: "Staff Discount (10%)",
+            label_agent_commission: "Agent Commission (10%)",
+            label_staff_id: "Staff ID",
             proceed_btn: "Confirm Quotation",
             no_data_title: "No Quotation Data Found",
             no_data_msg: "Please return to the insurance form and complete the quote request first.",
@@ -55,14 +62,21 @@
             label_ncd: "NCD",
             label_variant: "Varian",
             label_coverage: "Jenis Perlindungan",
+            label_poi: "Tempoh Insurans (POI)",
+            label_effective_date: "Tarikh Berkuat Kuasa Polisi",
+            label_expiring_date: "Tarikh Luput Polisi",
             label_sum_insured: "Jumlah Diinsuranskan",
             label_basic_premium: "Premium Asas",
             label_ncd_amount: "Diskaun NCD",
             label_annual_premium: "Premium Tahunan",
+            label_gross_premium: "Premium Kasar",
             label_service_tax: "Cukai Perkhidmatan (8%)",
             label_stamp_duty: "Duti Setem",
             label_total_due: "Jumlah Premium Perlu Dibayar",
             label_excess: "Amaun Lebihan",
+            label_staff_discount: "Diskaun Staf (10%)",
+            label_agent_commission: "Komisen Ejen (10%)",
+            label_staff_id: "ID Staf",
             proceed_btn: "Sahkan Sebut Harga",
             no_data_title: "Tiada Data Sebut Harga",
             no_data_msg: "Sila kembali ke borang insurans dan lengkapkan permintaan sebut harga terlebih dahulu.",
@@ -90,14 +104,21 @@
             label_ncd: "NCD",
             label_variant: "车型",
             label_coverage: "保障类型",
+            label_poi: "保险期限 (POI)",
+            label_effective_date: "保单生效日期",
+            label_expiring_date: "保单到期日期",
             label_sum_insured: "保额",
             label_basic_premium: "基本保费",
             label_ncd_amount: "NCD 折扣",
             label_annual_premium: "年度保费",
+            label_gross_premium: "毛保费",
             label_service_tax: "服务税 (8%)",
             label_stamp_duty: "印花税",
             label_total_due: "应付保费总额",
             label_excess: "超额金额",
+            label_staff_discount: "员工折扣 (10%)",
+            label_agent_commission: "代理佣金 (10%)",
+            label_staff_id: "员工 ID",
             proceed_btn: "确认报价",
             no_data_title: "未找到报价数据",
             no_data_msg: "请返回保险表单并先完成报价请求。",
@@ -315,7 +336,7 @@
                     var quote = (rawMessage && rawMessage.quotation_result) ? rawMessage.quotation_result : rawMessage;
                     var payload = resData.payload || {};
 
-                    renderPage(quote, payload, t, root);
+                    renderPage(quote, payload, t, root, resData.customer, resData);
 
                     // Build expiryMs from hours_remaining + minutes_remaining + seconds_remaining
                     // (server computed these relative to now, so we anchor to Date.now())
@@ -349,24 +370,133 @@
         }
     }
 
-    function renderPage(quote, payload, t, root) {
-        var premium = quote.premium || {};
-        var addons = quote.additionalCover || [];
+    function getPolicyDates(quote, payload, resData, customer) {
+        quote = quote || {};
+        payload = payload || {};
+        resData = resData || {};
+        customer = customer || {};
 
-        addons.forEach(function (cover, idx) { if (cover.selectedIndicator) selectedAddons.add(idx); });
+        var eff = quote.effectiveDate || quote.policyEffectiveDate || quote.effective_date || quote.effDate || quote.inceptionDate || quote.startDate || quote.start_date || quote.coverEffectiveDate
+            || payload.effectiveDate || payload.policyEffectiveDate || payload.effective_date || payload.effDate || payload.inceptionDate || payload.startDate || payload.start_date
+            || resData.effectiveDate || resData.effective_date || resData.policyEffectiveDate || resData.policy_effective_date
+            || customer.effective_date || customer.effectiveDate;
+
+        var exp = quote.expiryDate || quote.expiringDate || quote.expiring_date || quote.expiry_date || quote.policyExpiryDate || quote.expDate || quote.endDate || quote.end_date || quote.coverExpiryDate
+            || payload.expiryDate || payload.expiringDate || payload.expiring_date || payload.expiry_date || payload.policyExpiryDate || payload.expDate || payload.endDate || payload.end_date
+            || resData.expiryDate || resData.expiring_date || resData.expiry_date || resData.policyExpiryDate || resData.policy_expiry_date
+            || customer.expiry_date || customer.expiring_date || customer.expiryDate;
+
+        var poiObj = quote.periodOfInsurance || payload.periodOfInsurance || resData.periodOfInsurance;
+        if (poiObj) {
+            if (typeof poiObj === 'object') {
+                if (!eff) eff = poiObj.effectiveDate || poiObj.startDate || poiObj.effective_date;
+                if (!exp) exp = poiObj.expiryDate || poiObj.expiringDate || poiObj.endDate || poiObj.expiry_date;
+            } else if (typeof poiObj === 'string' && poiObj.includes(' to ')) {
+                var parts = poiObj.split(' to ');
+                if (!eff) eff = parts[0].trim();
+                if (!exp) exp = parts[1].trim();
+            }
+        }
+
+        function formatDate(dStr) {
+            if (!dStr) return null;
+            if (typeof dStr !== 'string' && !(dStr instanceof Date)) return String(dStr);
+            var str = String(dStr).trim();
+            var d = new Date(str);
+            if (isNaN(d.getTime())) {
+                var m = str.match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})/);
+                if (m) {
+                    d = new Date(parseInt(m[3], 10), parseInt(m[2], 10) - 1, parseInt(m[1], 10));
+                } else {
+                    return str;
+                }
+            }
+            if (isNaN(d.getTime())) return str;
+
+            var day = String(d.getDate()).padStart(2, '0');
+            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            var monthStr = months[d.getMonth()];
+            var year = d.getFullYear();
+            return day + ' ' + monthStr + ' ' + year;
+        }
+
+        var formattedEff;
+        var startDateObj;
+        if (eff) {
+            formattedEff = formatDate(eff);
+            startDateObj = new Date(eff);
+            if (isNaN(startDateObj.getTime())) {
+                var m = String(eff).match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})/);
+                if (m) startDateObj = new Date(parseInt(m[3], 10), parseInt(m[2], 10) - 1, parseInt(m[1], 10));
+                else startDateObj = new Date();
+            }
+        } else {
+            startDateObj = new Date();
+            formattedEff = formatDate(startDateObj);
+        }
+
+        var formattedExp;
+        if (exp) {
+            formattedExp = formatDate(exp);
+        } else {
+            var endDateObj = new Date(startDateObj);
+            endDateObj.setFullYear(endDateObj.getFullYear() + 1);
+            endDateObj.setDate(endDateObj.getDate() - 1);
+            formattedExp = formatDate(endDateObj);
+        }
+
+        return {
+            effectiveDate: formattedEff,
+            expiryDate: formattedExp,
+            poiRange: formattedEff + ' - ' + formattedExp
+        };
+    }
+
+    function renderPage(quote, payload, t, root, customer, resData) {
+        var premium = quote.premium || {};
+        var rawAddons = quote.additionalCover || [];
+        var displayableAddons = rawAddons.filter(function (cover) {
+            return cover.addDisplayInd !== false && cover.azolHiddenInd !== 1;
+        });
+        var poiDates = getPolicyDates(quote, payload, resData, customer);
+
+        var staffId = (payload && payload.staff_id) || (customer && customer.staff_id);
+        var initialGrandTotal;
+        if (resData && resData.total_payment !== undefined && resData.total_payment !== null) {
+            initialGrandTotal = parseFloat(resData.total_payment);
+        } else if (staffId) {
+            var netPrem = parseFloat(premium.premiumDue || premium.premiumDueRounded || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0);
+            initialGrandTotal = netPrem - (netPrem * 0.10) + parseFloat(premium.serviceTaxAmount || 0) + parseFloat(premium.stampDuty || 0);
+        } else {
+            initialGrandTotal = parseFloat(premium.premiumDueAfterPTV || premium.premiumDue || premium.premiumDueRoundedAfterPTV || premium.premiumDueRounded || 0);
+        }
+
+        selectedAddons.clear();
+        displayableAddons.forEach(function (cover, idx) {
+            if (cover.selectedIndicator === true || cover.selectedIndicator === 'true') {
+                selectedAddons.add(idx);
+            }
+        });
+
+        var agentComm = (!staffId) ? resData.commission : 0;
+        var rawGrossPrem = parseFloat(premium.grossPremium || 0);
+        var grossPremDisplay = (!staffId && agentComm > 0) ? Math.max(0, rawGrossPrem - agentComm) : rawGrossPrem;
 
         var addonHtml = "";
-        if (addons.length > 0) {
-            var allSelected = addons.every(function (_, idx) { return selectedAddons.has(idx); });
-            var addonCards = addons.map(function (cover, idx) { return renderAddonCard(cover, idx, t); }).join("");
+        if (displayableAddons.length > 0) {
+            var optionalAddons = displayableAddons.filter(function (cover) {
+                return !(cover.selectedIndicator === true || cover.selectedIndicator === 'true');
+            });
+            var allSelected = displayableAddons.every(function (_, idx) { return selectedAddons.has(idx); });
+            var addonCards = displayableAddons.map(function (cover, idx) { return renderAddonCard(cover, idx, t); }).join("");
             addonHtml = '<div class="qt-card" id="addons-card">'
                 + '<div class="qt-card-header">'
                 + '<span class="qt-card-icon">🛡️</span>'
                 + '<div style="flex:1;"><h2 class="qt-card-title">' + t.section_addons + '</h2>'
                 + '<p class="qt-card-subtitle">' + t.section_addons_sub + '</p></div>'
-                + '<button id="qt-select-all-btn" class="qt-btn-select-all' + (allSelected ? ' active' : '') + '">'
-                + (allSelected ? t.deselect_all : t.select_all)
-                + '</button>'
+                + (optionalAddons.length > 0 ? '<button id="qt-select-all-btn" class="qt-btn-select-all' + (allSelected ? ' active' : '') + '">'
+                    + (allSelected ? t.deselect_all : t.select_all)
+                    + '</button>' : '')
                 + '</div>'
                 + '<div class="qt-addons-list" id="addons-list">' + addonCards + '</div>'
                 + '</div>';
@@ -388,11 +518,14 @@
             + '<div class="qt-card-header"><span class="qt-card-icon">🏍️</span><h2 class="qt-card-title">' + t.section_vehicle + '</h2></div>'
             + '<div class="qt-vehicle-grid">'
             + vRow(t.label_plate, payload.vehicleLicenseId || payload.vehicle_number || "—")
-            + vRow(t.label_make, (payload.vehicleMake || "") + " " + (payload.vehicleModel || payload.vehicleModelDesc || ""))
+            + vRow(t.label_make, (payload.vehicleMake || "") + " " + (payload.vehicleModelDesc || ""))
             + vRow(t.label_year, payload.yearOfManufacture || "—")
             + vRow(t.label_variant, payload.vehicleVariant || "—")
             + vRow(t.label_coverage, payload.coverageType || "—")
             + vRow(t.label_ncd, (premium.ncdPct || payload.ncdPercentage || 0) + "%")
+            + vRow(t.label_effective_date, poiDates.effectiveDate)
+            + vRow(t.label_expiring_date, poiDates.expiryDate)
+            + ((payload.staff_id || (customer && customer.staff_id)) ? vRow(t.label_staff_id, payload.staff_id || customer.staff_id) : "")
             + vRow(t.label_sum_insured, fmt(payload.vehicleMarketValue))
             + '</div></div>'
             + addonHtml
@@ -405,13 +538,15 @@
             + '<div class="qt-premium-rows">'
             + pRow(t.label_basic_premium, fmt(premium.basicPremium))
             + pRow(t.label_ncd_amount, "− " + fmt(premium.ncdAmt), "discount")
-            + pRow(t.label_annual_premium, fmt(premium.annualPremium))
+            + pRow(t.label_gross_premium, fmt(grossPremDisplay))
+            + (!staffId && agentComm > 0 ? pRow(t.label_agent_commission || "Agent Commission (10%)", fmt(agentComm)) : "")
             + addonPremiumRow
+            + (staffId ? pRow(t.label_staff_discount || "Staff Discount (10%)", "− " + fmt((parseFloat(premium.premiumDueRounded || premium.premiumDue || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0)) * 0.10), "discount") : "")
             + '<div class="qt-premium-row"><span>' + t.label_service_tax + '</span><span id="qt-service-tax">' + fmt(premium.serviceTaxAmount) + '</span></div>'
             + pRow(t.label_stamp_duty, fmt(premium.stampDuty))
             + '</div>'
             + '<div class="qt-premium-divider"></div>'
-            + '<div class="qt-premium-total-row"><span>' + t.label_total_due + '</span><span id="qt-grand-total">' + fmt(premium.premiumDueAfterPTV || premium.premiumDueRounded || premium.premiumDue) + '</span></div>'
+            + '<div class="qt-premium-total-row"><span>' + t.label_total_due + '</span><span id="qt-grand-total">' + fmt(initialGrandTotal) + '</span></div>'
             + (premium.excessAmount ? '<div class="qt-excess-note">⚠️ ' + t.label_excess + ': <strong>' + fmt(premium.excessAmount) + '</strong></div>' : "")
             + '<button id="qt-proceed-btn" class="qt-btn-proceed">' + t.proceed_btn + '</button>'
             + '</div>'
@@ -423,25 +558,51 @@
         document.querySelectorAll(".qt-addon-toggle").forEach(function (toggle) {
             toggle.addEventListener("change", function () {
                 var idx = parseInt(toggle.dataset.idx, 10);
+                var isMandatory = toggle.dataset.mandatory === "1";
+                if (isMandatory) {
+                    toggle.checked = true;
+                    selectedAddons.add(idx);
+                    return;
+                }
                 if (toggle.checked) { selectedAddons.add(idx); } else { selectedAddons.delete(idx); }
-                recalcAddonTotal(addons, premium);
-                updateSelectAllBtn(addons, t);
+                recalcAddonTotal(displayableAddons, premium, payload, customer, resData);
+                updateSelectAllBtn(displayableAddons, t);
             });
         });
-        recalcAddonTotal(addons, premium);
+        recalcAddonTotal(displayableAddons, premium, payload, customer, resData);
 
         /* Wire Select All button */
         var selectAllBtn = document.getElementById('qt-select-all-btn');
         if (selectAllBtn) {
             selectAllBtn.addEventListener('click', function () {
-                var allSelected = addons.every(function (_, idx) { return selectedAddons.has(idx); });
+                var optionalAddons = displayableAddons.filter(function (cover) {
+                    return !(cover.selectedIndicator === true || cover.selectedIndicator === 'true');
+                });
+                var allOptionalSelected = optionalAddons.every(function (cover) {
+                    var idx = displayableAddons.indexOf(cover);
+                    return selectedAddons.has(idx);
+                });
+
+                displayableAddons.forEach(function (cover, idx) {
+                    var isMandatory = (cover.selectedIndicator === true || cover.selectedIndicator === 'true');
+                    if (isMandatory) {
+                        selectedAddons.add(idx);
+                    } else {
+                        if (!allOptionalSelected) {
+                            selectedAddons.add(idx);
+                        } else {
+                            selectedAddons.delete(idx);
+                        }
+                    }
+                });
+
                 document.querySelectorAll('.qt-addon-toggle').forEach(function (cb) {
                     var idx = parseInt(cb.dataset.idx, 10);
-                    cb.checked = !allSelected;
-                    if (!allSelected) { selectedAddons.add(idx); } else { selectedAddons.delete(idx); }
+                    cb.checked = selectedAddons.has(idx);
                 });
-                recalcAddonTotal(addons, premium);
-                updateSelectAllBtn(addons, t);
+
+                recalcAddonTotal(displayableAddons, premium, payload, customer, resData);
+                updateSelectAllBtn(displayableAddons, t);
             });
         }
 
@@ -451,12 +612,19 @@
             var btn = this;
 
             // Build the chosen addon list with updated selectedIndicator flags
-            var updatedAddons = addons.map(function (cover, idx) {
-                return Object.assign({}, cover, { selectedIndicator: selectedAddons.has(idx) });
+            var updatedAddons = rawAddons.map(function (cover) {
+                var displayIdx = displayableAddons.indexOf(cover);
+                if (displayIdx !== -1) {
+                    return Object.assign({}, cover, { selectedIndicator: selectedAddons.has(displayIdx) });
+                }
+                return Object.assign({}, cover, { selectedIndicator: (cover.selectedIndicator === true || cover.selectedIndicator === 'true') });
             });
-            console.log('updatedAddons', updatedAddons);
+
             // Merge selected add-ons back into the quotation result
-            var updatedQuote = Object.assign({}, quote, { selectedAdditionalCover: updatedAddons.filter(function (cover) { return cover.selectedIndicator; }) });
+            var updatedQuote = Object.assign({}, quote, {
+                additionalCover: updatedAddons,
+                selectedAdditionalCover: updatedAddons.filter(function (cover) { return cover.selectedIndicator; })
+            });
 
             // uuid comes from the URL ?uuid=...
             var urlParams = new URLSearchParams(window.location.search);
@@ -528,28 +696,40 @@
 
     function renderAddonCard(cover, idx, t) {
         var isSelected = selectedAddons.has(idx);
+        var isMandatory = (cover.selectedIndicator === true || cover.selectedIndicator === 'true');
         var premiumVal = parseFloat(cover.displayPremium || 0);
         var priceLabel = premiumVal > 0 ? fmt(premiumVal) : '';
         var badge = isSelected
             ? '<span class="qt-addon-badge included">' + t.included_label + '</span>'
             : '<span class="qt-addon-badge optional">' + t.optional_label + '</span>';
 
-        return '<label class="qt-addon-card' + (isSelected ? " selected" : "") + '" for="addon-' + idx + '">'
-            + '<div class="qt-addon-left">'
-            + '<div class="qt-toggle-wrap">'
-            + '<input type="checkbox" id="addon-' + idx + '" class="qt-addon-toggle" data-idx="' + idx + '" data-premium="' + (cover.displayPremium || 0) + '"' + (isSelected ? " checked" : "") + '>'
-            + '<span class="qt-toggle-slider"></span>'
+        var disabledAttr = isMandatory ? ' disabled onclick="return false;" style="cursor: no-drop;"' : '';
+
+        return '<label class="qt-addon-card' + (isSelected ? " selected" : "") + (isMandatory ? " mandatory-addon" : "") + '" for="addon-' + idx + '"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>'
+            + '<div class="qt-addon-left"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>'
+            + '<div class="qt-toggle-wrap"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>'
+            + '<input type="checkbox" id="addon-' + idx + '" class="qt-addon-toggle" data-idx="' + idx + '" data-mandatory="' + (isMandatory ? "1" : "0") + '" data-premium="' + (cover.displayPremium || 0) + '"' + (isSelected ? " checked" : "") + disabledAttr + '>'
+            + '<span class="qt-toggle-slider"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '></span>'
             + '</div>'
-            + '<div class="qt-addon-info">'
-            + '<div class="qt-addon-name">' + cover.coverName + '</div>'
-            + (cover.coverDescription ? '<div class="qt-addon-desc">' + cover.coverDescription + '</div>' : "")
+            + '<div class="qt-addon-info"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>'
+            + '<div class="qt-addon-name"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>' + cover.coverName + (isMandatory ? ' <span class="qt-mandatory-tag font-bold text-xs text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200/60 ml-1" style="cursor: no-drop;">Included</span>' : '') + '</div>'
+            + (cover.coverDescription ? '<div class="qt-addon-desc"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>' + cover.coverDescription + '</div>' : "")
             + '</div></div>'
-            + '<div class="qt-addon-right">' + badge + (priceLabel ? '<div class="qt-addon-price">' + priceLabel + '</div>' : '') + '</div>'
+            + '<div class="qt-addon-right"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>' + badge + (priceLabel ? '<div class="qt-addon-price"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>' + priceLabel + '</div>' : '') + '</div>'
             + '</label>';
     }
 
-    function recalcAddonTotal(addons, premium) {
-        var baseTotal = parseFloat(premium.premiumDueAfterPTV || premium.premiumDueRounded || premium.premiumDue || 0);
+    function recalcAddonTotal(addons, premium, payload, customer, resData) {
+        var staffId = (payload && payload.staff_id) || (customer && customer.staff_id);
+        var baseTotal;
+        if (resData && resData.total_payment !== undefined && resData.total_payment !== null) {
+            baseTotal = parseFloat(resData.total_payment);
+        } else if (staffId) {
+            var netPrem = parseFloat(premium.premiumDue || premium.premiumDueRounded || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0);
+            baseTotal = netPrem - (netPrem * 0.10) + parseFloat(premium.serviceTaxAmount || 0) + parseFloat(premium.stampDuty || 0);
+        } else {
+            baseTotal = parseFloat(premium.premiumDueAfterPTV || premium.premiumDue || premium.premiumDueRoundedAfterPTV || premium.premiumDueRounded || 0);
+        }
         var initialTax = parseFloat(premium.serviceTaxAmount || 0);
 
         var unselectedAddonsSum = 0;
@@ -558,7 +738,7 @@
         addons.forEach(function (cover, idx) {
             var pVal = parseFloat(cover.displayPremium || 0);
             var isCurrentlySelected = selectedAddons.has(idx);
-            var wasInitiallySelected = !!cover.selectedIndicator;
+            var wasInitiallySelected = (cover.selectedIndicator === true || cover.selectedIndicator === 'true');
 
             if (wasInitiallySelected && !isCurrentlySelected) {
                 unselectedAddonsSum += pVal;
@@ -602,9 +782,19 @@
     function updateSelectAllBtn(addons, t) {
         var btn = document.getElementById('qt-select-all-btn');
         if (!btn) return;
-        var allSelected = addons.every(function (_, idx) { return selectedAddons.has(idx); });
-        btn.textContent = allSelected ? t.deselect_all : t.select_all;
-        if (allSelected) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
+        var optionalAddons = addons.filter(function (cover) {
+            return !(cover.selectedIndicator === true || cover.selectedIndicator === 'true');
+        });
+        if (optionalAddons.length === 0) {
+            btn.style.display = 'none';
+            return;
+        }
+        var allOptionalSelected = optionalAddons.every(function (cover) {
+            var idx = addons.indexOf(cover);
+            return selectedAddons.has(idx);
+        });
+        btn.textContent = allOptionalSelected ? t.deselect_all : t.select_all;
+        if (allOptionalSelected) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
     }
 
     if (document.readyState === "loading") {

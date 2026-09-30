@@ -154,8 +154,8 @@ function gtmax_enqueue_insurance_assets() {
     );
 
     wp_localize_script('gtmax-insurance', 'GTMAX_CONFIG', [
-        'apiUrl'       => 'https://api.gtmax.com.my/api/insurance_registration',
-        'token'        => 'Bearer b734087da2b3f49177f3c47c9f3e7027da495b37882d05afb8f671ede08bfd011f88520e595274cb',
+        'apiUrl'       => 'https://gtmaxmanagement.test/api/insurance_registration',
+        'token'        => 'Bearer b686d5d62bafc055fb44a75a65f0eeb3da9c800011cc95b12018feccd66ad10274e05898d87960fa',
         'lang'         => get_locale(),
         'quotationUrl' => home_url('/insurance-quotation/'),
     ]);
@@ -190,8 +190,8 @@ function gtmax_enqueue_quotation_assets() {
     );
 
     wp_localize_script('gtmax-quotation', 'GTMAX_CONFIG', [
-        'apiUrl'       => 'https://api.gtmax.com.my/api/insurance_registration',
-        'token'        => 'Bearer b734087da2b3f49177f3c47c9f3e7027da495b37882d05afb8f671ede08bfd011f88520e595274cb',
+        'apiUrl'       => 'https://gtmaxmanagement.test/api/insurance_registration',
+        'token'        => 'Bearer b686d5d62bafc055fb44a75a65f0eeb3da9c800011cc95b12018feccd66ad10274e05898d87960fa',
         'lang'         => get_locale(),
         'quotationUrl' => home_url('/insurance-quotation/'),
         'paymentUrl'   => home_url('/insurance-payment/'),
@@ -226,8 +226,8 @@ function gtmax_enqueue_payment_assets() {
     );
 
     wp_localize_script('gtmax-payment', 'GTMAX_CONFIG', [
-        'apiUrl'       => 'https://api.gtmax.com.my/api/insurance_registration',
-        'token'        => 'Bearer b734087da2b3f49177f3c47c9f3e7027da495b37882d05afb8f671ede08bfd011f88520e595274cb',
+        'apiUrl'       => 'https://gtmaxmanagement.test/api/insurance_registration',
+        'token'        => 'Bearer b686d5d62bafc055fb44a75a65f0eeb3da9c800011cc95b12018feccd66ad10274e05898d87960fa',
         'lang'         => get_locale(),
         'quotationUrl' => home_url('/insurance-quotation/'),
         'paymentUrl'   => home_url('/insurance-payment/'),

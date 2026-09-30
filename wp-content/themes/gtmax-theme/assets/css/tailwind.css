@@ -4,97 +4,125 @@
 @theme {
   --color-primary: #262161;
   --font-sans: "Inter", system-ui, sans-serif;
+  --shadow-refund-circle: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-refund-circle-hover: 0 12px 28px rgba(0, 0, 0, 0.1);
+  --shadow-refund-card: 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-refund-card-hover: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
+
 .site-logo {
-    @apply w-auto h-[50px];
+  @apply w-auto h-[50px];
 }
-.header-menu{
-    @apply flex gap-5 justify-end list-none py-5;
+
+.header-menu {
+  @apply flex gap-5 justify-end list-none py-5;
 }
-.footer-menu{
+
+.footer-menu {
   @apply list-none;
 }
-ul, ol{
+
+ul,
+ol {
   @apply list-[auto];
 }
 
-.header-menu .menu-item:hover a{
-    @apply text-[#5951b8] underline;
+.header-menu .menu-item:hover a {
+  @apply text-[#5951b8] underline;
 }
-.header-menu .menu-item{
+
+.header-menu .menu-item {
   @apply font-bold text-lg text-[#262161];
 }
-.footer-menu .menu-item a{
-    @apply text-gray-500 ;
+
+.footer-menu .menu-item a {
+  @apply text-gray-500;
 }
 
 .footer-menu .menu-item {
-    @apply mb-4 mt-2 text-sm;
+  @apply mb-4 mt-2 text-sm;
 }
 
 .icon_size {
-    @apply w-[25px] h-auto;
+  @apply w-[25px] h-auto;
 }
+
 @keyframes cloud {
   from {
-    transform: translateX(0%); /* start off-screen to the right */
+    transform: translateX(0%);
+    /* start off-screen to the right */
   }
+
   to {
-    transform: translateX(-50%); /* move fully to the left */
+    transform: translateX(-50%);
+    /* move fully to the left */
   }
 }
 
 .animate-cloud {
-    @apply animate-[cloud_30s_linear_infinite];
+  @apply animate-[cloud_30s_linear_infinite];
 }
+
 .paused {
   animation-play-state: paused !important;
 }
+
 .cloud-img {
   @apply w-3/12 h-auto;
 }
 
-.elementor-widget-container img{
-    @apply w-auto h-full;
+.elementor-widget-container img {
+  @apply w-auto h-full;
 }
+
 .elementor-element .elementor-element {
-    @apply basis-full p-0;
+  @apply basis-full p-0;
 }
-.elementor-icon-list-items .elementor-icon-list-item .elementor-icon-list-text{
-    @apply px-5;
+
+.elementor-icon-list-items .elementor-icon-list-item .elementor-icon-list-text {
+  @apply px-5;
 }
-.elementor-icon-list-items .elementor-icon-list-item{
-    @apply border-b border-[#f2f2f2];
+
+.elementor-icon-list-items .elementor-icon-list-item {
+  @apply border-b border-[#f2f2f2];
 }
-.elementor-icon-list-items .elementor-icon-list-item:nth-child(even){
-    @apply bg-[#ffffff];
+
+.elementor-icon-list-items .elementor-icon-list-item:nth-child(even) {
+  @apply bg-[#ffffff];
 }
 
 .elementor-icon-list-items .elementor-icon-list-item:nth-child(odd) {
   @apply bg-[#f2f2f2];
 }
-.elementor-widget-container h5 a{
+
+.elementor-widget-container h5 a {
   @apply bg-transparent;
 }
-html{
+
+html {
   font-family: 'D-DIN', sans-serif !important;
   background-color: rgba(117, 117, 117, 0);
 }
-.career-box{
+
+.career-box {
   @apply shadow-lg bg-center bg-cover rounded-lg shadow-[#262161];
   transition: transform 0.3s ease;
 
 }
-.career-box:hover{
+
+.career-box:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
-.wp-block-image{
+
+.wp-block-image {
   @apply m-0;
 }
-.icon-space{
+
+.icon-space {
   @apply ml-4;
 }
+
 /* ===== 5I & 5S Diagram Styles ===== */
 .diagram-section {
   @apply py-8 pb-20;
@@ -112,7 +140,10 @@ html{
   margin-top: 20px;
 }
 
-code, kbd, samp, pre {
+code,
+kbd,
+samp,
+pre {
   font-family: 'D-DIN-Bold', sans-serif;
 }
 
@@ -139,14 +170,12 @@ code, kbd, samp, pre {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
-  clip-path: polygon(
-    25% 0%,
-    75% 0%,
-    100% 50%,
-    75% 100%,
-    25% 100%,
-    0% 50%
-  );
+  clip-path: polygon(25% 0%,
+      75% 0%,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0% 50%);
 }
 
 .circle-item {
@@ -169,146 +198,178 @@ code, kbd, samp, pre {
   padding: 15px;
 
   /* HEXAGON SHAPE */
-  clip-path: polygon(
-    25% 0%,
-    75% 0%,
-    100% 50%,
-    75% 100%,
-    25% 100%,
-    0% 50%
-  );
+  clip-path: polygon(25% 0%,
+      75% 0%,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0% 50%);
 }
 
 
 
-.circle-item-hover{
+.circle-item-hover {
   position: absolute;
   width: 140px;
   height: 140px;
 }
-.circle-item-hover .description{
+
+.circle-item-hover .description {
   @apply absolute items-center;
 }
-.fivei-diagram .circle-item-hover .description .dec-line{
+
+.fivei-diagram .circle-item-hover .description .dec-line {
   @apply h-1 bg-primary w-[100px] relative opacity-70;
 }
 
 /* Add dots at both ends */
 
-.fivei-diagram .circle-item-hover .description .dec-line::after{
+.fivei-diagram .circle-item-hover .description .dec-line::after {
   content: "";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 10px;
   height: 10px;
-  background: #262161; /* matches --color-primary */
+  background: #262161;
+  /* matches --color-primary */
   border-radius: 9999px;
 }
 
 /* place left and right dots centered on the ends of the line */
-.fivei-diagram .circle-item-hover .description .dec-line::before{
-  left: -5px; /* half of dot width to center on line start */
+.fivei-diagram .circle-item-hover .description .dec-line::before {
+  left: -5px;
+  /* half of dot width to center on line start */
 }
-.fivei-diagram .circle-item-hover .description .dec-line::after{
-  right: -5px; /* half of dot width to center on line end */
+
+.fivei-diagram .circle-item-hover .description .dec-line::after {
+  right: -5px;
+  /* half of dot width to center on line end */
 }
-.fivei-diagram .circle-item-hover .description .content{
+
+.fivei-diagram .circle-item-hover .description .content {
   box-shadow: 0px 0px 20px rgb(201, 201, 201);
-  @apply text-lg rounded text-primary tracking-wider border-primary border-solid px-5 py-2 border min-w-[250px]  bg-white;
+  @apply text-lg rounded text-primary tracking-wider border-primary border-solid px-5 py-2 border min-w-[250px] bg-white;
 }
+
 /* Position each circle evenly around the center */
-.fivei-diagram .circle-item-hover:nth-child(2) { 
-  top: -1%; 
-  left: 47.5%; 
-  transform: translate(-50%, -20%); 
-}
-.fivei-diagram .circle-item-hover:nth-child(2) .description{
-  top: -8%; 
-  left: 95%; 
+.fivei-diagram .circle-item-hover:nth-child(2) {
+  top: -1%;
+  left: 47.5%;
+  transform: translate(-50%, -20%);
 }
 
-.fivei-diagram .circle-item-hover:nth-child(3) { 
-  top: 17%; 
-  right: -1%; 
-  transform: translate(0, -15%); 
+.fivei-diagram .circle-item-hover:nth-child(2) .description {
+  top: -8%;
+  left: 95%;
 }
-.fivei-diagram .circle-item-hover:nth-child(3) .description .dec-line{
+
+.fivei-diagram .circle-item-hover:nth-child(3) {
+  top: 17%;
+  right: -1%;
+  transform: translate(0, -15%);
+}
+
+.fivei-diagram .circle-item-hover:nth-child(3) .description .dec-line {
   @apply w-[80px];
 }
-.fivei-diagram .circle-item-hover:nth-child(3) .description{
-  top: 14%; 
-  left: 112%; 
+
+.fivei-diagram .circle-item-hover:nth-child(3) .description {
+  top: 14%;
+  left: 112%;
 }
 
 
-.fivei-diagram .circle-item-hover:nth-child(4) { 
-  bottom: 12%; 
-  right: -1%; 
-  transform: translate(0, 0); 
+.fivei-diagram .circle-item-hover:nth-child(4) {
+  bottom: 12%;
+  right: -1%;
+  transform: translate(0, 0);
 }
-.fivei-diagram .circle-item-hover:nth-child(4) .description .dec-line{
+
+.fivei-diagram .circle-item-hover:nth-child(4) .description .dec-line {
   @apply w-[80px];
 }
-.fivei-diagram .circle-item-hover:nth-child(4) .description{
-  bottom: 14%; 
-  left: 112%; 
+
+.fivei-diagram .circle-item-hover:nth-child(4) .description {
+  bottom: 14%;
+  left: 112%;
 }
 
-.fivei-diagram .circle-item-hover:nth-child(5) { 
-  bottom: -8%; 
-  right: 35%; 
-  transform: translate(0, 0); 
+.fivei-diagram .circle-item-hover:nth-child(5) {
+  bottom: -8%;
+  right: 35%;
+  transform: translate(0, 0);
 }
 
-.fivei-diagram .circle-item-hover:nth-child(5) .description .dec-line{
+.fivei-diagram .circle-item-hover:nth-child(5) .description .dec-line {
   @apply w-[100px];
   transform: rotate(180deg);
 }
-.fivei-diagram .circle-item-hover:nth-child(5) .description{
-  bottom: -8%; 
-  right: 81%; 
+
+.fivei-diagram .circle-item-hover:nth-child(5) .description {
+  bottom: -8%;
+  right: 81%;
 }
 
-.fivei-diagram .circle-item-hover:nth-child(6) { 
-  bottom: 12%; 
-  left: -7%; 
-  transform: translate(0, 0); 
+.fivei-diagram .circle-item-hover:nth-child(6) {
+  bottom: 12%;
+  left: -7%;
+  transform: translate(0, 0);
 }
-.fivei-diagram .circle-item-hover:nth-child(6) .description .dec-line{
+
+.fivei-diagram .circle-item-hover:nth-child(6) .description .dec-line {
   @apply w-[50px];
   transform: rotate(180deg);
 }
-.fivei-diagram .circle-item-hover:nth-child(6) .description{
-  bottom: 14%; 
-  right: 98%; 
+
+.fivei-diagram .circle-item-hover:nth-child(6) .description {
+  bottom: 14%;
+  right: 98%;
 }
 
-.fivei-diagram .circle-item-hover:nth-child(7) { 
-  top: 17%; 
-  left: -7%; 
-  transform: translate(0, -15%); 
+.fivei-diagram .circle-item-hover:nth-child(7) {
+  top: 17%;
+  left: -7%;
+  transform: translate(0, -15%);
 }
 
-.fivei-diagram .circle-item-hover:nth-child(7) .description .dec-line{
+.fivei-diagram .circle-item-hover:nth-child(7) .description .dec-line {
   @apply w-[50px];
   transform: rotate(180deg);
 }
-.fivei-diagram .circle-item-hover:nth-child(7) .description{
-  top: 24%; 
-  right: 98%; 
+
+.fivei-diagram .circle-item-hover:nth-child(7) .description {
+  top: 24%;
+  right: 98%;
 }
 
 
 
 
 
-.fivei-diagram .circle-item.customer { background: #ff4b4b; }
-.fivei-diagram .circle-item.sales { background: #ff9900; }
-.fivei-diagram .circle-item.services { background: #9b59b6; }
-.fivei-diagram .circle-item.sparepart { background: #27ae60; }
-.fivei-diagram .circle-item.society { background: #00b6b6; }
-.fivei-diagram .circle-item.safety { background: #ae2797; }
+.fivei-diagram .circle-item.customer {
+  background: #ff4b4b;
+}
+
+.fivei-diagram .circle-item.sales {
+  background: #ff9900;
+}
+
+.fivei-diagram .circle-item.services {
+  background: #9b59b6;
+}
+
+.fivei-diagram .circle-item.sparepart {
+  background: #27ae60;
+}
+
+.fivei-diagram .circle-item.society {
+  background: #00b6b6;
+}
+
+.fivei-diagram .circle-item.safety {
+  background: #ae2797;
+}
 
 
 
@@ -334,18 +395,19 @@ code, kbd, samp, pre {
 
 .circle-item-hover:hover .circle-item {
   transform: scale(1.15);
-  box-shadow: 0 0 25px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.4);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.4);
   z-index: 3;
 }
 
-.circle-item-hover:hover ~ .item-info {
+.circle-item-hover:hover~.item-info {
   opacity: 1;
 }
 
-.show_now_btn{
+.show_now_btn {
   @apply text-primary rounded-md border-2 border-primary px-3 py-2;
 }
-.header-menu .menu-item:hover .show_now_btn{
+
+.header-menu .menu-item:hover .show_now_btn {
   @apply bg-primary no-underline text-white;
 }
 
@@ -353,33 +415,38 @@ code, kbd, samp, pre {
   @apply text-white bg-primary text-[40px] rounded-full py-5 px-6 -my-10 relative bottom-15;
 }
 
-.icon-box-cover{
-  @apply flex justify-center ;
+.icon-box-cover {
+  @apply flex justify-center;
 }
-.contact-icon-title{
+
+.contact-icon-title {
   @apply text-lg text-center font-bold mt-2;
 }
 
 ul.list_style_design {
-  list-style: none; /* remove default bullets */
+  list-style: none;
+  /* remove default bullets */
   list-style-position: inside;
   list-style-image: url('../../images/icon/small_check.png');
 }
-ul.list_style_design li > ul.list_style_design{
+
+ul.list_style_design li>ul.list_style_design {
   padding-left: 20px;
 }
 
-.data-border{
+.data-border {
   @apply px-5 border-l border-solid border-gray-700;
 }
-.data-header{
+
+.data-header {
   @apply text-[60px] font-bold text-primary;
 }
-.data-content{
+
+.data-content {
   @apply text-gray-700 text-base h-48;
 }
 
-.breadcrumb{
+.breadcrumb {
   @apply flex gap-2 text-lg py-5;
 }
 
@@ -387,8 +454,10 @@ ul.list_style_design li > ul.list_style_design{
 .show-cursor::after {
   content: '';
   display: inline-block;
-  width: 2px;             /* ✨ Make cursor thinner (try 1px–2px) */
-  height: 1em;            /* Matches text height */
+  width: 2px;
+  /* ✨ Make cursor thinner (try 1px–2px) */
+  height: 1em;
+  /* Matches text height */
   margin-left: 4px;
   animation: blink 0.8s infinite;
   vertical-align: bottom;
@@ -396,8 +465,16 @@ ul.list_style_design li > ul.list_style_design{
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .fadeIn {
@@ -405,8 +482,13 @@ ul.list_style_design li > ul.list_style_design{
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .zoomIn {
@@ -414,8 +496,15 @@ ul.list_style_design li > ul.list_style_design{
 }
 
 @keyframes zoomIn {
-  from { transform: scale(0.5); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Slide Left */
@@ -425,8 +514,15 @@ ul.list_style_design li > ul.list_style_design{
 }
 
 @keyframes slideLeft {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Slide Right */
@@ -436,11 +532,58 @@ ul.list_style_design li > ul.list_style_design{
 }
 
 @keyframes slideRight {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* .wp-block-columns{
   @apply m-0;
 } */
- 
+
+/* Refund Policy Page Classes */
+.refund-policy-container {
+  @apply bg-[#F4F5F7] py-12 md:py-16 px-4 min-h-screen text-slate-800 font-sans;
+}
+
+.refund-step-item {
+  @apply flex flex-col items-center text-center;
+}
+
+.refund-icon-circle {
+  @apply w-[84px] h-[84px] rounded-full bg-white shadow-refund-circle flex items-center justify-center mb-5 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-refund-circle-hover;
+}
+
+.refund-step-title {
+  @apply font-bold text-[#1a202c] text-base md:text-lg mb-2;
+}
+
+.refund-step-desc {
+  @apply text-slate-500 text-xs md:text-sm leading-relaxed max-w-[220px];
+}
+
+.refund-faq-card {
+  @apply bg-white rounded-[12px] p-6 border border-[#e2e8f0] shadow-refund-card transition-all duration-300 ease-in-out hover:border-[#cbd5e1] hover:shadow-refund-card-hover;
+}
+
+.refund-faq-question {
+  @apply font-bold text-[#1a202c] text-sm md:text-base mb-2;
+}
+
+.refund-faq-answer {
+  @apply text-slate-500 text-xs md:text-sm leading-relaxed;
+}
+
+.btn-whatsapp {
+  @apply inline-flex items-center justify-center gap-2.5 px-7 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold text-sm md:text-base rounded-full shadow-sm transition-all duration-200 transform hover:-translate-y-0.5;
+}
+
+.btn-contact-us {
+  @apply inline-flex items-center justify-center px-7 py-3 bg-white border-2 border-blue-600 hover:bg-blue-50 text-blue-600 font-semibold text-sm md:text-base rounded-full shadow-sm transition-all duration-200 transform hover:-translate-y-0.5;
+}

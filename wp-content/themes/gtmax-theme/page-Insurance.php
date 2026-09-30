@@ -981,6 +981,8 @@
         </nav>
     </header>
 
+    
+
     <main class="min-h-screen theme-purple" id="main-content">
         <div class="hero-section py-6 lg:py-8">
             <div class="container px-4 lg:px-10 mx-auto max-w-7xl">
@@ -989,6 +991,32 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/insurance.jpg"
                         alt="Insurance Banner" class="w-full rounded-2xl shadow-lg"
                         style="max-width: 100%; height: auto; max-height: 220px; object-fit: cover; object-position: center;">
+                </div>
+
+                <!-- BNM Regulatory Disclosures & PIDM Protection Section -->
+                <div class="my-8 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8 space-y-6 fade-in-up" style="animation-delay: 0.3s">
+                    <!-- Relationship Disclosure Header -->
+                    <div class="flex items-start gap-4 border-b border-gray-100 pb-5">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex-shrink-0 flex items-center justify-center text-blue-600 font-bold text-lg">
+                            ℹ️
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-base" data-i18n="relationship_title">Registered Agent Relationship Disclosure</h3>
+                            <p class="text-sm text-gray-600 mt-1 leading-relaxed" data-i18n="relationship_disclosure">
+                                GT-MAX Motors (M) Sdn. Bhd. is a registered agent of Allianz General Insurance Company (Malaysia) Berhad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- PIDM Protection Notice -->
+                    <div class="bg-amber-50/90 border border-amber-200/80 rounded-xl p-4 md:p-5 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                        <div class="flex-shrink-0 font-extrabold text-amber-900 text-xs px-3 py-1 bg-amber-200/80 rounded-md uppercase tracking-wider">
+                            PIDM Protected
+                        </div>
+                        <div class="text-xs md:text-sm text-amber-950 leading-relaxed flex-1" data-i18n="pidm_disclosure">
+                            The benefit(s) payable under eligible certificate/policy/product is(are) protected by PIDM up to limits. Please refer to <a href="https://www.pidm.gov.my/pidm2022/files/92/92bdfcde-3534-4a29-9031-5186387623ee.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">PIDM’s TIPS Brochure</a> or contact Allianz General Insurance Company (Malaysia) Berhad or PIDM (visit <a href="https://www.pidm.gov.my" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">www.pidm.gov.my</a>).
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Badge Row with Language Switcher -->
@@ -1107,7 +1135,7 @@
 
                     <!-- Form Section -->
                     <div id="insurance-form-section" class="lg:col-span-3 fade-in-up" style="animation-delay: 0.2s">
-                        <form id="insurance-form" class="modern-card p-8 lg:p-10 space-y-6">
+                        <form id="insurance-form" method="POST" action="javascript:void(0);" onsubmit="return false;" class="modern-card p-8 lg:p-10 space-y-6">
                             <div class="border-b border-gray-100 pb-6 mb-6">
                                 <h2 data-i18n="quote_title" class="text-2xl font-bold text-gray-900">
                                     Get Your Quote
@@ -1151,8 +1179,30 @@
                                 </div>
                             </div>
 
-                            <!-- NRIC & Vehicle Row -->
+                            <!-- Identity Type & NRIC & Vehicle Row -->
                             <div class="grid md:grid-cols-2 gap-5">
+                                <div class="space-y-2">
+                                    <label class="font-semibold text-sm text-gray-700" for="identity_type">
+                                        <span data-i18n="identity_type">Identity Type</span><span
+                                            class="text-red-500 ml-0.5">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <select class="modern-input form-input w-full text-base px-4 py-3.5 bg-white rounded-xl border border-slate-200 text-gray-800 font-medium focus:border-blue-600 focus:ring-0 cursor-pointer appearance-none pr-10"
+                                            name="identityType" id="identity_type">
+                                            <option value="NRIC" data-i18n="id_type_nric">NRIC (MyKad)</option>
+                                            <option value="OLD_IC" data-i18n="id_type_old_ic">Old IC / Others</option>
+                                            <option value="PASS" data-i18n="id_type_pass">Passport</option>
+                                            <option value="POL" data-i18n="id_type_pol">Police / Army ID</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                            <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="identityType"></p>
+                                </div>
+
                                 <div class="space-y-2">
                                     <label class="font-semibold text-sm text-gray-700" for="nric">
                                         <span id="nric_label_text" data-i18n="nric">NRIC Number</span><span
@@ -1165,47 +1215,71 @@
                                             name="nric" id="nric" placeholder="XXXXXX-XX-XXXX" maxlength="14"
                                             inputmode="numeric" autocomplete="off">
                                     </div>
-                                    <div class="flex items-center gap-2 mt-2">
-                                        <input type="checkbox" class="form-input w-4 h-4 accent-blue-600 rounded"
-                                            name="is_malaysian" id="is_malaysian" checked>
-                                        <label data-i18n="is_malaysian" class="text-sm text-gray-600"
-                                            for="is_malaysian">Malaysian Citizen</label>
-                                    </div>
+
                                     <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="nric"></p>
                                 </div>
+                            </div>
 
-                                <div class="space-y-2">
-                                    <label class="font-semibold text-sm text-gray-700" for="vehicle_number">
-                                        <span id="vehicle_label">Motor Registration</span><span
-                                            class="text-red-500 ml-0.5">*</span>
+                            <!-- Gender & Date of Birth Row -->
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div id="gender_wrapper" class="space-y-2">
+                                    <label class="font-semibold text-sm text-gray-700" for="gender">
+                                        <span data-i18n="gender">Gender</span><span class="text-red-500 ml-0.5">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <select class="modern-input form-input w-full text-base px-4 py-3.5 bg-white rounded-xl border border-slate-200 text-gray-800 font-medium focus:border-blue-600 focus:ring-0 cursor-pointer appearance-none pr-10"
+                                            name="gender" id="gender">
+                                            <option value="M" data-i18n="gender_male">Male / Man</option>
+                                            <option value="F" data-i18n="gender_female">Female / Woman</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                            <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="gender"></p>
+                                </div>
+
+                                <div id="birthday_wrapper" class="space-y-2">
+                                    <label class="font-semibold text-sm text-gray-700" for="birthday">
+                                        <span data-i18n="birthday">Date of Birth</span><span class="text-red-500 ml-0.5">*</span>
                                     </label>
                                     <div class="input-with-icon">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon/motor.png"
-                                            alt="" class="input-icon" id="vehicle_icon">
-                                        <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
-                                            name="vehicle_number" id="vehicle_number" placeholder="ABC1234"
-                                            data-i18n-placeholder="vehicle_placeholder">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon/user.png"
+                                            alt="" class="input-icon">
+                                        <input class="modern-input form-input w-full text-base px-4 py-3.5" type="date"
+                                            name="birthday" id="birthday" placeholder="YYYY-MM-DD" data-i18n-placeholder="birthday_placeholder">
                                     </div>
-                                    <!-- <div class="flex items-center gap-2 mt-2">
-                                        <input type="checkbox" class="form-input w-4 h-4 accent-blue-600 rounded"
-                                            name="vehicle_type" id="vehicle_type">
-                                        <label data-i18n="vehicle_type" class="text-sm text-gray-600"
-                                            for="vehicle_type">Car Registered</label>
-                                    </div> -->
-                                    <p class="text-red-600 text-sm mt-1 hidden font-medium"
-                                        data-error-for="vehicle_number">
-                                    </p>
+                                    <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="birthday"></p>
                                 </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="font-semibold text-sm text-gray-700" for="vehicle_number">
+                                    <span id="vehicle_label">Motor Registration</span><span
+                                        class="text-red-500 ml-0.5">*</span>
+                                </label>
+                                <div class="input-with-icon">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon/motor.png"
+                                        alt="" class="input-icon" id="vehicle_icon">
+                                    <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
+                                        name="vehicle_number" id="vehicle_number" placeholder="ABC1234"
+                                        data-i18n-placeholder="vehicle_placeholder">
+                                </div>
+                                <p class="text-red-600 text-sm mt-1 hidden font-medium"
+                                    data-error-for="vehicle_number">
+                                </p>
                             </div>
 
                             <!-- WhatsApp & Email Row -->
                             <p class="text-xs text-gray-400 italic mb-2" data-i18n="contact_hint">At least one of
-                                WhatsApp or Email is required</p>
+                                Mobile Number or Email is required</p>
                             <div class="grid md:grid-cols-2 gap-5">
                                 <div class="space-y-2">
                                     <label data-i18n="whatsapp" class="font-semibold text-sm text-gray-700"
                                         for="whatsapp_number">
-                                        WhatsApp Number
+                                        Mobile Number
                                     </label>
                                     <div class="input-with-icon">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icon/whatsapp.png"
@@ -1234,28 +1308,84 @@
                                 </div>
                             </div>
 
-                            <!-- Start Address Row -->
-                           <div class="space-y-2">
-                                <label class="font-semibold text-sm text-gray-700"
-                                    for="postcode">
-                                    <span id="postcode_label" data-i18n="postcode">Postcode</span><span
-                                            class="text-red-500 ml-0.5">*</span>
-                                </label>
-                                <div class="input-with-icon">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon/postcode.png"
-                                        alt="" class="input-icon">
-                                    <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
-                                        name="postcode" id="postcode" placeholder="Enter your postcode"
-                                        data-i18n-placeholder="postcode_placeholder">
+                            <p class="text-red-600 text-sm hidden font-medium" data-error-for="contact"></p>
+
+                            <!-- Start Address Section -->
+                            <div class="space-y-4">
+                                <div class="space-y-2">
+                                    <label class="font-semibold text-sm text-gray-700" for="address1">
+                                        <span data-i18n="address1">Address (1)</span><span class="text-red-500 ml-0.5">*</span>
+                                    </label>
+                                    <div class="input-with-icon">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon/address.png"
+                                            alt="" class="input-icon">
+                                        <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
+                                            name="address1" id="address1" placeholder="Address Line 1"
+                                            data-i18n-placeholder="address_placeholder">
+                                    </div>
+                                    <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="address1"></p>
                                 </div>
-                                <p class="text-red-600 text-sm mt-1 hidden font-medium"
-                                    data-error-for="postcode">
-                                </p>
+
+                                <div class="space-y-2">
+                                    <label class="font-semibold text-sm text-gray-700" for="address2">
+                                        <span data-i18n="address2">Address (2)</span> <span class="text-gray-400 font-normal" data-i18n="optional">(Optional)</span>
+                                    </label>
+                                    <div class="input-with-icon">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon/address.png"
+                                            alt="" class="input-icon">
+                                        <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
+                                            name="address2" id="address2" placeholder="Address Line 2 (Optional)"
+                                            data-i18n-placeholder="address_placeholder">
+                                    </div>
+                                    <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="address2"></p>
+                                </div>
+
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="space-y-2">
+                                        <label class="font-semibold text-sm text-gray-700" for="postcode">
+                                            <span id="postcode_label" data-i18n="postcode">Postcode</span><span
+                                                class="text-red-500 ml-0.5">*</span>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/postcode.png"
+                                                alt="" class="input-icon">
+                                            <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
+                                                name="postcode" id="postcode" placeholder="Enter your postcode"
+                                                data-i18n-placeholder="postcode_placeholder" maxlength="5" inputmode="numeric">
+                                        </div>
+                                        <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="postcode"></p>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label class="font-semibold text-sm text-gray-700" for="city">
+                                            <span data-i18n="city">City</span><span class="text-red-500 ml-0.5">*</span>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/city.png"
+                                                alt="" class="input-icon">
+                                            <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
+                                                name="city" id="city" placeholder="Enter city"
+                                                data-i18n-placeholder="city_placeholder">
+                                        </div>
+                                        <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="city"></p>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label class="font-semibold text-sm text-gray-700" for="state">
+                                            <span data-i18n="state">State</span><span class="text-red-500 ml-0.5">*</span>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon/address.png"
+                                                alt="" class="input-icon">
+                                            <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
+                                                name="state" id="state" placeholder="Enter state"
+                                                data-i18n-placeholder="state_placeholder">
+                                        </div>
+                                        <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="state"></p>
+                                    </div>
+                                </div>
                             </div>
 
-
-
-                            <p class="text-red-600 text-sm hidden font-medium" data-error-for="contact"></p>
 
                             <!-- Email Opt-in -->
                             <div class="info-box p-4">
@@ -1267,15 +1397,12 @@
                                         Send quotation via email
                                     </label>
                                 </div>
+                                <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="send_whatsapp"></p>
                             </div>
 
-                            <!-- Terms -->
+                            <!-- Terms & Explicit Acknowledgement -->
                             <div class="text-xs text-gray-500 leading-relaxed" data-i18n="agreement">
-                                By submitting, I agree to receive quotes and offers from GT-MAX, and accept the <span
-                                    class="text-blue-600 font-semibold hover:underline cursor-pointer">Terms &
-                                    Conditions</span> and <span
-                                    class="text-blue-600 font-semibold hover:underline cursor-pointer">Privacy
-                                    Policy</span>.
+                                I confirm that I have read and understood the <a href="https://az.my/partner-CMCC-motorcycleplus-PDS_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Product Disclosure Sheet</a>, <a href="https://az.my/partner-AMP-PW_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Policy Wording</a> & <a href="https://az.my/PrivacyNotice-AGIC" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Privacy Notice</a>, and agree to the processing of my personal data for the purposes stated in the Privacy Notice.
                             </div>
 
                             <!-- Submit Button -->
