@@ -413,12 +413,9 @@
                 + '<div><h2 class="qt-card-title">' + t.section_addons + '</h2>'
                 + '<p class="qt-card-subtitle">' + t.section_addons_sub + '</p></div>'
                 + '</div>'
-                + '<div style="display:flex; gap:8px; align-items:center;">'
-                + '<button id="qt-update-addons-btn" class="qt-btn-select-all" style="background:#eff6ff; border-color:#2563eb; color:#2563eb; cursor:pointer;">🔄 Update Quotation</button>'
-                + (optionalAddons.length > 0 ? '<button id="qt-select-all-btn" class="qt-btn-select-all' + (allSelected ? ' active' : '') + '">'
+                + (optionalAddons.length > 0 ? '<div style="display:flex; gap:8px; align-items:center;"><button id="qt-select-all-btn" class="qt-btn-select-all' + (allSelected ? ' active' : '') + '">'
                     + (allSelected ? t.deselect_all : t.select_all)
-                    + '</button>' : '')
-                + '</div>'
+                    + '</button></div>' : '')
                 + '</div>'
                 + '<div class="qt-addons-list" id="addons-list">' + addonCards + '</div>'
                 + '</div>';
@@ -495,77 +492,7 @@
         });
         recalcAddonTotal(displayableAddons, premium, payload, customer, resData);
 
-        /* Wire Update Quotation button */
-        var updateAddonsBtn = document.getElementById('qt-update-addons-btn');
-        if (updateAddonsBtn) {
-            updateAddonsBtn.addEventListener('click', async function () {
-                var btn = this;
-                var origText = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = '⏳ Updating...';
 
-                var urlParams = new URLSearchParams(window.location.search);
-                var uuid = urlParams.get('uuid');
-
-                try {
-                    var res = await fetch(GTMAX_CONFIG.apiUrl + '/get_quotation_add_on_price/' + uuid, {
-                        method: 'GET',
-                        headers: {
-                            'Accept': 'application/json',
-                            'Authorization': GTMAX_CONFIG.token,
-                        },
-                    });
-
-                    var data = await res.json();
-                    btn.disabled = false;
-                    btn.innerHTML = origText;
-                    console.log('Update Quotation result', data);
-
-                    if (data && data.success) {
-                        var newRawMsg = data.addOnPrice || data.data || data.message;
-                        if (newRawMsg && typeof newRawMsg === 'object') {
-                            var newQuote = newRawMsg.quotation_result ? newRawMsg.quotation_result : newRawMsg;
-                            if (newQuote && newQuote.premium) {
-                                premium = newQuote.premium;
-                            }
-                            if (newQuote && newQuote.additionalCover) {
-                                rawAddons = newQuote.additionalCover;
-                            }
-                        }
-                        recalcAddonTotal(displayableAddons, premium, payload, customer, resData);
-                        if (typeof Swal !== 'undefined') {
-                            const toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 2000,
-                                timerProgressBar: true
-                            });
-                            toast.fire({ icon: 'success', title: 'Quotation Updated Successfully' });
-                        } else {
-                            alert('Quotation updated successfully!');
-                        }
-                    } else {
-                        var errorMsg = data && (data.error_message || data.message) ? (data.error_message || data.message) : 'Failed to update quotation';
-                        if (typeof Swal !== 'undefined') {
-                            Swal.fire('Error', errorMsg, 'error');
-                        } else {
-                            alert(errorMsg);
-                        }
-                    }
-                } catch (err) {
-                    btn.disabled = false;
-                    btn.innerHTML = origText;
-                    console.error('Error updating quotation:', err);
-                    var errMsg = err && err.message ? err.message : 'Network error updating quotation.';
-                    if (typeof Swal !== 'undefined') {
-                        Swal.fire('Error', errMsg, 'error');
-                    } else {
-                        alert(errMsg);
-                    }
-                }
-            });
-        }
 
         /* Wire Select All button */
         var selectAllBtn = document.getElementById('qt-select-all-btn');

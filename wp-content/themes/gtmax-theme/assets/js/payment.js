@@ -616,7 +616,11 @@
                 + '</div></div>';
         }
 
-        var agentComm = (!staffId) ? data.commission : 0;
+        var agentComm = (!staffId) ? (data && data.commission ? parseFloat(data.commission) : 0) : 0;
+        if (!agentComm) {
+            agentComm = parseFloat(premium.agentComm || premium.commissionAmount || premium.agentCommission || 0);
+        }
+        var commVal = agentComm > 0 ? agentComm : (parseFloat(premium.grossPremium || 0) * 0.10);
         var rawGrossPrem = parseFloat(premium.grossPremium || 0);
         var grossPremDisplay = (!staffId && agentComm > 0) ? Math.max(0, rawGrossPrem - agentComm) : rawGrossPrem;
 
@@ -635,6 +639,9 @@
             + '<div class="pm-sum-divider"></div>'
             + '<div class="pm-sum-total"><span>' + t.label_total + '</span><span class="pm-total-amount">' + fmt(grandTotal) + '</span></div>'
             + (premium.excessAmount ? '<div class="pm-excess-note">⚠️ ' + t.excess_label + ': <strong>' + fmt(premium.excessAmount) + '</strong></div>' : '')
+            + '<div class="pm-commission-note" style="margin-top:10px; font-size:0.78rem; color:#64748b; text-align:center; font-weight:500; line-height:1.4;">'
+            + '*10% of Commission amounting to <strong style="color:#334155;">' + fmt(commVal) + '</strong> is payable to GT-MAX MOTORS (M) SDN. BHD.'
+            + '</div>'
             + '<div class="pm-agreement-box" style="margin-top:16px; padding:14px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px;">'
             + '<label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer; font-size:0.78rem; color:#475569; line-height:1.45;">'
             + '<input type="checkbox" id="pm-agreement-checkbox" style="width:18px; height:18px; margin-top:2px; cursor:pointer; flex-shrink:0; accent-color:#2563eb;">'
