@@ -50,7 +50,6 @@
             loading: 'Loading payment details…',
             excess_label: 'Excess Amount',
             label_staff_discount: 'Staff Discount (10%)',
-            label_agent_commission: 'Agent Commission (10%)',
             label_staff_id: 'Staff ID',
             countdown_label: 'Quotation expires in:',
 
@@ -123,7 +122,6 @@
             loading: 'Memuatkan butiran pembayaran…',
             excess_label: 'Amaun Lebihan',
             label_staff_discount: 'Diskaun Staf (10%)',
-            label_agent_commission: 'Komisen Ejen (10%)',
             label_staff_id: 'ID Staf',
             countdown_label: 'Sebut harga tamat tempoh dalam:',
 
@@ -196,7 +194,6 @@
             loading: '正在加载付款详情…',
             excess_label: '超额金额',
             label_staff_discount: '员工折扣 (10%)',
-            label_agent_commission: '代理佣金 (10%)',
             label_staff_id: '员工 ID',
             countdown_label: '报价将在以下时间后过期:',
 
@@ -331,88 +328,6 @@
         return '<div class="pm-sum-row' + (extra ? ' ' + extra : '') + '"><span>' + label + '</span><span>' + value + '</span></div>';
     }
 
-    function getPolicyDates(quote, payload, resData, customer) {
-        quote = quote || {};
-        payload = payload || {};
-        resData = resData || {};
-        customer = customer || {};
-
-        var eff = quote.effectiveDate || quote.policyEffectiveDate || quote.effective_date || quote.effDate || quote.inceptionDate || quote.startDate || quote.start_date || quote.coverEffectiveDate
-            || payload.effectiveDate || payload.policyEffectiveDate || payload.effective_date || payload.effDate || payload.inceptionDate || payload.startDate || payload.start_date
-            || resData.effectiveDate || resData.effective_date || resData.policyEffectiveDate || resData.policy_effective_date
-            || customer.effective_date || customer.effectiveDate;
-
-        var exp = quote.expiryDate || quote.expiringDate || quote.expiring_date || quote.expiry_date || quote.policyExpiryDate || quote.expDate || quote.endDate || quote.end_date || quote.coverExpiryDate
-            || payload.expiryDate || payload.expiringDate || payload.expiring_date || payload.expiry_date || payload.policyExpiryDate || payload.expDate || payload.endDate || payload.end_date
-            || resData.expiryDate || resData.expiring_date || resData.expiry_date || resData.policyExpiryDate || resData.policy_expiry_date
-            || customer.expiry_date || customer.expiring_date || customer.expiryDate;
-
-        var poiObj = quote.periodOfInsurance || payload.periodOfInsurance || resData.periodOfInsurance;
-        if (poiObj) {
-            if (typeof poiObj === 'object') {
-                if (!eff) eff = poiObj.effectiveDate || poiObj.startDate || poiObj.effective_date;
-                if (!exp) exp = poiObj.expiryDate || poiObj.expiringDate || poiObj.endDate || poiObj.expiry_date;
-            } else if (typeof poiObj === 'string' && poiObj.includes(' to ')) {
-                var parts = poiObj.split(' to ');
-                if (!eff) eff = parts[0].trim();
-                if (!exp) exp = parts[1].trim();
-            }
-        }
-
-        function formatDate(dStr) {
-            if (!dStr) return null;
-            if (typeof dStr !== 'string' && !(dStr instanceof Date)) return String(dStr);
-            var str = String(dStr).trim();
-            var d = new Date(str);
-            if (isNaN(d.getTime())) {
-                var m = str.match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})/);
-                if (m) {
-                    d = new Date(parseInt(m[3], 10), parseInt(m[2], 10) - 1, parseInt(m[1], 10));
-                } else {
-                    return str;
-                }
-            }
-            if (isNaN(d.getTime())) return str;
-
-            var day = String(d.getDate()).padStart(2, '0');
-            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            var monthStr = months[d.getMonth()];
-            var year = d.getFullYear();
-            return day + ' ' + monthStr + ' ' + year;
-        }
-
-        var formattedEff;
-        var startDateObj;
-        if (eff) {
-            formattedEff = formatDate(eff);
-            startDateObj = new Date(eff);
-            if (isNaN(startDateObj.getTime())) {
-                var m = String(eff).match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})/);
-                if (m) startDateObj = new Date(parseInt(m[3], 10), parseInt(m[2], 10) - 1, parseInt(m[1], 10));
-                else startDateObj = new Date();
-            }
-        } else {
-            startDateObj = new Date();
-            formattedEff = formatDate(startDateObj);
-        }
-
-        var formattedExp;
-        if (exp) {
-            formattedExp = formatDate(exp);
-        } else {
-            var endDateObj = new Date(startDateObj);
-            endDateObj.setFullYear(endDateObj.getFullYear() + 1);
-            endDateObj.setDate(endDateObj.getDate() - 1);
-            formattedExp = formatDate(endDateObj);
-        }
-
-        return {
-            effectiveDate: formattedEff,
-            expiryDate: formattedExp,
-            poiRange: formattedEff + ' - ' + formattedExp
-        };
-    }
-
     function expiredHtml(t) {
         return '<div class="pm-status-card pm-status-expired"><div class="pm-status-icon">⏳</div>'
             + '<h2 class="pm-status-title">' + t.expired_title + '</h2>'
@@ -439,7 +354,6 @@
         var vehicleNo = customer.vehicle_number || (resData.payload && resData.payload.vehicle_number) || '—';
 
         var tranId = details.tranID || '—';
-        var poiDates = getPolicyDates(quotation, resData.payload, resData, customer);
 
         var rawAmount = details.amount;
 
@@ -461,8 +375,8 @@
             + dRow(t.label_order_ref, uuid)
             + dRow(t.label_tran_id, tranId)
             + dRow(t.label_amount, amount)
-            + dRow(t.label_effective_date, poiDates.effectiveDate)
-            + dRow(t.label_expiring_date, poiDates.expiryDate)
+            + dRow(t.label_effective_date, resData.payload.polEffectiveDate)
+            + dRow(t.label_expiring_date, resData.payload.polExpiryDate)
             + dRow(t.label_date, dateStr)
             + '</div></div>'
             + '<div class="pm-btn-group">'
@@ -602,7 +516,6 @@
                         var plateNo = customer.vehicle_number || payload.vehicle_number || payload.vehicleLicenseId || '—';
                         var coverageStr = payload.coverageType || 'Motor Comprehensive';
                         var ncdVal = (premium.ncdPct || payload.ncdPercentage || 0) + '%';
-                        var cancelPoiDates = getPolicyDates(quote, payload, result, customer);
 
                         var gridEl = document.getElementById('pm-cancel-details-grid');
                         if (gridEl) {
@@ -610,8 +523,8 @@
                                 + dRow(t.label_plate || 'Vehicle No.', plateNo)
                                 + dRow(t.label_coverage || 'Coverage', coverageStr)
                                 + dRow(t.label_ncd || 'NCD', ncdVal)
-                                + dRow(t.label_effective_date || 'Policy Effective Date', cancelPoiDates.effectiveDate)
-                                + dRow(t.label_expiring_date || 'Policy Expiring Date', cancelPoiDates.expiryDate)
+                                + dRow(t.label_effective_date || 'Policy Effective Date', payload.polEffectiveDate)
+                                + dRow(t.label_expiring_date || 'Policy Expiring Date', payload.polExpiryDate)
 
                                 + '<div class="pm-cancel-amount-highlight">'
                                 + '<span class="pm-cancel-amount-label">' + (t.label_total || 'Total Payable') + '</span>'
@@ -635,12 +548,17 @@
             ? rawMsg.quotation_result_updated
             : ((rawMsg && rawMsg.quotation_result) ? rawMsg.quotation_result : rawMsg);
         var premium = quote.premium || {};
-        var poiDates = getPolicyDates(quote, payload, data, customer);
 
         var addons = (quote.selectedAdditionalCover || quote.additionalCover || []).filter(function (a) {
             return (a.selectedIndicator === true || a.selectedIndicator === 'true') && a.addDisplayInd !== false && a.azolHiddenInd !== 1;
         });
-        var addonSum = addons.reduce(function (acc, a) { return acc + parseFloat(a.displayPremium || 0); }, 0);
+        var addonSum = addons.reduce(function (acc, a) {
+            var rawPrice = parseFloat(a.price !== undefined && a.price !== null ? a.price : (a.displayPremium || 0));
+            var itemPrice = Math.round((isNaN(rawPrice) ? 0 : rawPrice) * 100) / 100;
+
+            return acc + itemPrice;
+        }, 0);
+        addonSum = Math.round(addonSum * 100) / 100;
         var staffId = (customer && customer.staff_id) || (payload && payload.staff_id);
         var grandTotal;
         if (typeof result !== 'undefined' && result && result.total_payment) {
@@ -676,8 +594,8 @@
             + dRow(t.label_variant, payload.vehicleVariant || '—')
             + dRow(t.label_coverage, payload.coverageType || '—')
             + dRow(t.label_ncd, (premium.ncdPct || payload.ncdPercentage || 0) + '%')
-            + dRow(t.label_effective_date, poiDates.effectiveDate)
-            + dRow(t.label_expiring_date, poiDates.expiryDate)
+            + dRow(t.label_effective_date, payload.polEffectiveDate)
+            + dRow(t.label_expiring_date, payload.polExpiryDate)
             + dRow(t.label_sum_insured, fmt(payload.vehicleMarketValue))
             + '</div></div>';
 
@@ -688,7 +606,8 @@
                 + '<div class="pm-card-header"><span class="pm-card-icon">🛡️</span><div><h2 class="pm-card-title">' + t.label_addons + '</h2></div></div>'
                 + '<div class="pm-addon-list">'
                 + addons.map(function (a) {
-                    var pVal = parseFloat(a.displayPremium || 0);
+                    var rawPrice = parseFloat(a.price !== undefined && a.price !== null ? a.price : (a.displayPremium || 0));
+                    var pVal = Math.round((isNaN(rawPrice) ? 0 : rawPrice) * 100) / 100;
                     return '<div class="pm-addon-item">'
                         + '<span class="pm-addon-name">' + (a.coverName || '') + '</span>'
                         + '<span class="pm-addon-price">' + (pVal > 0 ? fmt(pVal) : '') + '</span>'
@@ -708,7 +627,6 @@
             + pRow(t.label_basic, fmt(premium.basicPremium))
             + pRow(t.label_ncd_disc, '− ' + fmt(premium.ncdAmt), 'discount')
             + pRow(t.label_gross, fmt(grossPremDisplay))
-            + (!staffId && agentComm > 0 ? pRow(t.label_agent_commission || 'Agent Commission (10%)', fmt(agentComm)) : '')
             + (addonSum > 0 ? pRow(t.label_addons, fmt(addonSum)) : '')
             + (staffId ? pRow(t.label_staff_discount || 'Staff Discount (10%)', '− ' + fmt((parseFloat(premium.premiumDueRounded || premium.premiumDue || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0)) * 0.10), 'discount') : '')
             + pRow(t.label_tax, fmt(premium.serviceTaxAmount))
@@ -717,6 +635,13 @@
             + '<div class="pm-sum-divider"></div>'
             + '<div class="pm-sum-total"><span>' + t.label_total + '</span><span class="pm-total-amount">' + fmt(grandTotal) + '</span></div>'
             + (premium.excessAmount ? '<div class="pm-excess-note">⚠️ ' + t.excess_label + ': <strong>' + fmt(premium.excessAmount) + '</strong></div>' : '')
+            + '<div class="pm-agreement-box" style="margin-top:16px; padding:14px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px;">'
+            + '<label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer; font-size:0.78rem; color:#475569; line-height:1.45;">'
+            + '<input type="checkbox" id="pm-agreement-checkbox" style="width:18px; height:18px; margin-top:2px; cursor:pointer; flex-shrink:0; accent-color:#2563eb;">'
+            + '<span>I confirm that I have read and understood the <a href="https://az.my/partner-CMCC-motorcycleplus-PDS_ENG" target="_blank" rel="noopener noreferrer" style="color:#2563eb; text-decoration:underline; font-weight:600;">Product Disclosure Sheet</a>, <a href="https://az.my/partner-AMP-PW_ENG" target="_blank" rel="noopener noreferrer" style="color:#2563eb; text-decoration:underline; font-weight:600;">Policy Wording</a> & <a href="https://az.my/PrivacyNotice-AGIC" target="_blank" rel="noopener noreferrer" style="color:#2563eb; text-decoration:underline; font-weight:600;">Privacy Notice</a>, and agree to the processing of my personal data for the purposes stated in the Privacy Notice.</span>'
+            + '</label>'
+            + '<div id="pm-agreement-error" style="display:none; color:#dc2626; font-size:0.78rem; font-weight:600; margin-top:6px;">⚠️ Please check the box to confirm policy agreement before proceeding to payment.</div>'
+            + '</div>'
             + '<button id="pm-confirm-btn" class="pm-confirm-btn">' + t.confirm_btn + '</button>'
             + '</div>';
 
@@ -739,7 +664,7 @@
         // Back button
         var backBtn = document.getElementById('pm-back-btn');
         if (backBtn) {
-            backBtn.addEventListener('click', function () { history.back(); });
+            backBtn.addEventListener('click', function () { history.back('/insurance-quotation/?uuid=' + encodeURIComponent(uuid)); });
         }
 
         // Confirm Payment button -> Initiates Payment via Fiuu Hosted Payment Page
@@ -747,6 +672,18 @@
         if (confirmBtn) {
             confirmBtn.addEventListener('click', function () {
                 var btn = this;
+
+                var agreementCb = document.getElementById('pm-agreement-checkbox');
+                var agreementErr = document.getElementById('pm-agreement-error');
+                if (agreementCb && !agreementCb.checked) {
+                    if (agreementErr) agreementErr.style.display = 'block';
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire('Policy Agreement Required', 'Please check the box to confirm you have read and agreed to the Product Disclosure Sheet, Policy Wording & Privacy Notice before proceeding to payment.', 'warning');
+                    }
+                    return;
+                }
+                if (agreementErr) agreementErr.style.display = 'none';
+
                 btn.disabled = true;
                 btn.textContent = t.confirming_btn;
 

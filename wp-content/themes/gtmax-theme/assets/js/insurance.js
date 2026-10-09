@@ -88,7 +88,16 @@
                 validation_select_variant: 'Please select a vehicle variant/model.',
                 recommended: 'Recommended',
                 birthday: 'Date of Birth',
-                birthday_placeholder: 'YYYY-MM-DD'
+                birthday_placeholder: 'YYYY-MM-DD',
+                postcode_not_found: 'Invalid postcode or postcode not found.',
+                marital_status: 'Marital Status',
+                marital_single: 'Single',
+                marital_married: 'Married',
+                marital_divorced: 'Divorced / Widowed',
+                coverage_type: 'Coverage Type',
+                coverage_comprehensive: 'Comprehensive',
+                coverage_third_party: 'Third Party',
+                nationality: 'Nationality'
             },
             zh: {
                 // Badge
@@ -178,7 +187,16 @@
                 validation_select_variant: '请选择一个车辆版本/型号。',
                 recommended: '推荐',
                 birthday: '出生日期',
-                birthday_placeholder: 'YYYY-MM-DD'
+                birthday_placeholder: 'YYYY-MM-DD',
+                postcode_not_found: '邮政编码无效或未找到。',
+                marital_status: '婚姻状况',
+                marital_single: '单身',
+                marital_married: '已婚',
+                marital_divorced: '离婚 / 丧偶',
+                coverage_type: '保障类型',
+                coverage_comprehensive: '综合险 (Comprehensive)',
+                coverage_third_party: '第三方险 (Third Party)',
+                nationality: '国籍'
             },
             bm: {
                 // Badge
@@ -269,7 +287,16 @@
                 validation_select_variant: 'Sila pilih varian/model kenderaan.',
                 recommended: 'Disyorkan',
                 birthday: 'Tarikh Lahir',
-                dob_placeholder: 'YYYY-MM-DD'
+                dob_placeholder: 'YYYY-MM-DD',
+                postcode_not_found: 'Poskod tidak sah atau tidak dijumpai.',
+                marital_status: 'Taraf Perkahwinan',
+                marital_single: 'Bujang',
+                marital_married: 'Berkahwin',
+                marital_divorced: 'Bercerai / Duda / Janda',
+                coverage_type: 'Jenis Perlindungan',
+                coverage_comprehensive: 'Komprehensif (Comprehensive)',
+                coverage_third_party: 'Pihak Ketiga (Third Party)',
+                nationality: 'Kewarganegaraan'
             }
         };
 
@@ -364,6 +391,15 @@
             const genderWrapper = document.getElementById('gender_wrapper');
             if (genderWrapper) {
                 genderWrapper.classList.remove('hidden');
+            }
+
+            const nationalityWrapper = document.getElementById('nationality_wrapper');
+            const nationalitySelect = document.getElementById('nationality');
+            if (selectedType === 'PASS') {
+                if (nationalityWrapper) nationalityWrapper.classList.remove('hidden');
+            } else {
+                if (nationalityWrapper) nationalityWrapper.classList.add('hidden');
+                if (nationalitySelect) nationalitySelect.value = 'MALAYSIA';
             }
 
             // Update NRIC/Passport icon if it exists and THEME_URI is defined
@@ -586,6 +622,106 @@
 
         updateEmailOptInState();
 
+        let postcodeAbortController = null;
+        let lastSearchedPostcode = '';
+
+        const handlePostcodeLookup = async () => {
+            if (!form.postcode) return;
+            const val = form.postcode.value.trim().replace(/\D/g, '');
+            const spinnerEl = document.getElementById('postcode-spinner');
+            const postcodeErrorEl = document.querySelector('[data-error-for="postcode"]');
+
+            if (val.length !== 5) {
+                lastSearchedPostcode = '';
+                if (postcodeErrorEl && val.length === 0) {
+                    postcodeErrorEl.textContent = '';
+                    postcodeErrorEl.classList.add('hidden');
+                    form.postcode.classList.remove('input-error');
+                }
+                if (spinnerEl) spinnerEl.classList.add('hidden');
+                return;
+            }
+
+            if (val === lastSearchedPostcode) {
+                return;
+            }
+
+            if (postcodeAbortController) {
+                postcodeAbortController.abort();
+            }
+            postcodeAbortController = new AbortController();
+
+            lastSearchedPostcode = val;
+            if (spinnerEl) spinnerEl.classList.remove('hidden');
+            if (postcodeErrorEl) {
+                postcodeErrorEl.textContent = '';
+                postcodeErrorEl.classList.add('hidden');
+            }
+            form.postcode.classList.remove('input-error');
+
+            const searchPostcodeBaseUrl = (typeof GTMAX_CONFIG !== 'undefined' && GTMAX_CONFIG.apiUrl)
+                ? GTMAX_CONFIG.apiUrl + '/search_postcode'
+                : 'https://gtmaxmanagement.test/api/insurance_registration/search_postcode';
+
+            try {
+                const response = await fetch(`${searchPostcodeBaseUrl}/${val}`, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': (typeof GTMAX_CONFIG !== 'undefined' && GTMAX_CONFIG.token) ? GTMAX_CONFIG.token : ''
+                    },
+                    signal: postcodeAbortController.signal
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data && (data.success === true || data.city || (data.data && data.data.city))) {
+                    const city = data.city || (data.data && data.data.city) || '';
+                    const state = data.state || (data.data && data.data.state) || '';
+                    if (form.city) form.city.value = city;
+                    if (form.state) form.state.value = state;
+
+                    if (postcodeErrorEl) {
+                        postcodeErrorEl.textContent = '';
+                        postcodeErrorEl.classList.add('hidden');
+                    }
+                    form.postcode.classList.remove('input-error');
+                    if (form.city) form.city.classList.remove('input-error');
+                    if (form.state) form.state.classList.remove('input-error');
+                } else {
+                    const lang = getSelectedLang();
+                    const errorMsg = (data && (data.message || data.error)) ||
+                        (data && data.errors && data.errors.postcode ? (Array.isArray(data.errors.postcode) ? data.errors.postcode[0] : data.errors.postcode) : null) ||
+                        (translations[lang] && translations[lang].postcode_not_found) ||
+                        'Invalid postcode';
+
+                    if (postcodeErrorEl) {
+                        postcodeErrorEl.textContent = errorMsg;
+                        postcodeErrorEl.classList.remove('hidden');
+                    }
+                    form.postcode.classList.add('input-error');
+                }
+            } catch (err) {
+                if (err.name === 'AbortError') return;
+
+                const lang = getSelectedLang();
+                const errorMsg = (translations[lang] && translations[lang].postcode_not_found) || 'Invalid postcode';
+                if (postcodeErrorEl) {
+                    postcodeErrorEl.textContent = errorMsg;
+                    postcodeErrorEl.classList.remove('hidden');
+                }
+                form.postcode.classList.add('input-error');
+            } finally {
+                if (spinnerEl) spinnerEl.classList.add('hidden');
+            }
+        };
+
+        if (form.postcode) {
+            form.postcode.addEventListener('input', handlePostcodeLookup);
+            form.postcode.addEventListener('change', handlePostcodeLookup);
+            form.postcode.addEventListener('blur', handlePostcodeLookup);
+        }
+
         const clearErrors = () => {
             document.querySelectorAll('[data-error-for]').forEach(el => {
                 el.textContent = '';
@@ -618,6 +754,11 @@
                 'postcode': 'postcode',
                 'city': 'city',
                 'state': 'state',
+                'maritalStatus': 'maritalStatus',
+                'marital_status': 'maritalStatus',
+                'coverageType': 'coverageType',
+                'coverage_type': 'coverageType',
+                'nationality': 'nationality',
                 'send_whatsapp': 'send_whatsapp',
                 'is_malaysian': 'nric'
             };
@@ -644,6 +785,10 @@
             if (errors.birthday) {
                 const dobWrapper = document.getElementById('birthday_wrapper');
                 if (dobWrapper) dobWrapper.classList.remove('hidden');
+            }
+            if (errors.nationality) {
+                const nationalityWrapper = document.getElementById('nationality_wrapper');
+                if (nationalityWrapper) nationalityWrapper.classList.remove('hidden');
             }
 
             // Handle contact general message if both contact fields are missing
@@ -707,13 +852,21 @@
                 didOpen: () => Swal.showLoading()
             });
 
+            const selectedIdentityType = form.identityType ? form.identityType.value : 'NRIC';
+            const isPassport = selectedIdentityType === 'PASS';
+            const isMalaysian = !isPassport;
+            const nationalityVal = isPassport ? (form.nationality ? form.nationality.value : 'MALAYSIA') : 'MALAYSIA';
+
             const payload = {
                 name: form.name.value.trim(),
                 identityType: form.identityType ? form.identityType.value : 'NRIC',
                 nric: form.nric.value.trim(),
-                is_malaysian: (form.identityType ? form.identityType.value : 'NRIC') !== 'PASS' ? 1 : 0,
+                is_malaysian: isMalaysian ? 1 : 0,
+                nationality: nationalityVal,
                 gender: form.gender ? form.gender.value : '',
                 birthday: form.birthday ? form.birthday.value.trim() : '',
+                maritalStatus: form.maritalStatus ? form.maritalStatus.value : '0',
+                coverageType: form.coverageType ? form.coverageType.value : '01',
                 vehicle_number: form.vehicle_number.value.trim(),
                 vehicle_type: form.vehicle_type && form.vehicle_type.checked ? 'Car' : 'Motorcycle',
                 whatsapp_number: form.whatsapp_number.value.trim(),
@@ -759,35 +912,6 @@
                     const message = data.message;
                     console.log('message:', message);
 
-                    // Prepare marital status and coverage options
-                    const maritalOptions = message.maritalStatusSelection || {
-                        '0': 'Single',
-                        '1': 'Married',
-                        '2': 'Divorced / Widowed'
-                    };
-                    const coverageOptions = message.coverageTypeSelection || {
-                        '01': 'Comprehensive',
-                        '20': 'Third Party'
-                    };
-
-                    const maritalSelectHtml = `
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Marital Status</label>
-                            <select id="swal-marital-status" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white text-sm font-medium focus:border-blue-500 focus:ring-0 transition-colors">
-                                ${Object.entries(maritalOptions).map(([key, val]) => `<option value="${key}">${val}</option>`).join('')}
-                            </select>
-                        </div>
-                    `;
-
-                    const coverageSelectHtml = `
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Coverage Type</label>
-                            <select id="swal-coverage-type" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white text-sm font-medium focus:border-blue-500 focus:ring-0 transition-colors">
-                                ${Object.entries(coverageOptions).map(([key, val]) => `<option value="${key}" ${message.coverType === val ? 'selected' : ''}>${val}</option>`).join('')}
-                            </select>
-                        </div>
-                    `;
-
                     // Prepare variants list html
                     let variantsHtml = '';
                     if (message.nvicList && message.nvicList.length > 0) {
@@ -800,6 +924,19 @@
                                 ? `<span class="inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border border-amber-300 ml-1.5 shadow-sm">⭐ ${t.recommended || 'Recommended'}</span>`
                                 : '';
 
+                            const modelData = item.model_data || {};
+                            const modelDesc = modelData.MvModelDesc || '';
+                            const makeYear = modelData.MakeYear || message.yearOfManufacture || '';
+                            const variantName = modelData.Variant;
+                            const engineCC = modelData.VehicleEngineCC || '';
+                            const engineType = modelData.EngineType || '';
+
+                            const rawMarketVal = (item.vehicleMarketValue !== undefined && item.vehicleMarketValue !== null)
+                                ? item.vehicleMarketValue
+                                : (modelData.SumInsured || 0);
+                            const marketValNum = parseFloat(rawMarketVal);
+                            const formattedMarketValue = !isNaN(marketValNum) ? marketValNum.toFixed(2) : rawMarketVal;
+
                             variantsHtml += `
                                 <label class="variant-card flex items-center justify-between p-3.5 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-blue-500 hover:bg-blue-50/20 transition-all duration-200 mb-2 relative${activeClass}">
                                     <input type="radio" name="selected_nvic" value="${item.nvic || item.azVariant}" data-index="${index}" class="absolute opacity-0 variant-radio"${checkedAttr}>
@@ -809,15 +946,20 @@
                                         </div>
                                         <div>
                                             <div class="font-bold text-gray-800 text-sm md:text-base flex items-center flex-wrap gap-1">
-                                                ${item.vehicleVariant}
+                                                ${modelDesc ? `<span class="bg-blue-100 text-blue-800 text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md border border-blue-200">${modelDesc}</span>` : ''}
+                                                ${variantName}
                                                 ${recBadge}
                                             </div>
-                                            <div class="text-xs text-gray-500 mt-0.5">Engine CC: ${item.vehicleEngineCC || ''} | Type: ${item.engineType || ''}</div>
+                                            <div class="text-xs text-gray-500 mt-1 flex items-center gap-2 flex-wrap">
+                                                ${makeYear ? `<span>Year: <strong>${makeYear}</strong></span>` : ''}
+                                                ${engineCC ? `<span>Engine: <strong>${engineCC} CC</strong></span>` : ''}
+                                                ${engineType ? `<span>Type: <strong>${engineType}</strong></span>` : ''}
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="text-right min-w-[90px]">
-                                        <div class="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Market Value</div>
-                                        <div class="font-extrabold text-blue-600 text-sm md:text-base">RM ${item.vehicleMarketValue}</div>
+                                    <div class="text-right min-w-[100px]">
+                                        <div class="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Sum Insured</div>
+                                        <div class="font-extrabold text-blue-600 text-sm md:text-base">RM ${formattedMarketValue}</div>
                                     </div>
                                 </label>
                             `;
@@ -873,11 +1015,6 @@
                                 </div>
                             ` : ''}
 
-                            <div class="grid grid-cols-2 gap-4 mb-6">
-                                ${maritalSelectHtml}
-                                ${coverageSelectHtml}
-                            </div>
-
                             <div class="flex flex-col sm:flex-row gap-3 pt-3 border-t border-gray-100">
                                 <button id="btn-swal-confirm" class="flex-1 px-5 py-3.5 bg-blue-600 text-white font-bold rounded-xl shadow-md shadow-blue-500/20 hover:bg-blue-700 hover:shadow-lg transition-all duration-200 text-center text-sm cursor-pointer">
                                     ${t.confirm_btn}
@@ -909,6 +1046,8 @@
                                 const recIndex = message.nvicList.findIndex(item => item.recommendInd === 'Y' || item.recommendInd === 'y');
                                 if (recIndex !== -1) {
                                     selectedVariant = message.nvicList[recIndex];
+                                } else if (message.nvicList.length === 1) {
+                                    selectedVariant = message.nvicList[0];
                                 }
                             }
 
@@ -944,10 +1083,6 @@
                                     return;
                                 }
 
-                                // Capture dropdown values BEFORE Swal replaces the DOM
-                                const selectedMaritalStatus = document.getElementById('swal-marital-status')?.value ?? '';
-                                const selectedCoverageType = document.getElementById('swal-coverage-type')?.value ?? '';
-                                console.log("selectedMaritalStatus", selectedMaritalStatus, selectedCoverageType);
                                 Swal.fire({
                                     title: 'Submitting confirmation...',
                                     allowOutsideClick: false,
@@ -957,21 +1092,25 @@
                                 const confirmPayload = {
                                     ...payload,
                                     ...message,
-                                    maritalStatus: selectedMaritalStatus,
-                                    coverageType: selectedCoverageType,
+                                    maritalStatus: payload.maritalStatus,
+                                    coverageType: payload.coverageType,
                                     confirm: 1
                                 };
 
                                 if (selectedVariant) {
-                                    confirmPayload.nvic = selectedVariant.nvic || selectedVariant.azVariant;
-                                    confirmPayload.azVariant = selectedVariant.azVariant;
-                                    confirmPayload.nvicSelection = selectedVariant.nvic || selectedVariant.azVariant;
-                                    confirmPayload.nvicSelectionId = selectedVariant.nvic || selectedVariant.azVariant;
-                                    confirmPayload.vehicleVariant = selectedVariant.vehicleVariant;
+                                    const modelData = selectedVariant.model_data || {};
+                                    confirmPayload.selectedVariant = selectedVariant;
+                                    confirmPayload.azVariant = modelData.AzVariant;
+                                    confirmPayload.nvicSelectionId = selectedVariant.nvic;
+                                    confirmPayload.vehicleVariant = modelData.Variant;
                                     confirmPayload.vehicleMarketValue = selectedVariant.vehicleMarketValue;
-                                    confirmPayload.vehicleEngineCC = selectedVariant.vehicleEngineCC;
-                                    confirmPayload.engineType = selectedVariant.engineType;
-
+                                    confirmPayload.sumInsured = modelData.SumInsured;
+                                    confirmPayload.vehicleEngineCC = modelData.VehicleEngineCC;
+                                    confirmPayload.engineType = modelData.EngineType;
+                                    confirmPayload.mvModelDesc = modelData.MvModelDesc || message.vehicleModelDesc || '';
+                                    confirmPayload.mvModelCode = modelData.MvModelCode || '';
+                                    confirmPayload.makeYear = modelData.MakeYear || message.yearOfManufacture || '';
+                                    confirmPayload.mvCode = modelData.MvCode;
                                 }
 
                                 try {

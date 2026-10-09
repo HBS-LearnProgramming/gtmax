@@ -1220,6 +1220,37 @@
                                 </div>
                             </div>
 
+                            <!-- Nationality Row (Shown when Passport is selected) -->
+                            <div id="nationality_wrapper" class="space-y-2 hidden">
+                                <label class="font-semibold text-sm text-gray-700" for="nationality">
+                                    <span data-i18n="nationality">Nationality</span><span class="text-red-500 ml-0.5">*</span>
+                                </label>
+                                <div class="relative">
+                                    <select class="modern-input form-input w-full text-base px-4 py-3.5 bg-white rounded-xl border border-slate-200 text-gray-800 font-medium focus:border-blue-600 focus:ring-0 cursor-pointer appearance-none pr-10"
+                                        name="nationality" id="nationality">
+                                        <option value="MALAYSIA" selected>Malaysian</option>
+                                        <option value="INDONESIA">Indonesian</option>
+                                        <option value="SINGAPORE">Singaporean</option>
+                                        <option value="THAILAND">Thai</option>
+                                        <option value="PHILIPPINES">Filipino</option>
+                                        <option value="VIETNAM">Vietnamese</option>
+                                        <option value="MYANMAR">Burmese / Myanmar</option>
+                                        <option value="CAMBODIA">Cambodian</option>
+                                        <option value="CHINA">Chinese</option>
+                                        <option value="INDIA">Indian</option>
+                                        <option value="BANGLADESH">Bangladeshi</option>
+                                        <option value="PAKISTAN">Pakistani</option>
+                                        <option value="OTHERS">Others</option>
+                                    </select>
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                        <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="nationality"></p>
+                            </div>
+
                             <!-- Gender & Date of Birth Row -->
                             <div class="grid md:grid-cols-2 gap-5">
                                 <div id="gender_wrapper" class="space-y-2">
@@ -1255,6 +1286,48 @@
                                 </div>
                             </div>
 
+                            <!-- Marital Status & Coverage Type Row -->
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div class="space-y-2">
+                                    <label class="font-semibold text-sm text-gray-700" for="maritalStatus">
+                                        <span data-i18n="marital_status">Marital Status</span><span class="text-red-500 ml-0.5">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <select class="modern-input form-input w-full text-base px-4 py-3.5 bg-white rounded-xl border border-slate-200 text-gray-800 font-medium focus:border-blue-600 focus:ring-0 cursor-pointer appearance-none pr-10"
+                                            name="maritalStatus" id="maritalStatus">
+                                            <option value="0" data-i18n="marital_single">Single</option>
+                                            <option value="1" data-i18n="marital_married">Married</option>
+                                            <option value="2" data-i18n="marital_divorced">Divorced / Widowed</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                            <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="maritalStatus"></p>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label class="font-semibold text-sm text-gray-700" for="coverageType">
+                                        <span data-i18n="coverage_type">Coverage Type</span><span class="text-red-500 ml-0.5">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <select class="modern-input form-input w-full text-base px-4 py-3.5 bg-white rounded-xl border border-slate-200 text-gray-800 font-medium focus:border-blue-600 focus:ring-0 cursor-pointer appearance-none pr-10"
+                                            name="coverageType" id="coverageType">
+                                            <option value="01" data-i18n="coverage_comprehensive">Comprehensive</option>
+                                            <option value="20" data-i18n="coverage_third_party">Third Party</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                            <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="coverageType"></p>
+                                </div>
+                            </div>
+
                             <div class="space-y-2">
                                 <label class="font-semibold text-sm text-gray-700" for="vehicle_number">
                                     <span id="vehicle_label">Motor Registration</span><span
@@ -1273,13 +1346,10 @@
                             </div>
 
                             <!-- WhatsApp & Email Row -->
-                            <p class="text-xs text-gray-400 italic mb-2" data-i18n="contact_hint">At least one of
-                                Mobile Number or Email is required</p>
                             <div class="grid md:grid-cols-2 gap-5">
                                 <div class="space-y-2">
-                                    <label data-i18n="whatsapp" class="font-semibold text-sm text-gray-700"
-                                        for="whatsapp_number">
-                                        Mobile Number
+                                    <label class="font-semibold text-sm text-gray-700" for="whatsapp_number">
+                                        <span data-i18n="whatsapp">Mobile Number</span><span class="text-red-500 ml-0.5">*</span>
                                     </label>
                                     <div class="input-with-icon">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icon/whatsapp.png"
@@ -1294,8 +1364,8 @@
                                 </div>
 
                                 <div class="space-y-2">
-                                    <label data-i18n="email" class="font-semibold text-sm text-gray-700" for="email">
-                                        Email Address
+                                    <label class="font-semibold text-sm text-gray-700" for="email">
+                                        <span data-i18n="email">Email Address</span><span class="text-red-500 ml-0.5">*</span>
                                     </label>
                                     <div class="input-with-icon">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icon/mail.png"
@@ -1307,8 +1377,6 @@
                                     <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="email"></p>
                                 </div>
                             </div>
-
-                            <p class="text-red-600 text-sm hidden font-medium" data-error-for="contact"></p>
 
                             <!-- Start Address Section -->
                             <div class="space-y-4">
@@ -1349,9 +1417,15 @@
                                         <div class="input-with-icon">
                                             <img src="<?php echo get_template_directory_uri(); ?>/images/icon/postcode.png"
                                                 alt="" class="input-icon">
-                                            <input class="modern-input form-input w-full text-base px-4 py-3.5" type="text"
+                                            <input class="modern-input form-input w-full text-base px-4 py-3.5 pr-10" type="text"
                                                 name="postcode" id="postcode" placeholder="Enter your postcode"
                                                 data-i18n-placeholder="postcode_placeholder" maxlength="5" inputmode="numeric">
+                                            <div id="postcode-spinner" class="absolute right-3 top-1/2 -translate-y-1/2 hidden pointer-events-none">
+                                                <svg class="animate-spin h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                </svg>
+                                            </div>
                                         </div>
                                         <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="postcode"></p>
                                     </div>
@@ -1400,10 +1474,6 @@
                                 <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="send_whatsapp"></p>
                             </div>
 
-                            <!-- Terms & Explicit Acknowledgement -->
-                            <div class="text-xs text-gray-500 leading-relaxed" data-i18n="agreement">
-                                I confirm that I have read and understood the <a href="https://az.my/partner-CMCC-motorcycleplus-PDS_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Product Disclosure Sheet</a>, <a href="https://az.my/partner-AMP-PW_ENG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Policy Wording</a> & <a href="https://az.my/PrivacyNotice-AGIC" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline hover:text-blue-800">Privacy Notice</a>, and agree to the processing of my personal data for the purposes stated in the Privacy Notice.
-                            </div>
 
                             <!-- Submit Button -->
                             <button data-i18n="submit"

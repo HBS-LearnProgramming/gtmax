@@ -33,7 +33,6 @@
             label_total_due: "Total Premium Due",
             label_excess: "Excess Amount",
             label_staff_discount: "Staff Discount (10%)",
-            label_agent_commission: "Agent Commission (10%)",
             label_staff_id: "Staff ID",
             proceed_btn: "Confirm Quotation",
             no_data_title: "No Quotation Data Found",
@@ -75,7 +74,6 @@
             label_total_due: "Jumlah Premium Perlu Dibayar",
             label_excess: "Amaun Lebihan",
             label_staff_discount: "Diskaun Staf (10%)",
-            label_agent_commission: "Komisen Ejen (10%)",
             label_staff_id: "ID Staf",
             proceed_btn: "Sahkan Sebut Harga",
             no_data_title: "Tiada Data Sebut Harga",
@@ -117,7 +115,6 @@
             label_total_due: "应付保费总额",
             label_excess: "超额金额",
             label_staff_discount: "员工折扣 (10%)",
-            label_agent_commission: "代理佣金 (10%)",
             label_staff_id: "员工 ID",
             proceed_btn: "确认报价",
             no_data_title: "未找到报价数据",
@@ -370,117 +367,37 @@
         }
     }
 
-    function getPolicyDates(quote, payload, resData, customer) {
-        quote = quote || {};
-        payload = payload || {};
-        resData = resData || {};
-        customer = customer || {};
-
-        var eff = quote.effectiveDate || quote.policyEffectiveDate || quote.effective_date || quote.effDate || quote.inceptionDate || quote.startDate || quote.start_date || quote.coverEffectiveDate
-            || payload.effectiveDate || payload.policyEffectiveDate || payload.effective_date || payload.effDate || payload.inceptionDate || payload.startDate || payload.start_date
-            || resData.effectiveDate || resData.effective_date || resData.policyEffectiveDate || resData.policy_effective_date
-            || customer.effective_date || customer.effectiveDate;
-
-        var exp = quote.expiryDate || quote.expiringDate || quote.expiring_date || quote.expiry_date || quote.policyExpiryDate || quote.expDate || quote.endDate || quote.end_date || quote.coverExpiryDate
-            || payload.expiryDate || payload.expiringDate || payload.expiring_date || payload.expiry_date || payload.policyExpiryDate || payload.expDate || payload.endDate || payload.end_date
-            || resData.expiryDate || resData.expiring_date || resData.expiry_date || resData.policyExpiryDate || resData.policy_expiry_date
-            || customer.expiry_date || customer.expiring_date || customer.expiryDate;
-
-        var poiObj = quote.periodOfInsurance || payload.periodOfInsurance || resData.periodOfInsurance;
-        if (poiObj) {
-            if (typeof poiObj === 'object') {
-                if (!eff) eff = poiObj.effectiveDate || poiObj.startDate || poiObj.effective_date;
-                if (!exp) exp = poiObj.expiryDate || poiObj.expiringDate || poiObj.endDate || poiObj.expiry_date;
-            } else if (typeof poiObj === 'string' && poiObj.includes(' to ')) {
-                var parts = poiObj.split(' to ');
-                if (!eff) eff = parts[0].trim();
-                if (!exp) exp = parts[1].trim();
-            }
-        }
-
-        function formatDate(dStr) {
-            if (!dStr) return null;
-            if (typeof dStr !== 'string' && !(dStr instanceof Date)) return String(dStr);
-            var str = String(dStr).trim();
-            var d = new Date(str);
-            if (isNaN(d.getTime())) {
-                var m = str.match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})/);
-                if (m) {
-                    d = new Date(parseInt(m[3], 10), parseInt(m[2], 10) - 1, parseInt(m[1], 10));
-                } else {
-                    return str;
-                }
-            }
-            if (isNaN(d.getTime())) return str;
-
-            var day = String(d.getDate()).padStart(2, '0');
-            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            var monthStr = months[d.getMonth()];
-            var year = d.getFullYear();
-            return day + ' ' + monthStr + ' ' + year;
-        }
-
-        var formattedEff;
-        var startDateObj;
-        if (eff) {
-            formattedEff = formatDate(eff);
-            startDateObj = new Date(eff);
-            if (isNaN(startDateObj.getTime())) {
-                var m = String(eff).match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})/);
-                if (m) startDateObj = new Date(parseInt(m[3], 10), parseInt(m[2], 10) - 1, parseInt(m[1], 10));
-                else startDateObj = new Date();
-            }
-        } else {
-            startDateObj = new Date();
-            formattedEff = formatDate(startDateObj);
-        }
-
-        var formattedExp;
-        if (exp) {
-            formattedExp = formatDate(exp);
-        } else {
-            var endDateObj = new Date(startDateObj);
-            endDateObj.setFullYear(endDateObj.getFullYear() + 1);
-            endDateObj.setDate(endDateObj.getDate() - 1);
-            formattedExp = formatDate(endDateObj);
-        }
-
-        return {
-            effectiveDate: formattedEff,
-            expiryDate: formattedExp,
-            poiRange: formattedEff + ' - ' + formattedExp
-        };
-    }
-
     function renderPage(quote, payload, t, root, customer, resData) {
         var premium = quote.premium || {};
         var rawAddons = quote.additionalCover || [];
         var displayableAddons = rawAddons.filter(function (cover) {
             return cover.addDisplayInd !== false && cover.azolHiddenInd !== 1;
         });
-        var poiDates = getPolicyDates(quote, payload, resData, customer);
 
         var staffId = (payload && payload.staff_id) || (customer && customer.staff_id);
         var initialGrandTotal;
-        if (resData && resData.total_payment !== undefined && resData.total_payment !== null) {
-            initialGrandTotal = parseFloat(resData.total_payment);
-        } else if (staffId) {
+        // if (resData && resData.total_payment !== undefined && resData.total_payment !== null) {
+        //     initialGrandTotal = parseFloat(resData.total_payment);
+        // } else 
+        if (staffId) {
             var netPrem = parseFloat(premium.premiumDue || premium.premiumDueRounded || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0);
             initialGrandTotal = netPrem - (netPrem * 0.10) + parseFloat(premium.serviceTaxAmount || 0) + parseFloat(premium.stampDuty || 0);
         } else {
             initialGrandTotal = parseFloat(premium.premiumDueAfterPTV || premium.premiumDue || premium.premiumDueRoundedAfterPTV || premium.premiumDueRounded || 0);
         }
+        console.log('initialGrandTotal', initialGrandTotal);
+        console.log('total_payment', resData.total_payment);
 
+        var grossPremDisplay = premium.grossPremium || premium.grossPremiumAmount || 0;
+        var agentComm = parseFloat(premium.agentComm || premium.commissionAmount || premium.agentCommission || 0);
+
+        // Pre-populate selectedAddons with initially selected addons
         selectedAddons.clear();
         displayableAddons.forEach(function (cover, idx) {
             if (cover.selectedIndicator === true || cover.selectedIndicator === 'true') {
                 selectedAddons.add(idx);
             }
         });
-
-        var agentComm = (!staffId) ? resData.commission : 0;
-        var rawGrossPrem = parseFloat(premium.grossPremium || 0);
-        var grossPremDisplay = (!staffId && agentComm > 0) ? Math.max(0, rawGrossPrem - agentComm) : rawGrossPrem;
 
         var addonHtml = "";
         if (displayableAddons.length > 0) {
@@ -490,19 +407,24 @@
             var allSelected = displayableAddons.every(function (_, idx) { return selectedAddons.has(idx); });
             var addonCards = displayableAddons.map(function (cover, idx) { return renderAddonCard(cover, idx, t); }).join("");
             addonHtml = '<div class="qt-card" id="addons-card">'
-                + '<div class="qt-card-header">'
+                + '<div class="qt-card-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">'
+                + '<div style="display:flex; align-items:center; gap:10px; flex:1;">'
                 + '<span class="qt-card-icon">🛡️</span>'
-                + '<div style="flex:1;"><h2 class="qt-card-title">' + t.section_addons + '</h2>'
+                + '<div><h2 class="qt-card-title">' + t.section_addons + '</h2>'
                 + '<p class="qt-card-subtitle">' + t.section_addons_sub + '</p></div>'
+                + '</div>'
+                + '<div style="display:flex; gap:8px; align-items:center;">'
+                + '<button id="qt-update-addons-btn" class="qt-btn-select-all" style="background:#eff6ff; border-color:#2563eb; color:#2563eb; cursor:pointer;">🔄 Update Quotation</button>'
                 + (optionalAddons.length > 0 ? '<button id="qt-select-all-btn" class="qt-btn-select-all' + (allSelected ? ' active' : '') + '">'
                     + (allSelected ? t.deselect_all : t.select_all)
                     + '</button>' : '')
+                + '</div>'
                 + '</div>'
                 + '<div class="qt-addons-list" id="addons-list">' + addonCards + '</div>'
                 + '</div>';
         }
 
-        var addonPremiumRow = '<div class="qt-premium-row" id="addon-premium-row" style="display:none;"><span>Add-ons</span><span id="addon-premium-total">RM 0.00</span></div>';
+        var commVal = agentComm > 0 ? agentComm : (parseFloat(premium.grossPremium || 0) * 0.10);
 
         root.innerHTML = '<div class="qt-wrapper">'
             + '<div class="qt-page-header">'
@@ -523,8 +445,8 @@
             + vRow(t.label_variant, payload.vehicleVariant || "—")
             + vRow(t.label_coverage, payload.coverageType || "—")
             + vRow(t.label_ncd, (premium.ncdPct || payload.ncdPercentage || 0) + "%")
-            + vRow(t.label_effective_date, poiDates.effectiveDate)
-            + vRow(t.label_expiring_date, poiDates.expiryDate)
+            + vRow(t.label_effective_date, payload.polEffectiveDate)
+            + vRow(t.label_expiring_date, payload.polExpiryDate)
             + ((payload.staff_id || (customer && customer.staff_id)) ? vRow(t.label_staff_id, payload.staff_id || customer.staff_id) : "")
             + vRow(t.label_sum_insured, fmt(payload.vehicleMarketValue))
             + '</div></div>'
@@ -539,8 +461,7 @@
             + pRow(t.label_basic_premium, fmt(premium.basicPremium))
             + pRow(t.label_ncd_amount, "− " + fmt(premium.ncdAmt), "discount")
             + pRow(t.label_gross_premium, fmt(grossPremDisplay))
-            + (!staffId && agentComm > 0 ? pRow(t.label_agent_commission || "Agent Commission (10%)", fmt(agentComm)) : "")
-            + addonPremiumRow
+            + '<div id="qt-selected-addons-breakdown"></div>'
             + (staffId ? pRow(t.label_staff_discount || "Staff Discount (10%)", "− " + fmt((parseFloat(premium.premiumDueRounded || premium.premiumDue || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0)) * 0.10), "discount") : "")
             + '<div class="qt-premium-row"><span>' + t.label_service_tax + '</span><span id="qt-service-tax">' + fmt(premium.serviceTaxAmount) + '</span></div>'
             + pRow(t.label_stamp_duty, fmt(premium.stampDuty))
@@ -548,7 +469,10 @@
             + '<div class="qt-premium-divider"></div>'
             + '<div class="qt-premium-total-row"><span>' + t.label_total_due + '</span><span id="qt-grand-total">' + fmt(initialGrandTotal) + '</span></div>'
             + (premium.excessAmount ? '<div class="qt-excess-note">⚠️ ' + t.label_excess + ': <strong>' + fmt(premium.excessAmount) + '</strong></div>' : "")
-            + '<button id="qt-proceed-btn" class="qt-btn-proceed">' + t.proceed_btn + '</button>'
+            + '<div class="qt-commission-note" style="margin-top:10px; font-size:0.78rem; color:#64748b; text-align:center; font-weight:500; line-height:1.4;">'
+            + '*10% of Commission amounting to <strong style="color:#334155;">' + fmt(commVal) + '</strong> is payable to GT-MAX MOTORS (M) SDN. BHD.'
+            + '</div>'
+            + '<button id="qt-proceed-btn" class="qt-btn-proceed" style="margin-top:16px;">' + t.proceed_btn + '</button>'
             + '</div>'
             + '</div>'
 
@@ -570,6 +494,78 @@
             });
         });
         recalcAddonTotal(displayableAddons, premium, payload, customer, resData);
+
+        /* Wire Update Quotation button */
+        var updateAddonsBtn = document.getElementById('qt-update-addons-btn');
+        if (updateAddonsBtn) {
+            updateAddonsBtn.addEventListener('click', async function () {
+                var btn = this;
+                var origText = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = '⏳ Updating...';
+
+                var urlParams = new URLSearchParams(window.location.search);
+                var uuid = urlParams.get('uuid');
+
+                try {
+                    var res = await fetch(GTMAX_CONFIG.apiUrl + '/get_quotation_add_on_price/' + uuid, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization': GTMAX_CONFIG.token,
+                        },
+                    });
+
+                    var data = await res.json();
+                    btn.disabled = false;
+                    btn.innerHTML = origText;
+                    console.log('Update Quotation result', data);
+
+                    if (data && data.success) {
+                        var newRawMsg = data.addOnPrice || data.data || data.message;
+                        if (newRawMsg && typeof newRawMsg === 'object') {
+                            var newQuote = newRawMsg.quotation_result ? newRawMsg.quotation_result : newRawMsg;
+                            if (newQuote && newQuote.premium) {
+                                premium = newQuote.premium;
+                            }
+                            if (newQuote && newQuote.additionalCover) {
+                                rawAddons = newQuote.additionalCover;
+                            }
+                        }
+                        recalcAddonTotal(displayableAddons, premium, payload, customer, resData);
+                        if (typeof Swal !== 'undefined') {
+                            const toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 2000,
+                                timerProgressBar: true
+                            });
+                            toast.fire({ icon: 'success', title: 'Quotation Updated Successfully' });
+                        } else {
+                            alert('Quotation updated successfully!');
+                        }
+                    } else {
+                        var errorMsg = data && (data.error_message || data.message) ? (data.error_message || data.message) : 'Failed to update quotation';
+                        if (typeof Swal !== 'undefined') {
+                            Swal.fire('Error', errorMsg, 'error');
+                        } else {
+                            alert(errorMsg);
+                        }
+                    }
+                } catch (err) {
+                    btn.disabled = false;
+                    btn.innerHTML = origText;
+                    console.error('Error updating quotation:', err);
+                    var errMsg = err && err.message ? err.message : 'Network error updating quotation.';
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire('Error', errMsg, 'error');
+                    } else {
+                        alert(errMsg);
+                    }
+                }
+            });
+        }
 
         /* Wire Select All button */
         var selectAllBtn = document.getElementById('qt-select-all-btn');
@@ -697,7 +693,7 @@
     function renderAddonCard(cover, idx, t) {
         var isSelected = selectedAddons.has(idx);
         var isMandatory = (cover.selectedIndicator === true || cover.selectedIndicator === 'true');
-        var premiumVal = parseFloat(cover.displayPremium || 0);
+        var premiumVal = parseFloat(cover.price || 0);
         var priceLabel = premiumVal > 0 ? fmt(premiumVal) : '';
         var badge = isSelected
             ? '<span class="qt-addon-badge included">' + t.included_label + '</span>'
@@ -708,7 +704,7 @@
         return '<label class="qt-addon-card' + (isSelected ? " selected" : "") + (isMandatory ? " mandatory-addon" : "") + '" for="addon-' + idx + '"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>'
             + '<div class="qt-addon-left"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>'
             + '<div class="qt-toggle-wrap"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>'
-            + '<input type="checkbox" id="addon-' + idx + '" class="qt-addon-toggle" data-idx="' + idx + '" data-mandatory="' + (isMandatory ? "1" : "0") + '" data-premium="' + (cover.displayPremium || 0) + '"' + (isSelected ? " checked" : "") + disabledAttr + '>'
+            + '<input type="checkbox" id="addon-' + idx + '" class="qt-addon-toggle" data-idx="' + idx + '" data-mandatory="' + (isMandatory ? "1" : "0") + '" data-premium="' + (cover.price || 0) + '"' + (isSelected ? " checked" : "") + disabledAttr + '>'
             + '<span class="qt-toggle-slider"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '></span>'
             + '</div>'
             + '<div class="qt-addon-info"' + (isMandatory ? ' style="cursor: no-drop;"' : '') + '>'
@@ -722,9 +718,10 @@
     function recalcAddonTotal(addons, premium, payload, customer, resData) {
         var staffId = (payload && payload.staff_id) || (customer && customer.staff_id);
         var baseTotal;
-        if (resData && resData.total_payment !== undefined && resData.total_payment !== null) {
-            baseTotal = parseFloat(resData.total_payment);
-        } else if (staffId) {
+        // if (resData && resData.total_payment !== undefined && resData.total_payment !== null) {
+        //     baseTotal = parseFloat(resData.total_payment);
+        // } else 
+        if (staffId) {
             var netPrem = parseFloat(premium.premiumDue || premium.premiumDueRounded || 0) - parseFloat(premium.serviceTaxAmount || 0) - parseFloat(premium.stampDuty || 0);
             baseTotal = netPrem - (netPrem * 0.10) + parseFloat(premium.serviceTaxAmount || 0) + parseFloat(premium.stampDuty || 0);
         } else {
@@ -736,7 +733,7 @@
         var newlySelectedAddonsSum = 0;
 
         addons.forEach(function (cover, idx) {
-            var pVal = parseFloat(cover.displayPremium || 0);
+            var pVal = parseFloat(cover.price || 0);
             var isCurrentlySelected = selectedAddons.has(idx);
             var wasInitiallySelected = (cover.selectedIndicator === true || cover.selectedIndicator === 'true');
 
@@ -761,16 +758,21 @@
         var grandEl = document.getElementById("qt-grand-total");
         if (grandEl) grandEl.textContent = fmt(grand);
 
-        // Update Add-on diff row display
-        var addonRow = document.getElementById("addon-premium-row");
-        var addonTotalEl = document.getElementById("addon-premium-total");
-        if (addonRow && addonTotalEl) {
-            if (netAddonDiff !== 0) {
-                addonRow.style.display = "";
-                addonTotalEl.textContent = (netAddonDiff > 0 ? "+ " : "− ") + fmt(Math.abs(netAddonDiff));
-            } else {
-                addonRow.style.display = "none";
-            }
+        // Render individual selected add-on lines in Premium Breakdown
+        var selectedBreakdownContainer = document.getElementById("qt-selected-addons-breakdown");
+        if (selectedBreakdownContainer) {
+            var html = "";
+            addons.forEach(function (cover, idx) {
+                if (selectedAddons.has(idx)) {
+                    var pVal = parseFloat(cover.price || 0);
+                    var pText = pVal > 0 ? fmt(pVal) : "Included";
+                    html += '<div class="qt-premium-row" style="font-size:0.83rem; color:#2563eb; margin-bottom:4px;">'
+                        + '<span>+ ' + cover.coverName + '</span>'
+                        + '<span style="font-weight:700;">' + pText + '</span>'
+                        + '</div>';
+                }
+            });
+            selectedBreakdownContainer.innerHTML = html;
         }
 
         document.querySelectorAll(".qt-addon-card").forEach(function (card) {
