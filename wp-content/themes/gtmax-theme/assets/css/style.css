@@ -24,7 +24,6 @@
     --color-blue-50: oklch(97% 0.014 254.604);
     --color-blue-100: oklch(93.2% 0.032 255.585);
     --color-blue-200: oklch(88.2% 0.059 254.128);
-    --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-700: oklch(48.8% 0.243 264.376);
@@ -1208,6 +1207,11 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
   .duration-200 {
     --tw-duration: 200ms;
     transition-duration: 200ms;
@@ -1504,6 +1508,73 @@ ul, ol {
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
   color: #262161;
+}
+.header-menu > .menu-item {
+  position: relative;
+}
+.header-menu .menu-item-has-children > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.header-menu .menu-item-has-children > a .dropdown-arrow {
+  margin-left: 0;
+  transition: transform 0.2s ease;
+}
+.header-menu .menu-item-has-children.is-open > a .dropdown-arrow {
+  transform: rotate(180deg);
+}
+.header-menu .sub-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  left: auto;
+  z-index: 50;
+  min-width: 200px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(38, 33, 97, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+.header-menu .sub-menu::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+.header-menu .menu-item-has-children.is-open > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.header-menu .sub-menu .menu-item {
+  font-size: 15px;
+  font-weight: 600;
+}
+.header-menu .sub-menu .menu-item a {
+  display: block;
+  padding: 10px 20px;
+  color: #262161;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.header-menu .menu-item:hover .sub-menu a {
+  color: #262161;
+  text-decoration: none;
+}
+.header-menu .sub-menu .menu-item a:hover, .header-menu .sub-menu .current-menu-item > a {
+  color: #5951b8;
+  background-color: #f3f2fb;
 }
 .footer-menu .menu-item a {
   color: var(--color-gray-500);
