@@ -1461,14 +1461,14 @@
                             </div>
 
 
-                            <!-- Email Opt-in -->
-                            <div class="info-box p-4">
+                            <!-- WhatsApp Opt-in (hidden for now; remove "hidden" to show) -->
+                            <div class="info-box p-4 hidden">
                                 <div class="flex gap-3 items-start">
                                     <input type="checkbox" class="form-input w-5 h-5 mt-0.5 accent-blue-600 rounded"
                                         name="send_whatsapp" id="send_whatsapp">
                                     <label class="text-sm font-medium text-gray-700" data-i18n="send_whatsapp"
                                         for="send_whatsapp">
-                                        Send quotation via email
+                                        Yes, send quotation to my WhatsApp
                                     </label>
                                 </div>
                                 <p class="text-red-600 text-sm mt-1 hidden font-medium" data-error-for="send_whatsapp"></p>

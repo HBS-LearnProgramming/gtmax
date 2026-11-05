@@ -155,7 +155,7 @@ function gtmax_enqueue_insurance_assets() {
 
     wp_localize_script('gtmax-insurance', 'GTMAX_CONFIG', [
         'apiUrl'       => 'https://gtmaxmanagement.test/api/insurance_registration',
-        'token'        => 'Bearer b686d5d62bafc055fb44a75a65f0eeb3da9c800011cc95b12018feccd66ad10274e05898d87960fa',
+        'token'        => 'Bearer a1a3e31759d4b1b179037afc6c163e63ae4815feb3f45633a40f4225ad278822e6b000642af887bf',
         'lang'         => get_locale(),
         'quotationUrl' => home_url('/insurance-quotation/'),
     ]);
@@ -191,7 +191,7 @@ function gtmax_enqueue_quotation_assets() {
 
     wp_localize_script('gtmax-quotation', 'GTMAX_CONFIG', [
         'apiUrl'       => 'https://gtmaxmanagement.test/api/insurance_registration',
-        'token'        => 'Bearer b686d5d62bafc055fb44a75a65f0eeb3da9c800011cc95b12018feccd66ad10274e05898d87960fa',
+        'token'        => 'Bearer a1a3e31759d4b1b179037afc6c163e63ae4815feb3f45633a40f4225ad278822e6b000642af887bf',
         'lang'         => get_locale(),
         'quotationUrl' => home_url('/insurance-quotation/'),
         'paymentUrl'   => home_url('/insurance-payment/'),
@@ -227,7 +227,7 @@ function gtmax_enqueue_payment_assets() {
 
     wp_localize_script('gtmax-payment', 'GTMAX_CONFIG', [
         'apiUrl'       => 'https://gtmaxmanagement.test/api/insurance_registration',
-        'token'        => 'Bearer b686d5d62bafc055fb44a75a65f0eeb3da9c800011cc95b12018feccd66ad10274e05898d87960fa',
+        'token'        => 'Bearer a1a3e31759d4b1b179037afc6c163e63ae4815feb3f45633a40f4225ad278822e6b000642af887bf',
         'lang'         => get_locale(),
         'quotationUrl' => home_url('/insurance-quotation/'),
         'paymentUrl'   => home_url('/insurance-payment/'),
