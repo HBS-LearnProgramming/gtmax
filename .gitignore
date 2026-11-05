@@ -9,3 +9,4 @@ wp-content/themes/gtmax-theme/node_modules/.bin/playwright-core.ps1
 wp-content/themes/gtmax-theme/node_modules/.bin/playwright.cmd
 wp-content/themes/gtmax-theme/node_modules/.bin/playwright.ps1
 wp-content/themes/gtmax-theme.zip
+/.playwright-mcp

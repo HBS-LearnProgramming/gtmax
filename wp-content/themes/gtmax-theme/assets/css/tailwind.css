@@ -116,6 +116,121 @@ ol {
   background-color: #f3f2fb;
 }
 
+/* ===== Mobile menu (hamburger button is injected by assets/js/menu.js) ===== */
+.mobile-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  #site-header nav {
+    position: relative;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #262161;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  #site-header.menu-open .mobile-menu-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #site-header.menu-open .mobile-menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #site-header.menu-open .mobile-menu-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Menu becomes a drop-down panel under the header */
+  #site-header .header-menu {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 8px 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(38, 33, 97, 0.15);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+
+  #site-header.menu-open .header-menu {
+    display: flex !important;
+  }
+
+  #site-header .header-menu > .menu-item > a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 20px;
+  }
+
+  #site-header .header-menu > .menu-item-has-children > a {
+    justify-content: space-between;
+  }
+
+  #site-header .header-menu .show_now_btn {
+    justify-content: center;
+    margin: 8px 12px 4px;
+  }
+
+  #site-header .header-menu > .menu-item + .menu-item {
+    border-top: 1px solid #f0eff7;
+  }
+
+  /* Sub menu expands inline (accordion) instead of floating */
+  #site-header .header-menu .sub-menu {
+    display: none;
+    position: static;
+    min-width: 0;
+    padding: 0 0 8px;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: #f8f8fc;
+  }
+
+  #site-header .header-menu .sub-menu::before {
+    display: none;
+  }
+
+  #site-header .header-menu .menu-item-has-children.is-open > .sub-menu {
+    display: block;
+  }
+
+  #site-header .header-menu .sub-menu .menu-item a {
+    padding: 10px 32px;
+  }
+}
+
 .footer-menu .menu-item a {
   @apply text-gray-500;
 }

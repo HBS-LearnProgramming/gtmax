@@ -282,12 +282,12 @@
         var lang = getLang();
         var t = translations[lang] || translations.bm;
         var root = document.getElementById("quotation-root");
-
+        console.log('root: ', root);
         if (!root) return;
 
         var urlParams = new URLSearchParams(window.location.search);
         var uuid = urlParams.get('uuid');
-
+        console.log('uuid', uuid);
         if (uuid) {
             // Render loading indicator
             root.innerHTML = '<div style="text-align:center;padding:80px 20px;color:#94a3b8;"><div style="display:inline-block;width:40px;height:40px;border:4px solid #e2e8f0;border-top-color:#2563eb;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:15px;"></div><div>Loading quotation details...</div></div>';
@@ -299,7 +299,7 @@
                 style.innerHTML = '@keyframes spin { to { transform: rotate(360deg); } }';
                 document.head.appendChild(style);
             }
-
+            console.log('GTMAX_CONFIG.apiUrl: ', GTMAX_CONFIG.apiUrl);
             fetch(GTMAX_CONFIG.apiUrl + '/return_quotation/' + uuid, {
                 headers: {
                     'Accept': 'application/json',
@@ -727,8 +727,10 @@
     }
 
     if (document.readyState === "loading") {
+        console.log('Load');
         document.addEventListener("DOMContentLoaded", initQuotationPage);
     } else {
+        console.log('initial');
         initQuotationPage();
     }
 })();
